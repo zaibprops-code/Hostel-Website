@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;
+  background:radial-gradient(125% 100% at 50% 18%, #1c5148 0%, #123a30 46%, #0b201b 100%);
+  font-family:'Fraunces',Georgia,serif;color:#faf7f0}
+.grain{position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.05) 1px,transparent 1px);background-size:6px 6px;opacity:.55}
+.arcade{position:absolute;left:-40px;right:-40px;bottom:-30px;opacity:.14;z-index:1}
+.inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:110px 90px;z-index:3}
+.eyebrow{font-family:'Inter',sans-serif;font-size:26px;font-weight:600;letter-spacing:.36em;color:#d7ba70;text-transform:uppercase}
+.mark{width:150px;height:150px;margin-top:78px}
+.word{margin-top:34px;font-size:150px;line-height:.98;font-weight:600;letter-spacing:-.02em}
+.word .dot{color:#d7ba70}
+.sub{margin-top:12px;font-family:'Inter',sans-serif;font-size:34px;font-weight:600;letter-spacing:.42em;color:#d7ba70;padding-left:.42em}
+.rule{width:70px;height:2px;background:#c9a24b;margin:52px 0}
+.tagline{font-size:52px;line-height:1.28;font-weight:400;font-style:italic;color:rgba(250,247,240,.92);max-width:760px}
+.foot{position:absolute;left:0;right:0;bottom:96px;display:flex;flex-direction:column;align-items:center;gap:20px;z-index:3}
+.pill{font-family:'Inter',sans-serif;font-size:27px;font-weight:500;letter-spacing:.03em;border:1.5px solid rgba(215,186,112,.5);border-radius:999px;padding:15px 32px;display:inline-flex;align-items:center;gap:13px}
+.handle{font-family:'Inter',sans-serif;font-size:27px;font-weight:600;letter-spacing:.08em;color:#d7ba70}
+</style></head>
+<body>
+<div class="slide">
+  <div class="grain"></div>
+  <svg class="arcade" viewBox="0 0 1160 380" fill="none">
+    <g stroke="#d7ba70" stroke-width="3" fill="none">
+      <path d="M120 360 V200 a80 80 0 0 1 160 0 V360"/>
+      <path d="M330 360 V200 a80 80 0 0 1 160 0 V360"/>
+      <path d="M540 360 V200 a80 80 0 0 1 160 0 V360"/>
+      <path d="M750 360 V200 a80 80 0 0 1 160 0 V360"/>
+      <path d="M960 360 V200 a80 80 0 0 1 160 0 V360"/>
+      <line x1="70" y1="360" x2="1120" y2="360"/>
+    </g>
+  </svg>
+  <div class="inner">
+    <div class="eyebrow">Now Open · Islamabad</div>
+    <svg class="mark" viewBox="0 0 40 40" fill="none">
+      <g stroke="#d7ba70" stroke-width="1.7" stroke-linecap="round" fill="none">
+        <path d="M9 31 V18.5 a11 11 0 0 1 22 0 V31"/>
+        <path d="M14.5 31 v-9.5 a5.5 5.5 0 0 1 11 0 V31"/>
+        <line x1="6.5" y1="31.4" x2="33.5" y2="31.4"/>
+      </g>
+    </svg>
+    <div class="word">Riwaq<span class="dot">.</span></div>
+    <div class="sub">HOSTELS</div>
+    <hr class="rule"/>
+    <div class="tagline">A hostel that finally<br/>feels like home.</div>
+  </div>
+  <div class="foot">
+    <span class="pill">◍&nbsp; E-11/2, Islamabad</span>
+    <span class="handle">@riwaqhostels</span>
+  </div>
+</div>
+</body></html>
