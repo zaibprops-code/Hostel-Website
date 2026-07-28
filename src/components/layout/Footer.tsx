@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { Icon } from "@/components/ui/Icon";
 import { Container } from "@/components/ui/Container";
-import { site, whatsappLink, telLink, mailLink } from "@/data/site";
+import { site, telLink, mailLink } from "@/data/site";
 import { branches } from "@/data/branches";
 
 export function Footer() {
@@ -132,17 +132,6 @@ export function Footer() {
                 >
                   <Icon name="phone" size={18} className="mt-0.5 shrink-0 text-brass-300" />
                   {site.contact.phoneDisplay}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={whatsappLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 text-ivory/70 transition-colors hover:text-brass-300"
-                >
-                  <Icon name="whatsapp" size={18} className="mt-0.5 shrink-0 text-brass-300" />
-                  WhatsApp us
                 </a>
               </li>
               <li>

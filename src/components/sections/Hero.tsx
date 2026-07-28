@@ -1,9 +1,8 @@
 import { Button } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/Icon";
 import { Stars } from "@/components/ui/Stars";
 import { Container } from "@/components/ui/Container";
 import { Frame } from "@/components/ui/Frame";
-import { site, whatsappLink } from "@/data/site";
+import { site } from "@/data/site";
 import { averageRating, reviewCount } from "@/data/reviews";
 import { priceFrom } from "@/data/rooms";
 import { formatPrice } from "@/data/rooms";
@@ -47,23 +46,15 @@ export function Hero() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button
-                href={whatsappLink(
-                  "Hi Riwaq — I'd like to book a bed. Can you share availability?",
-                )}
-                variant="brass"
-                size="lg"
-                external
-              >
-                <Icon name="whatsapp" size={18} />
-                Book a bed
+              <Button href="/rooms" variant="brass" size="lg">
+                Explore rooms
               </Button>
               <Button
-                href="/rooms"
+                href="/contact"
                 size="lg"
                 className="border border-ivory/25 bg-transparent text-ivory hover:bg-ivory/10"
               >
-                Explore rooms
+                Contact us
               </Button>
             </div>
 

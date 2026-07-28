@@ -29,7 +29,6 @@ export const site: SiteConfig = {
     country: "Pakistan",
   },
   socials: [
-    { label: "WhatsApp", href: "https://wa.me/923001234567", icon: "whatsapp" },
     { label: "Instagram", href: "https://instagram.com/riwaqhostels" },
     { label: "Facebook", href: "https://facebook.com/riwaqhostels" },
   ],

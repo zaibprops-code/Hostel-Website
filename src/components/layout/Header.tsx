@@ -5,8 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/Icon";
-import { site, whatsappLink } from "@/data/site";
+import { site } from "@/data/site";
 import { cn } from "@/lib/cn";
 
 export function Header() {
@@ -84,18 +83,6 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <Button
-            href={whatsappLink("Hi Riwaq — I'd like to ask about availability.")}
-            variant="brass"
-            size="sm"
-            external
-          >
-            <Icon name="whatsapp" size={16} />
-            Book a bed
-          </Button>
-        </div>
-
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -147,14 +134,8 @@ export function Header() {
             })}
           </nav>
           <div className="mt-6 flex flex-col gap-3">
-            <Button
-              href={whatsappLink("Hi Riwaq — I'd like to ask about availability.")}
-              variant="brass"
-              size="lg"
-              external
-            >
-              <Icon name="whatsapp" size={18} />
-              Book a bed on WhatsApp
+            <Button href="/rooms" variant="brass" size="lg">
+              Explore rooms
             </Button>
             <Button href="/contact" variant="secondary" size="lg">
               Contact us
