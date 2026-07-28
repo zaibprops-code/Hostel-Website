@@ -5,7 +5,6 @@ import { Frame } from "@/components/ui/Frame";
 import { Icon } from "@/components/ui/Icon";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { tourStops } from "@/data/tour";
 import { whatsappLink } from "@/data/site";
 import { pageMeta } from "@/lib/seo";
@@ -105,8 +104,6 @@ export default function TourPage() {
           </div>
         </div>
       </Section>
-
-      <ClosingCTA />
     </>
   );
 }

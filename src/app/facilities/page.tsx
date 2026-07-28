@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { FacilityGrid } from "@/components/ui/FacilityGrid";
-import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { facilities } from "@/data/facilities";
 import type { Facility } from "@/types";
 import { pageMeta } from "@/lib/seo";
@@ -47,8 +46,6 @@ export default function FacilitiesPage() {
           </Section>
         );
       })}
-
-      <ClosingCTA />
     </>
   );
 }

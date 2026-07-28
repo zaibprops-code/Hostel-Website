@@ -3,7 +3,6 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { ReviewCard } from "@/components/ui/ReviewCard";
 import { Stars } from "@/components/ui/Stars";
-import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { reviews, averageRating, reviewCount } from "@/data/reviews";
 import { reviewsJsonLd, jsonLdScript, pageMeta } from "@/lib/seo";
 
@@ -53,8 +52,6 @@ export default function ReviewsPage() {
           bring our Google Reviews feed here directly.
         </p>
       </Section>
-
-      <ClosingCTA />
     </>
   );
 }

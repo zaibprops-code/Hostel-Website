@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { GalleryExplorer } from "@/components/sections/GalleryExplorer";
-import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -24,7 +23,6 @@ export default function GalleryPage() {
       <Section>
         <GalleryExplorer />
       </Section>
-      <ClosingCTA />
     </>
   );
 }

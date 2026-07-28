@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { BlogCard } from "@/components/ui/BlogCard";
-import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { getAllPosts } from "@/lib/blog";
 import { pageMeta } from "@/lib/seo";
 
@@ -37,7 +36,6 @@ export default function BlogPage() {
           </div>
         )}
       </Section>
-      <ClosingCTA />
     </>
   );
 }

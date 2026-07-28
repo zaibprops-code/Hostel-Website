@@ -3,7 +3,6 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Frame } from "@/components/ui/Frame";
 import { Icon } from "@/components/ui/Icon";
-import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { TeamSection } from "@/components/sections/TeamSection";
 import { brandStats } from "@/data/site";
 import { upcomingBranches } from "@/data/branches";
@@ -183,8 +182,6 @@ export default function AboutPage() {
           </ol>
         </div>
       </Section>
-
-      <ClosingCTA />
     </>
   );
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { BranchLocator } from "@/components/sections/BranchLocator";
-import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { branches } from "@/data/branches";
 import { pageMeta } from "@/lib/seo";
 
@@ -25,7 +24,6 @@ export default function BranchesPage() {
       <Section>
         <BranchLocator branches={branches} />
       </Section>
-      <ClosingCTA />
     </>
   );
 }

@@ -3,7 +3,6 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { Icon } from "@/components/ui/Icon";
 import { Badge } from "@/components/ui/Badge";
-import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { announcements } from "@/data/announcements";
 import { formatDate } from "@/lib/blog";
 import { pageMeta } from "@/lib/seo";
@@ -52,7 +51,6 @@ export default function UpdatesPage() {
           ))}
         </ol>
       </Section>
-      <ClosingCTA />
     </>
   );
 }

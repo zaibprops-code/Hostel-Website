@@ -7,7 +7,6 @@ import { Container } from "@/components/ui/Container";
 import { Frame } from "@/components/ui/Frame";
 import { Badge } from "@/components/ui/Badge";
 import { BlogCard } from "@/components/ui/BlogCard";
-import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { mdxComponents } from "@/components/blog/mdxComponents";
 import { getPost, getAllSlugs, getAllPosts, formatDate } from "@/lib/blog";
 import { pageMeta, jsonLdScript } from "@/lib/seo";
@@ -130,8 +129,6 @@ export default async function BlogPostPage({
           </Container>
         </section>
       )}
-
-      <ClosingCTA />
     </>
   );
 }
