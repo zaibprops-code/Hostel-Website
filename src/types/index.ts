@@ -238,4 +238,5 @@ export interface SiteConfig {
   };
   socials: { label: string; href: string; icon?: IconName }[];
   nav: NavLink[];
+  secondaryNav: NavLink[];
 }

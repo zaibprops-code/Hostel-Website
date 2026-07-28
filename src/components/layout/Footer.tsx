@@ -3,7 +3,7 @@ import { Logo } from "@/components/brand/Logo";
 import { Icon } from "@/components/ui/Icon";
 import { Container } from "@/components/ui/Container";
 import { site, whatsappLink, telLink, mailLink } from "@/data/site";
-import { upcomingBranches } from "@/data/branches";
+import { branches } from "@/data/branches";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <footer className="bg-forest-900 text-ivory/80">
       <Container className="py-16">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_0.9fr_0.9fr_0.9fr_1.1fr]">
           {/* Brand */}
           <div className="max-w-xs">
             <Logo tone="light" showTagline />
@@ -60,14 +60,25 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
-              <li>
-                <Link
-                  href="/rooms#pricing"
-                  className="text-ivory/70 transition-colors hover:text-brass-300"
-                >
-                  Pricing
-                </Link>
-              </li>
+            </ul>
+          </nav>
+
+          {/* Discover */}
+          <nav aria-label="Footer — discover">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-ivory">
+              Discover
+            </h2>
+            <ul className="mt-5 space-y-3 text-sm">
+              {site.secondaryNav.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-ivory/70 transition-colors hover:text-brass-300"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
 
@@ -77,25 +88,35 @@ export function Footer() {
               Branches
             </h2>
             <ul className="mt-5 space-y-3 text-sm">
-              <li className="flex items-center gap-2 text-ivory/70">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                Boys · G-11
-                <span className="text-[0.65rem] uppercase tracking-wide text-emerald-300/80">
-                  Open
-                </span>
-              </li>
-              {upcomingBranches.map((b) => (
-                <li
-                  key={b.id}
-                  className="flex items-center gap-2 text-ivory/50"
-                >
-                  <span className="h-1.5 w-1.5 rounded-full bg-brass-400/70" />
-                  {b.shortName}
-                  <span className="text-[0.65rem] uppercase tracking-wide text-brass-300/70">
-                    Soon
-                  </span>
-                </li>
-              ))}
+              {branches.map((b) => {
+                const open = b.status === "open";
+                return (
+                  <li key={b.id}>
+                    <Link
+                      href={`/branches/${b.slug}`}
+                      className="flex items-center gap-2 text-ivory/70 transition-colors hover:text-brass-300"
+                    >
+                      <span
+                        className={
+                          open
+                            ? "h-1.5 w-1.5 rounded-full bg-emerald-400"
+                            : "h-1.5 w-1.5 rounded-full bg-brass-400/70"
+                        }
+                      />
+                      {b.shortName}
+                      <span
+                        className={
+                          open
+                            ? "text-[0.65rem] uppercase tracking-wide text-emerald-300/80"
+                            : "text-[0.65rem] uppercase tracking-wide text-brass-300/70"
+                        }
+                      >
+                        {open ? "Open" : "Soon"}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 

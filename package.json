@@ -10,7 +10,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "15.5.22",
+    "next-mdx-remote": "^5.0.0",
     "react": "19.2.0",
     "react-dom": "19.2.0"
   },

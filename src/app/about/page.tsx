@@ -4,6 +4,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { Frame } from "@/components/ui/Frame";
 import { Icon } from "@/components/ui/Icon";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
+import { TeamSection } from "@/components/sections/TeamSection";
 import { brandStats } from "@/data/site";
 import { upcomingBranches } from "@/data/branches";
 import { pageMeta } from "@/lib/seo";
@@ -128,6 +129,9 @@ export default function AboutPage() {
           ))}
         </div>
       </Section>
+
+      {/* Meet the team */}
+      <TeamSection />
 
       {/* Roadmap / expansion */}
       <Section className="bg-sand">

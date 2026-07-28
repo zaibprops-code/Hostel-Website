@@ -1,6 +1,8 @@
 import { Hero } from "@/components/sections/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
+import { AnnouncementBar } from "@/components/sections/AnnouncementBar";
 import { AboutIntro } from "@/components/sections/AboutIntro";
+import { LifestyleSection } from "@/components/sections/LifestyleSection";
 import { RoomsPreview } from "@/components/sections/RoomsPreview";
 import { FacilitiesSection } from "@/components/sections/FacilitiesSection";
 import { GalleryPreview } from "@/components/sections/GalleryPreview";
@@ -23,7 +25,9 @@ export default function Home() {
       />
       <Hero />
       <TrustBar />
+      <AnnouncementBar />
       <AboutIntro />
+      <LifestyleSection />
       <RoomsPreview />
       <FacilitiesSection />
       <GalleryPreview />

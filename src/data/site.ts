@@ -37,12 +37,20 @@ export const site: SiteConfig = {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Rooms", href: "/rooms" },
+    { label: "Branches", href: "/branches" },
     { label: "Facilities", href: "/facilities" },
     { label: "Gallery", href: "/gallery" },
     { label: "Reviews", href: "/reviews" },
     { label: "Parents", href: "/parents" },
     { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
+  ],
+  /** Secondary destinations surfaced in the footer, not the primary nav. */
+  secondaryNav: [
+    { label: "Virtual tour", href: "/tour" },
+    { label: "Guides & blog", href: "/blog" },
+    { label: "Updates", href: "/updates" },
+    { label: "Pricing", href: "/rooms#pricing" },
   ],
 };
 
