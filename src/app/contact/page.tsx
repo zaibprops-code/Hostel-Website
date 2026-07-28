@@ -17,7 +17,7 @@ import type { IconName } from "@/types";
 export const metadata: Metadata = pageMeta({
   title: "Contact & Booking",
   description:
-    "Book a bed or arrange a visit at Riwaq Boys Hostel, G-11 Islamabad. Reach us by WhatsApp, phone or email — the front desk replies within the hour.",
+    "Book a bed or arrange a visit at Riwaq Boys Hostel, E-11/2 Islamabad. Reach us by WhatsApp, phone or email — the front desk replies within the hour.",
   path: "/contact",
 });
 
@@ -139,7 +139,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <SectionHeading
             eyebrow="Find us"
-            title="In the heart of G-11, Islamabad."
+            title="In the heart of E-11/2, Islamabad."
             as="h2"
           />
         </div>

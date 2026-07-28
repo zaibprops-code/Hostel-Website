@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Our Branches",
   description:
-    "Find your Riwaq hostel. Our flagship boys hostel is open in G-11, Islamabad, with more branches — boys, girls and executive — opening across the city.",
+    "Find your Riwaq hostel. Our flagship boys hostel is open in E-11/2, Islamabad, with more branches — boys, girls and executive — opening across the city.",
   path: "/branches",
 });
 

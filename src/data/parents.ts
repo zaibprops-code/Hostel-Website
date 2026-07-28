@@ -85,7 +85,7 @@ export const emergencyContacts: EmergencyContact[] = [
   {
     id: "hospital",
     label: "Nearest hospital",
-    value: "PIMS / Shifa International",
+    value: "Maroof International (F-10)",
     icon: "location",
     kind: "medical",
   },
@@ -105,27 +105,27 @@ export const nearbyEssentials: {
     category: "Universities",
     icon: "study",
     places: [
-      { name: "NUST", distance: "10 min" },
-      { name: "FAST-NUCES", distance: "12 min" },
-      { name: "Bahria University", distance: "15 min" },
-      { name: "COMSATS", distance: "18 min" },
-      { name: "Air University", distance: "16 min" },
+      { name: "NUST (H-12)", distance: "8 min" },
+      { name: "FAST-NUCES (H-11)", distance: "10 min" },
+      { name: "Air University (E-9)", distance: "9 min" },
+      { name: "Bahria University (E-8)", distance: "12 min" },
+      { name: "International Islamic University", distance: "15 min" },
     ],
   },
   {
     category: "Health & pharmacy",
     icon: "shield",
     places: [
-      { name: "Shifa International", distance: "12 min" },
-      { name: "PIMS Hospital", distance: "14 min" },
-      { name: "Pharmacies (G-11 Markaz)", distance: "5 min" },
+      { name: "Maroof International (F-10)", distance: "12 min" },
+      { name: "PIMS Hospital", distance: "16 min" },
+      { name: "Pharmacies (E-11 Markaz)", distance: "5 min" },
     ],
   },
   {
     category: "Daily needs",
     icon: "coffee",
     places: [
-      { name: "G-11 Markaz (shops & food)", distance: "5 min" },
+      { name: "E-11 Markaz (shops & food)", distance: "5 min" },
       { name: "Grocery & general stores", distance: "5 min" },
       { name: "ATMs & banks", distance: "6 min" },
     ],
@@ -134,8 +134,8 @@ export const nearbyEssentials: {
     category: "Transport",
     icon: "location",
     places: [
-      { name: "Metro Bus (G-11)", distance: "5 min" },
-      { name: "Blue Area business district", distance: "12 min" },
+      { name: "Metro Bus (Kashmir Hwy)", distance: "6 min" },
+      { name: "Blue Area business district", distance: "18 min" },
     ],
   },
 ];

@@ -8,7 +8,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Gallery",
   description:
-    "Take a look inside Riwaq Hostels — bright rooms, calm common areas, clean washrooms and a well-kept building in G-11, Islamabad.",
+    "Take a look inside Riwaq Hostels — bright rooms, calm common areas, clean washrooms and a well-kept building in E-11/2, Islamabad.",
   path: "/gallery",
 });
 

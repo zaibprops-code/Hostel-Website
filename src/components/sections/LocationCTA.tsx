@@ -13,7 +13,7 @@ export function LocationCTA() {
           <SectionHeading
             eyebrow="Find us"
             title="Well-placed for campus and the city."
-            lede="Set in the quiet, green surroundings of G-11, we're a short commute from Islamabad's major universities and the Blue Area business district."
+            lede="Set in the quiet, green surroundings of E-11/2, we're a short commute from NUST, FAST and the western universities."
           />
 
           <ul className="mt-8 space-y-4">

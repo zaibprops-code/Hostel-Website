@@ -78,7 +78,7 @@ export default function AboutPage() {
               on their studies, their work and their lives.
             </p>
             <p className="mt-4 leading-relaxed text-ink-soft">
-              Today that&apos;s our flagship boys hostel in G-11. Tomorrow it&apos;s a
+              Today that&apos;s our flagship boys hostel in E-11/2. Tomorrow it&apos;s a
               family of branches — more boys hostels, girls hostels and
               executive stays — each held to the exact same standard.
             </p>
@@ -149,7 +149,7 @@ export default function AboutPage() {
                 <Icon name="check" size={14} />
               </span>
               <p className="font-semibold text-forest-800">
-                Riwaq Boys Hostel — G-11{" "}
+                Riwaq Boys Hostel — E-11/2{" "}
                 <span className="text-sm font-normal text-emerald-600">
                   · Open now
                 </span>

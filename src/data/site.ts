@@ -23,8 +23,8 @@ export const site: SiteConfig = {
     hours: "Front desk staffed 24/7 · Visits 9:00 AM – 9:00 PM",
   },
   address: {
-    line: "Riwaq Boys Hostel, Street 12, Sector G-11/3",
-    area: "G-11",
+    line: "Riwaq Boys Hostel, Street 12, Sector E-11/2",
+    area: "E-11/2",
     city: "Islamabad",
     country: "Pakistan",
   },
