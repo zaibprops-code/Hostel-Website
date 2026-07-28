@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { RoomCard } from "@/components/ui/RoomCard";
+import { RoomComparison } from "@/components/ui/RoomComparison";
+import { AvailabilityLegend } from "@/components/ui/Badge";
 import { Icon } from "@/components/ui/Icon";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
+import { PricingBreakdown } from "@/components/sections/PricingBreakdown";
 import { roomTypes, formatPrice, priceFrom } from "@/data/rooms";
 import { pageMeta } from "@/lib/seo";
 
@@ -33,6 +36,13 @@ export default function RoomsPage() {
       />
 
       <Section>
+        <div className="mb-8 flex flex-col gap-4 rounded-2xl border border-forest-900/8 bg-white px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm font-medium text-forest-800">
+            Live room availability
+          </p>
+          <AvailabilityLegend />
+        </div>
+
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {roomTypes.map((room) => (
             <RoomCard key={room.id} room={room} />
@@ -43,6 +53,32 @@ export default function RoomsPage() {
           Prices are per month and include utilities. A one-time refundable
           security deposit applies. Ask us about semester-length rates.
         </p>
+      </Section>
+
+      {/* Comparison */}
+      <Section id="compare" className="bg-sand">
+        <SectionHeading
+          eyebrow="Compare"
+          title="Weigh them up side by side."
+          lede="Not sure which room fits? Here's how the categories compare on the things that matter most."
+        />
+        <div className="mt-10">
+          <RoomComparison rooms={roomTypes} />
+        </div>
+      </Section>
+
+      {/* Transparent pricing */}
+      <Section id="pricing">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div className="lg:sticky lg:top-28">
+            <SectionHeading
+              eyebrow="Transparent pricing"
+              title="Exactly what you pay for."
+              lede="No hidden charges, no surprises after you move in. Here's the full picture — what's monthly, what's one-time, what's already included, and what's optional."
+            />
+          </div>
+          <PricingBreakdown />
+        </div>
       </Section>
 
       {/* What's included */}

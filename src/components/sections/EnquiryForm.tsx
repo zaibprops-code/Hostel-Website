@@ -40,16 +40,20 @@ export function EnquiryForm() {
 
     const room = data.get("room") as string;
     const branch = data.get("branch") as string;
+    const affiliation = (data.get("affiliation") as string)?.trim();
     const moveIn = data.get("moveIn") as string;
+    const duration = data.get("duration") as string;
     const message = (data.get("message") as string)?.trim();
 
     const lines = [
       `New enquiry via riwaqhostels.com`,
       `Name: ${name}`,
       `Phone: ${phone}`,
+      affiliation && `University / workplace: ${affiliation}`,
       branch && `Branch: ${branch}`,
       room && `Room: ${room}`,
       moveIn && `Preferred move-in: ${moveIn}`,
+      duration && `Length of stay: ${duration}`,
       message && `Message: ${message}`,
     ].filter(Boolean);
 
@@ -101,6 +105,9 @@ export function EnquiryForm() {
         <Field label="Phone / WhatsApp" required>
           <input name="phone" type="tel" required autoComplete="tel" className={fieldBase} placeholder="+92 3XX XXXXXXX" />
         </Field>
+        <Field label="University / workplace" className="sm:col-span-2">
+          <input name="affiliation" type="text" className={fieldBase} placeholder="e.g. NUST, FAST, or your employer" />
+        </Field>
         <Field label="Branch">
           <select name="branch" className={cn(fieldBase, "appearance-none")} defaultValue={branches[0].shortName}>
             {branches.map((b) => (
@@ -123,6 +130,16 @@ export function EnquiryForm() {
         </Field>
         <Field label="Preferred move-in">
           <input name="moveIn" type="month" className={fieldBase} />
+        </Field>
+        <Field label="Length of stay">
+          <select name="duration" className={cn(fieldBase, "appearance-none")} defaultValue="">
+            <option value="">Not sure yet</option>
+            <option value="1–2 months">1–2 months</option>
+            <option value="3–5 months">3–5 months</option>
+            <option value="One semester">One semester</option>
+            <option value="6–12 months">6–12 months</option>
+            <option value="A year or more">A year or more</option>
+          </select>
         </Field>
         <Field label="Anything else?" className="sm:col-span-2">
           <textarea

@@ -40,6 +40,7 @@ export const site: SiteConfig = {
     { label: "Facilities", href: "/facilities" },
     { label: "Gallery", href: "/gallery" },
     { label: "Reviews", href: "/reviews" },
+    { label: "Parents", href: "/parents" },
     { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
   ],

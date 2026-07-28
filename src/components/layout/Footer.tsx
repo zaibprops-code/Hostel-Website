@@ -60,6 +60,14 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
+              <li>
+                <Link
+                  href="/rooms#pricing"
+                  className="text-ivory/70 transition-colors hover:text-brass-300"
+                >
+                  Pricing
+                </Link>
+              </li>
             </ul>
           </nav>
 

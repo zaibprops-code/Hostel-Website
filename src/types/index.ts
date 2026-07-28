@@ -52,6 +52,18 @@ export interface Facility {
   featured?: boolean;
 }
 
+/** Occupancy / booking state for a room category or branch. */
+export type Availability = "available" | "limited" | "waitlist" | "full";
+
+/** A value in the room comparison matrix. */
+export type RoomSpecValue = boolean | "optional" | string;
+
+/** One comparable attribute (a row in the comparison table). */
+export interface ComparisonFeature {
+  id: string;
+  label: string;
+}
+
 export interface RoomType {
   id: string;
   slug: string;
@@ -68,8 +80,10 @@ export interface RoomType {
   amenities: string[];
   /** Facility ids available in this room category. */
   facilityIds?: string[];
-  availability?: "available" | "limited" | "waitlist";
+  availability?: Availability;
   popular?: boolean;
+  /** Values keyed by ComparisonFeature.id — powers the comparison table. */
+  specs?: Record<string, RoomSpecValue>;
 }
 
 export interface ImageAsset {
@@ -157,6 +171,48 @@ export interface NavLink {
 export interface Stat {
   value: string;
   label: string;
+}
+
+/** A single line in the transparent pricing breakdown. */
+export interface PriceLine {
+  id: string;
+  label: string;
+  amount: string;
+  note?: string;
+  kind: "recurring" | "one-time" | "included" | "optional";
+  icon?: IconName;
+}
+
+/** A step or item in the admission / move-in checklist. */
+export interface ChecklistItem {
+  id: string;
+  title: string;
+  detail: string;
+}
+
+export interface ChecklistGroup {
+  id: string;
+  title: string;
+  icon: IconName;
+  items: ChecklistItem[];
+}
+
+/** A reassurance point for the parent-facing page. */
+export interface ParentAssurance {
+  id: string;
+  icon: IconName;
+  title: string;
+  body: string;
+}
+
+/** An emergency / essential contact number. */
+export interface EmergencyContact {
+  id: string;
+  label: string;
+  value: string;
+  href?: string;
+  icon: IconName;
+  kind: "hostel" | "medical" | "police" | "fire" | "utility";
 }
 
 export interface SiteConfig {

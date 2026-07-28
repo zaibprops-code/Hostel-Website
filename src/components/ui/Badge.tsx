@@ -32,22 +32,44 @@ export function Badge({
   );
 }
 
+import type { Availability } from "@/types";
+
+const availabilityConfig: Record<
+  Availability,
+  { tone: Tone; label: string; dot: string }
+> = {
+  available: { tone: "emerald", label: "Beds available", dot: "bg-emerald-500" },
+  limited: { tone: "amber", label: "Almost full", dot: "bg-amber-500" },
+  waitlist: { tone: "brass", label: "Waitlist", dot: "bg-brass-500" },
+  full: { tone: "neutral", label: "Fully occupied", dot: "bg-ink-muted" },
+};
+
 /** Maps a room/branch availability state to a labelled dot badge. */
-export function AvailabilityBadge({
-  state,
-}: {
-  state?: "available" | "limited" | "waitlist";
-}) {
+export function AvailabilityBadge({ state }: { state?: Availability }) {
   if (!state) return null;
-  const config = {
-    available: { tone: "emerald" as const, label: "Beds available", dot: "bg-emerald-500" },
-    limited: { tone: "amber" as const, label: "Limited beds", dot: "bg-amber-500" },
-    waitlist: { tone: "neutral" as const, label: "Waitlist", dot: "bg-ink-muted" },
-  }[state];
+  const config = availabilityConfig[state];
   return (
     <Badge tone={config.tone}>
       <span className={cn("h-1.5 w-1.5 rounded-full", config.dot)} />
       {config.label}
     </Badge>
+  );
+}
+
+/** A small key explaining each availability state. */
+export function AvailabilityLegend() {
+  const order: Availability[] = ["available", "limited", "waitlist", "full"];
+  return (
+    <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+      {order.map((state) => {
+        const c = availabilityConfig[state];
+        return (
+          <span key={state} className="inline-flex items-center gap-2 text-sm text-ink-soft">
+            <span className={cn("h-2 w-2 rounded-full", c.dot)} />
+            {c.label}
+          </span>
+        );
+      })}
+    </div>
   );
 }
