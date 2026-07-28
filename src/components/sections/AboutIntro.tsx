@@ -17,9 +17,9 @@ const pillars: { icon: IconName; title: string; body: string }[] = [
     body: "Daily housekeeping and spotless washrooms. We hold the standard so you never have to.",
   },
   {
-    icon: "users",
-    title: "A real community",
-    body: "Quiet when you need to study, social when you don't. People, not just rooms.",
+    icon: "check",
+    title: "Honest and transparent",
+    body: "Clear monthly pricing and no hidden charges. What you're shown on the tour is exactly what you move into.",
   },
 ];
 
@@ -57,7 +57,7 @@ export function AboutIntro() {
           <SectionHeading
             eyebrow="Who we are"
             title="Accommodation, handled — so you can get on with life."
-            lede="Riwaq was built on a simple idea: student and professional housing in Islamabad should be secure, spotless and genuinely well run, without costing a fortune. We look after the details — safety, cleanliness, power, internet — so your energy goes where it matters."
+            lede="Good accommodation in Islamabad shouldn't be this hard to find. Riwaq exists to change that — a genuinely well-run home base, built to a standard we'd want for our own family, so your energy goes where it actually matters."
           />
 
           <div className="mt-8 space-y-5">

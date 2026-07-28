@@ -102,26 +102,6 @@ export function Hero() {
                 sizes="(min-width: 1024px) 45vw, 90vw"
                 className="shadow-2xl shadow-forest-950/40 ring-1 ring-ivory/10"
               />
-
-              {/* Floating credential card */}
-              <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-forest-900/10 bg-ivory p-4 text-forest-900 shadow-xl sm:block">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-forest-100 text-forest-700">
-                    <Icon name="shield" size={22} />
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold">24/7 security</p>
-                    <p className="text-xs text-ink-muted">CCTV · staffed desk</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute -right-4 top-6 hidden rounded-2xl border border-forest-900/10 bg-ivory px-4 py-3 text-forest-900 shadow-xl md:block">
-                <div className="flex items-center gap-2">
-                  <Icon name="wifi" size={20} className="text-brass-500" />
-                  <span className="text-sm font-semibold">Fibre WiFi</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

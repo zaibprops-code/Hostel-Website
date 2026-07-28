@@ -8,10 +8,10 @@ import type { IconName } from "@/types";
  * life actually feels like at Riwaq.
  */
 const aspects: { icon: IconName; title: string; body: string }[] = [
-  { icon: "study", title: "Room to focus", body: "Quiet study spaces and reliable WiFi for the work that matters." },
+  { icon: "study", title: "Room to focus", body: "Quiet study spaces and proper desks for the work that matters." },
   { icon: "lounge", title: "People to belong with", body: "A community that's social when you want it, calm when you don't." },
   { icon: "leaf", title: "Space to breathe", body: "Green surroundings, a rooftop for evening chai, and room to unwind." },
-  { icon: "sparkle", title: "A place that's cared for", body: "Clean, maintained and looked-after — every single day." },
+  { icon: "heating", title: "Comfortable in every season", body: "Furnished rooms kept warm through winter and cool through summer." },
 ];
 
 export function LifestyleSection() {

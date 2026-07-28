@@ -16,9 +16,8 @@ export function Footer() {
           <div className="max-w-xs">
             <Logo tone="light" showTagline />
             <p className="mt-5 text-sm leading-relaxed text-ivory/70">
-              Considered, secure and spotless accommodation for Islamabad&apos;s
-              students and young professionals — with a growing family of
-              branches across the city.
+              A growing family of premium student and professional hostels
+              across Islamabad — built on safety, cleanliness and genuine care.
             </p>
             <div className="mt-6 flex gap-3">
               {site.socials.map((s) => (
