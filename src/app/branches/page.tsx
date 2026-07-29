@@ -17,6 +17,7 @@ export default function BranchesPage() {
     <>
       <PageHero
         breadcrumb="Branches"
+        path="/branches"
         eyebrow="Our branches"
         title="One standard, growing across the city."
         lede="Riwaq is expanding branch by branch — each held to the same standard of safety, cleanliness and care. Find the one that fits you, or join a waitlist for what's coming."

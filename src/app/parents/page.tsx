@@ -20,6 +20,7 @@ export default function ParentsPage() {
     <>
       <PageHero
         breadcrumb="For Parents"
+        path="/parents"
         eyebrow="For parents"
         title="The reassurance you're looking for."
         lede="Sending your son to a new city is a big decision. Here's exactly how we keep residents safe, supervised and supported — and how to reach us any time."

@@ -68,6 +68,7 @@ export default async function BlogPostPage({
       />
       <PageHero
         breadcrumb="Guides"
+        path="/blog"
         eyebrow={post.category}
         title={post.title}
         lede={post.excerpt}

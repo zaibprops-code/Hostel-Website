@@ -52,6 +52,7 @@ export default async function BranchDetailPage({
     <>
       <PageHero
         breadcrumb={branch.shortName}
+        path={`/branches/${branch.slug}`}
         eyebrow={isOpen ? "Open now" : "Opening soon"}
         title={branch.name}
         lede={branch.tagline}

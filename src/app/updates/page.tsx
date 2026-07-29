@@ -19,6 +19,7 @@ export default function UpdatesPage() {
     <>
       <PageHero
         breadcrumb="Updates"
+        path="/updates"
         eyebrow="Updates & announcements"
         title="What's new at Riwaq."
         lede="Availability, new facilities, expansion news and seasonal notices — the latest, in one place."

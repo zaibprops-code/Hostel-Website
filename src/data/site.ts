@@ -10,11 +10,20 @@ import type { SiteConfig, Stat } from "@/types";
 export const site: SiteConfig = {
   name: "Riwaq Hostels",
   legalName: "Riwaq Hostels",
+  alternateNames: [
+    "Riwaq Boys Hostel",
+    "Riwaq Boys Hostel Islamabad",
+    "Riwaq Boys Hostel E-11",
+    "Riwaq Hostel Islamabad",
+  ],
   tagline: "Considered living for Islamabad's students & professionals",
   description:
-    "Riwaq Hostels offers spotless, thoughtfully-run accommodation in Islamabad. Premium comfort at a student-friendly price — high-speed WiFi, CCTV security, daily housekeeping and a genuine community.",
+    "Riwaq Boys Hostel offers spotless, thoughtfully-run accommodation in E-11/2, Islamabad. Premium comfort at a student-friendly price — high-speed WiFi, CCTV security, daily housekeeping and a genuine community.",
   url: "https://riwaqhostels.com",
   locale: "en_PK",
+  // Paste the token from Google Search Console → "HTML tag" verification
+  // method here (the content="..." value only). Leave "" until then.
+  googleSiteVerification: "",
   // Primary line — the floating WhatsApp button and booking CTAs point here.
   contact: {
     phone: "+923146144997",

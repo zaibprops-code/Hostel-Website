@@ -22,6 +22,7 @@ export default function TourPage() {
     <>
       <PageHero
         breadcrumb="Virtual Tour"
+        path="/tour"
         eyebrow="Virtual tour"
         title="Walk through Riwaq from wherever you are."
         lede="Choosing a hostel without visiting? Take the tour. Here's the whole place, in the order you'd see it on arrival — with video and 360° views rolling out room by room."

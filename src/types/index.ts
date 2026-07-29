@@ -227,11 +227,22 @@ export interface ContactPerson {
 export interface SiteConfig {
   name: string;
   legalName: string;
+  /**
+   * Alternate brand names people actually search for (e.g. "Riwaq Boys
+   * Hostel"). Surfaced in structured data so Google connects those queries
+   * to the brand.
+   */
+  alternateNames?: string[];
   tagline: string;
   description: string;
   /** Canonical production URL. */
   url: string;
   locale: string;
+  /**
+   * Google Search Console verification token — the `content` value from the
+   * "HTML tag" method. Leave empty until you've claimed the property.
+   */
+  googleSiteVerification?: string;
   /** Primary contact — used by the global CTAs (floating button, enquiries). */
   contact: {
     phone: string;

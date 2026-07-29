@@ -11,8 +11,8 @@ import { roomTypes, formatPrice, priceFrom } from "@/data/rooms";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Rooms & Pricing",
-  description: `Furnished single, double, triple and quad-sharing rooms in Islamabad from ${formatPrice(priceFrom)}/month. Transparent pricing, no hidden charges.`,
+  title: "Rooms & Pricing in E-11/2, Islamabad",
+  description: `Furnished single, double, triple and quad-sharing rooms at Riwaq Boys Hostel, E-11/2 Islamabad, from ${formatPrice(priceFrom)}/month. Transparent pricing, no hidden charges.`,
   path: "/rooms",
 });
 
@@ -30,6 +30,7 @@ export default function RoomsPage() {
     <>
       <PageHero
         breadcrumb="Rooms"
+        path="/rooms"
         eyebrow="Rooms & pricing"
         title="A room for every budget and every rhythm."
         lede={`From sociable quad-sharing to a private single room — all furnished, all move-in ready. Beds from ${formatPrice(priceFrom)} a month, everything included.`}

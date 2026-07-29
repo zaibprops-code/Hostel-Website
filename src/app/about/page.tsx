@@ -44,6 +44,7 @@ export default function AboutPage() {
     <>
       <PageHero
         breadcrumb="About"
+        path="/about"
         eyebrow="Who we are"
         title="Building the accommodation Islamabad's students deserve."
         lede="Riwaq began with one hostel and a high standard. The vision is bigger: a trusted hospitality brand, growing branch by branch across the city."

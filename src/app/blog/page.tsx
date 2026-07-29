@@ -19,6 +19,7 @@ export default function BlogPage() {
     <>
       <PageHero
         breadcrumb="Guides"
+        path="/blog"
         eyebrow="Guides & blog"
         title="Helpful reading for life in Islamabad."
         lede="Honest, practical guides for students and young professionals — from choosing a hostel to budgeting, packing and settling in."

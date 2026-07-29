@@ -20,6 +20,7 @@ export default function ContactPage() {
     <>
       <PageHero
         breadcrumb="Contact"
+        path="/contact"
         eyebrow="Contact & booking"
         title="Let's find you a room."
         lede="Booking a bed is simple — send us a message with what you're looking for and we'll take it from there. Prefer to see it first? Arrange a visit any day."

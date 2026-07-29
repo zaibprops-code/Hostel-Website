@@ -40,9 +40,12 @@ export function Hero() {
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ivory/80">
-              Secure, spotless and thoughtfully run accommodation for
-              Islamabad&apos;s students and young professionals. Premium comfort,
-              a genuine community, and a price that makes sense.
+              <strong className="font-semibold text-ivory">
+                Riwaq Boys Hostel
+              </strong>{" "}
+              is spotless, thoughtfully run accommodation in {primaryBranch.area},{" "}
+              {site.address.city} — for students and young professionals.
+              Premium comfort, a genuine community, and a price that makes sense.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
