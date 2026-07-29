@@ -8,21 +8,21 @@ import type { ParentAssurance, EmergencyContact } from "@/types";
 export const parentAssurances: ParentAssurance[] = [
   {
     id: "security",
-    icon: "shield",
+    icon: "cctv",
     title: "How security is managed",
-    body: "A trained guard and a staffed front desk operate 24 hours a day. Entry is through a single monitored point, and every resident and visitor is logged. HD CCTV covers all entrances and shared corridors.",
+    body: "Entry is controlled through a single point and HD CCTV covers the entrances and shared corridors. It's a calm, monitored environment where residents and visitors are accounted for.",
   },
   {
     id: "supervision",
     icon: "users",
     title: "Who supervises residents",
-    body: "A resident hostel manager lives on-site and is reachable at any hour. Staff know residents by name, keep an eye on wellbeing, and are the first point of contact if anything is needed.",
+    body: "The hostel manager is on site day to day and reachable when needed — a real person who knows the residents and is the first point of contact if anything comes up.",
   },
   {
     id: "visitors",
     icon: "clock",
     title: "Visitor policy",
-    body: "Guests are welcome in common areas during visiting hours (9:00 AM – 9:00 PM) and must sign in at the desk. Overnight guests are not permitted — a simple rule that keeps the building secure for everyone.",
+    body: "Guests are welcome in the common areas during the day and are signed in. Overnight guests are not permitted — a simple rule that keeps the building secure for everyone.",
   },
   {
     id: "payments",
@@ -52,9 +52,17 @@ export const parentAssurances: ParentAssurance[] = [
 export const emergencyContacts: EmergencyContact[] = [
   {
     id: "hostel",
-    label: "Hostel front desk (24/7)",
-    value: "+92 300 1234567",
-    href: "tel:+923001234567",
+    label: "Riwaq Hostels",
+    value: "+92 314 6144997",
+    href: "tel:+923146144997",
+    icon: "phone",
+    kind: "hostel",
+  },
+  {
+    id: "manager",
+    label: "Hostel manager",
+    value: "+92 333 3638543",
+    href: "tel:+923333638543",
     icon: "phone",
     kind: "hostel",
   },

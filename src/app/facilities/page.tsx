@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { FacilityGrid } from "@/components/ui/FacilityGrid";
-import { facilities } from "@/data/facilities";
+import { getFacilities } from "@/data/facilities";
+import { primaryBranch } from "@/data/branches";
 import type { Facility } from "@/types";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Facilities",
   description:
-    "High-speed WiFi, 24/7 security, CCTV, backup power, housekeeping, laundry, study areas and more — everything Riwaq residents get, done properly.",
+    "High-speed WiFi, CCTV security, daily housekeeping, laundry, a shared kitchen, filtered water, parking, AC and heating — the facilities at Riwaq, done properly.",
   path: "/facilities",
 });
 
@@ -31,7 +32,9 @@ export default function FacilitiesPage() {
       />
 
       {groups.map((group, i) => {
-        const items = facilities.filter((f) => f.category === group.id);
+        const items = getFacilities(primaryBranch.facilityIds).filter(
+          (f) => f.category === group.id,
+        );
         if (items.length === 0) return null;
         return (
           <Section key={group.id} className={i % 2 === 1 ? "bg-sand" : undefined}>

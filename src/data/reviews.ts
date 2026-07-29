@@ -22,7 +22,7 @@ export const reviews: Review[] = [
     role: "Software Engineer · Systems Ltd",
     rating: 5,
     quote:
-      "As someone working full-time, the 24/7 backup power and reliable internet are non-negotiable — Riwaq delivers on both. The single room is worth every rupee for the peace and quiet.",
+      "As someone working full-time, reliable internet and a quiet, clean room are non-negotiable — Riwaq delivers on both. The single room is worth every rupee for the peace and quiet.",
     date: "2026-04",
     source: "resident",
   },
@@ -32,7 +32,7 @@ export const reviews: Review[] = [
     role: "Parent of a resident",
     rating: 5,
     quote:
-      "What sold me was the security — a staffed desk, CCTV, one controlled entrance. I can see my son is somewhere organised and safe. The management actually answers the phone when I call.",
+      "What sold me was the security — CCTV and one controlled entrance. I can see my son is somewhere organised and safe. The management actually answers the phone when I call.",
     date: "2026-03",
     source: "parent",
   },

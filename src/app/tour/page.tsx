@@ -85,7 +85,7 @@ export default function TourPage() {
           <SectionHeading
             align="center"
             title="Prefer to visit in person?"
-            lede="You're always welcome to come and see it for yourself. Arrange a visit any day between 9:00 AM and 9:00 PM."
+            lede="You're always welcome to come and see it for yourself. Message us and we'll arrange a visit at a time that suits you."
             className="mx-auto mt-4"
           />
           <div className="mt-8 flex flex-wrap justify-center gap-3">

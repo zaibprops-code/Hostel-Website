@@ -21,10 +21,6 @@ export function LocationCTA() {
               <Icon name="location" size={20} className="mt-0.5 shrink-0 text-brass-500" />
               <span className="text-ink-soft">{primaryBranch.address}</span>
             </li>
-            <li className="flex items-start gap-3">
-              <Icon name="clock" size={20} className="mt-0.5 shrink-0 text-brass-500" />
-              <span className="text-ink-soft">{site.contact.hours}</span>
-            </li>
           </ul>
 
           <div className="mt-8">

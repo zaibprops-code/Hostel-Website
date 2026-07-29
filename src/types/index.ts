@@ -215,6 +215,15 @@ export interface EmergencyContact {
   kind: "hostel" | "medical" | "police" | "fire" | "utility";
 }
 
+/** A named person/line people can call or WhatsApp. */
+export interface ContactPerson {
+  name: string;
+  role: string;
+  phone: string;
+  phoneDisplay: string;
+  whatsapp: string;
+}
+
 export interface SiteConfig {
   name: string;
   legalName: string;
@@ -223,13 +232,14 @@ export interface SiteConfig {
   /** Canonical production URL. */
   url: string;
   locale: string;
+  /** Primary contact — used by the global CTAs (floating button, enquiries). */
   contact: {
     phone: string;
     phoneDisplay: string;
     whatsapp: string;
-    email: string;
-    hours: string;
   };
+  /** All the ways to reach us, shown on the Contact page. */
+  contacts: ContactPerson[];
   address: {
     line: string;
     area: string;

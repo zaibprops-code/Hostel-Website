@@ -44,9 +44,9 @@ export const announcements: Announcement[] = [
   {
     id: "a4",
     date: "2026-05-10",
-    title: "Backup power upgraded",
-    body: "We've expanded generator and UPS capacity so essential circuits stay on smoothly through longer load-shedding.",
-    icon: "power",
+    title: "On-site laundry now available",
+    body: "Self-service washing and drying is now available on site, so laundry is one less thing to plan your week around.",
+    icon: "laundry",
     tag: "Facilities",
   },
 ];

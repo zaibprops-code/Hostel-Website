@@ -18,10 +18,10 @@ export const metadata: Metadata = pageMeta({
 
 const included = [
   "Furnished bed, mattress & storage",
-  "High-speed fibre WiFi",
-  "Electricity with backup power",
+  "High-speed WiFi",
+  "Electricity (normal usage)",
   "Daily housekeeping of common areas",
-  "24/7 security & CCTV",
+  "CCTV security & controlled entry",
   "Filtered drinking water",
 ];
 

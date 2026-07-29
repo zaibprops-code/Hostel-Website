@@ -12,25 +12,39 @@ export const site: SiteConfig = {
   legalName: "Riwaq Hostels",
   tagline: "Considered living for Islamabad's students & professionals",
   description:
-    "Riwaq Hostels offers secure, spotless and thoughtfully-run accommodation in Islamabad. Premium comfort at a student-friendly price — high-speed WiFi, 24/7 security, housekeeping and a genuine community.",
+    "Riwaq Hostels offers spotless, thoughtfully-run accommodation in Islamabad. Premium comfort at a student-friendly price — high-speed WiFi, CCTV security, daily housekeeping and a genuine community.",
   url: "https://riwaqhostels.com",
   locale: "en_PK",
+  // Primary line — the floating WhatsApp button and booking CTAs point here.
   contact: {
-    phone: "+923001234567",
-    phoneDisplay: "+92 300 1234567",
-    whatsapp: "+923001234567",
-    email: "hello@riwaqhostels.com",
-    hours: "Front desk staffed 24/7 · Visits 9:00 AM – 9:00 PM",
+    phone: "+923146144997",
+    phoneDisplay: "+92 314 6144997",
+    whatsapp: "+923146144997",
   },
+  contacts: [
+    {
+      name: "Riwaq Hostels",
+      role: "Bookings & enquiries",
+      phone: "+923146144997",
+      phoneDisplay: "+92 314 6144997",
+      whatsapp: "+923146144997",
+    },
+    {
+      name: "Hostel Manager",
+      role: "Front desk & on-site help",
+      phone: "+923333638543",
+      phoneDisplay: "+92 333 3638543",
+      whatsapp: "+923333638543",
+    },
+  ],
   address: {
-    line: "Riwaq Boys Hostel, Street 12, Sector E-11/2",
+    line: "House No. 241, Street 70B, E-11/2 Services Society",
     area: "E-11/2",
     city: "Islamabad",
     country: "Pakistan",
   },
   socials: [
-    { label: "Instagram", href: "https://instagram.com/riwaqhostels" },
-    { label: "Facebook", href: "https://facebook.com/riwaqhostels" },
+    { label: "Instagram", href: "https://instagram.com/riwaq_hostels" },
   ],
   nav: [
     { label: "Home", href: "/" },
@@ -55,10 +69,10 @@ export const site: SiteConfig = {
 
 /** Headline trust numbers shown on the homepage. */
 export const brandStats: Stat[] = [
-  { value: "24/7", label: "On-site security & staff" },
-  { value: "120+", label: "Residents at home with us" },
-  { value: "4.9", label: "Average resident rating" },
-  { value: "5 min", label: "To major universities" },
+  { value: "24/7", label: "CCTV monitoring" },
+  { value: "10+", label: "Facilities included" },
+  { value: "8 min", label: "To NUST & FAST" },
+  { value: "1", label: "Standard, every branch" },
 ];
 
 /** Helper: a pre-filled WhatsApp deep link. */
@@ -67,11 +81,12 @@ export function whatsappLink(message?: string): string {
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
 
-export function telLink(): string {
-  return `tel:${site.contact.phone.replace(/[^0-9+]/g, "")}`;
+export function telLink(phone: string = site.contact.phone): string {
+  return `tel:${phone.replace(/[^0-9+]/g, "")}`;
 }
 
-export function mailLink(subject?: string): string {
-  const base = `mailto:${site.contact.email}`;
-  return subject ? `${base}?subject=${encodeURIComponent(subject)}` : base;
+/** WhatsApp deep link for a specific number (defaults to the primary line). */
+export function whatsappTo(number: string, message?: string): string {
+  const base = `https://wa.me/${number.replace(/[^0-9]/g, "")}`;
+  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }

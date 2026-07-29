@@ -1,5 +1,5 @@
 import type { RoomType, RoomSpecValue } from "@/types";
-import { comparisonFeatures, formatPrice } from "@/data/rooms";
+import { comparisonFeatures } from "@/data/rooms";
 import { Icon } from "./Icon";
 import { cn } from "@/lib/cn";
 
@@ -43,29 +43,6 @@ export function RoomComparison({ rooms }: { rooms: RoomType[] }) {
           </tr>
         </thead>
         <tbody>
-          {/* Price — the headline comparison row */}
-          <tr className="border-t border-forest-900/8">
-            <th
-              scope="row"
-              className="sticky left-0 z-10 bg-white p-4 text-sm font-medium text-forest-800 sm:p-5"
-            >
-              Monthly rent
-            </th>
-            {rooms.map((room) => (
-              <td
-                key={room.id}
-                className={cn("p-4 sm:p-5", room.popular && "bg-forest-50/60")}
-              >
-                <span className="font-semibold text-forest-800">
-                  {formatPrice(room.priceMonthly, room.currency)}
-                </span>
-                <span className="block text-xs text-ink-muted">
-                  {room.priceNote}
-                </span>
-              </td>
-            ))}
-          </tr>
-
           {comparisonFeatures.map((feature) => (
             <tr key={feature.id} className="border-t border-forest-900/8">
               <th

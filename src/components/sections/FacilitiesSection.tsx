@@ -2,18 +2,15 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { FacilityGrid } from "@/components/ui/FacilityGrid";
 import { Button } from "@/components/ui/Button";
 import { getFacilities } from "@/data/facilities";
+import { primaryBranch } from "@/data/branches";
 
-// The safety & connectivity essentials are covered by the trust strip above;
-// here we showcase the comfort and community amenities, so the homepage never
-// repeats the same list twice.
-const homeFacilities = getFacilities([
-  "study",
-  "lounge",
-  "kitchen",
-  "prayer",
-  "washrooms",
-  "ac",
-]);
+// Derived from the live branch's actual facilities, minus the few already shown
+// in the trust strip above — so the homepage reflects what this branch really
+// offers and never repeats the same item twice. Each branch drives its own list.
+const trustStripIds = ["cctv", "wifi", "housekeeping", "laundry"];
+const homeFacilities = getFacilities(
+  primaryBranch.facilityIds.filter((id) => !trustStripIds.includes(id)),
+).slice(0, 6);
 
 export function FacilitiesSection() {
   return (

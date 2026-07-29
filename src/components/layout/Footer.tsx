@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { Icon } from "@/components/ui/Icon";
 import { Container } from "@/components/ui/Container";
-import { site, telLink, mailLink } from "@/data/site";
+import { site, telLink } from "@/data/site";
 import { branches } from "@/data/branches";
 
 export function Footer() {
@@ -125,24 +125,20 @@ export function Footer() {
               Get in touch
             </h2>
             <ul className="mt-5 space-y-4 text-sm">
-              <li>
-                <a
-                  href={telLink()}
-                  className="flex items-start gap-3 text-ivory/70 transition-colors hover:text-brass-300"
-                >
-                  <Icon name="phone" size={18} className="mt-0.5 shrink-0 text-brass-300" />
-                  {site.contact.phoneDisplay}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={mailLink()}
-                  className="flex items-start gap-3 text-ivory/70 transition-colors hover:text-brass-300"
-                >
-                  <Icon name="mail" size={18} className="mt-0.5 shrink-0 text-brass-300" />
-                  {site.contact.email}
-                </a>
-              </li>
+              {site.contacts.map((c) => (
+                <li key={c.phone}>
+                  <a
+                    href={telLink(c.phone)}
+                    className="flex items-start gap-3 text-ivory/70 transition-colors hover:text-brass-300"
+                  >
+                    <Icon name="phone" size={18} className="mt-0.5 shrink-0 text-brass-300" />
+                    <span>
+                      {c.phoneDisplay}
+                      <span className="block text-xs text-ivory/45">{c.role}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
               <li className="flex items-start gap-3 text-ivory/70">
                 <Icon name="location" size={18} className="mt-0.5 shrink-0 text-brass-300" />
                 <span>

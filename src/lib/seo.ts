@@ -54,7 +54,7 @@ export function organizationJsonLd() {
     description: site.description,
     url,
     telephone: site.contact.phone,
-    email: site.contact.email,
+    sameAs: site.socials.map((s) => s.href),
     priceRange: "₨₨",
     currenciesAccepted: "PKR",
     address: {

@@ -18,7 +18,7 @@ export const pricing: PriceLine[] = [
   {
     id: "deposit",
     label: "Security deposit",
-    amount: "1 month's rent",
+    amount: "Half of one month's rent",
     note: "One-time & fully refundable at check-out, less any damages",
     kind: "one-time",
     icon: "shield",
@@ -32,9 +32,9 @@ export const pricing: PriceLine[] = [
   },
   {
     id: "electricity",
-    label: "Electricity & backup power",
+    label: "Electricity",
     amount: "Included",
-    note: "Normal usage; heavy appliances may be metered",
+    note: "Normal usage; heavy personal appliances may be metered",
     kind: "included",
     icon: "power",
   },
@@ -114,8 +114,8 @@ export const admissionChecklist: ChecklistGroup[] = [
     title: "House rules, in short",
     icon: "shield",
     items: [
-      { id: "r1", title: "Visitor hours", detail: "Guests welcome in common areas 9:00 AM – 9:00 PM; sign in at the desk. No overnight guests." },
-      { id: "r2", title: "Quiet hours", detail: "We keep noise down after 11:00 PM so everyone can rest and study." },
+      { id: "r1", title: "Visitors", detail: "Guests are welcome in the common areas during the day and are signed in. No overnight guests." },
+      { id: "r2", title: "Quiet hours", detail: "We keep noise down late at night so everyone can rest and study." },
       { id: "r3", title: "Shared spaces", detail: "Clean up after yourself in the kitchen and lounge — housekeeping does the rest." },
       { id: "r4", title: "Respect & safety", detail: "A respectful, smoke-free environment. Security is everyone's responsibility." },
     ],

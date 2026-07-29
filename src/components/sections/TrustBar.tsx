@@ -6,10 +6,10 @@ import type { IconName } from "@/types";
  * matter most, restated the moment a visitor scrolls.
  */
 const promises: { icon: IconName; label: string }[] = [
-  { icon: "shield", label: "24/7 security & CCTV" },
-  { icon: "wifi", label: "High-speed fibre WiFi" },
-  { icon: "power", label: "Backup power, always on" },
+  { icon: "cctv", label: "CCTV security" },
+  { icon: "wifi", label: "High-speed WiFi" },
   { icon: "housekeeping", label: "Daily housekeeping" },
+  { icon: "laundry", label: "On-site laundry" },
   { icon: "location", label: "Minutes from campus" },
 ];
 

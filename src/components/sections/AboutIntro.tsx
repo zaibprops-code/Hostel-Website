@@ -7,9 +7,9 @@ import type { IconName } from "@/types";
 
 const pillars: { icon: IconName; title: string; body: string }[] = [
   {
-    icon: "shield",
+    icon: "cctv",
     title: "Safe, and it shows",
-    body: "Controlled entry, a staffed desk and CCTV — the kind of security that lets parents relax.",
+    body: "Controlled entry and CCTV throughout, with the manager on site — the kind of security that lets parents relax.",
   },
   {
     icon: "sparkle",

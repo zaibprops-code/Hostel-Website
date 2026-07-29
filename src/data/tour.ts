@@ -20,7 +20,7 @@ export const tourStops: TourStop[] = [
     id: "arrival",
     title: "Arrival & entrance",
     description:
-      "A single, guarded entrance with a staffed front desk — the first thing you'll notice is that it feels secure and looked-after.",
+      "A single, controlled entrance with CCTV — the first thing you'll notice is that it feels secure and looked-after.",
     image: { src: "/images/tour/entrance.svg", alt: "The guarded entrance and reception", tone: "night" },
     has360: true,
   },
