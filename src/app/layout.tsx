@@ -5,7 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingContact } from "@/components/layout/FloatingContact";
 import { site } from "@/data/site";
-import { organizationJsonLd, jsonLdScript } from "@/lib/seo";
+import { organizationJsonLd, websiteJsonLd, jsonLdScript } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,36 +23,58 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.tagline}`,
+    default: "Riwaq Boys Hostel Islamabad — Student Accommodation in G-11",
     template: `%s · ${site.name}`,
   },
   description: site.description,
   applicationName: site.name,
   keywords: [
-    "hostel Islamabad",
+    "Riwaq Boys Hostel",
+    "Riwaq Boys Hostel Islamabad",
+    "Riwaq Boys Hostel G-11",
+    "Riwaq Hostels",
+    "Riwaq hostel",
     "boys hostel Islamabad",
+    "boys hostel G-11 Islamabad",
+    "hostel Islamabad",
     "student accommodation Islamabad",
     "hostel near NUST",
-    "hostel G-11 Islamabad",
+    "hostel near FAST Islamabad",
+    "hostel near Bahria University",
     "co-living Islamabad",
-    "Riwaq Hostels",
   ],
   authors: [{ name: site.name }],
   creator: site.name,
+  publisher: site.name,
   alternates: { canonical: site.url },
+  formatDetection: { telephone: true, email: true, address: true },
   openGraph: {
     type: "website",
     locale: site.locale,
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — ${site.tagline}`,
+    title: "Riwaq Boys Hostel Islamabad — Secure Living in G-11",
+    description: site.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Riwaq Boys Hostel Islamabad — Secure Living in G-11",
     description: site.description,
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+  ...(site.googleSiteVerification
+    ? { verification: { google: site.googleSiteVerification } }
+    : {}),
   category: "hospitality",
 };
 
@@ -73,6 +95,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={jsonLdScript(organizationJsonLd())}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={jsonLdScript(websiteJsonLd())}
         />
         <a
           href="#main"

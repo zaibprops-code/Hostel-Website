@@ -8,8 +8,8 @@ import { reviews, averageRating, reviewCount } from "@/data/reviews";
 import { reviewsJsonLd, jsonLdScript, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Reviews",
-  description: `Rated ${averageRating}/5 by residents and parents. Read what people who actually live at Riwaq Hostels say about safety, cleanliness and community.`,
+  title: "Resident Reviews",
+  description: `Rated ${averageRating}/5 by residents and parents. Read what people who actually live at Riwaq Boys Hostel, G-11 Islamabad say about safety, cleanliness and community.`,
   path: "/reviews",
 });
 
@@ -22,6 +22,7 @@ export default function ReviewsPage() {
       />
       <PageHero
         breadcrumb="Reviews"
+        path="/reviews"
         eyebrow="Reviews"
         title="Don't take our word for it."
         lede="The most honest picture of a hostel comes from the people who live there — and the parents who trust it with their children."

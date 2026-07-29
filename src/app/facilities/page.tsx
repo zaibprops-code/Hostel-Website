@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Facilities",
   description:
-    "High-speed WiFi, 24/7 security, CCTV, backup power, housekeeping, laundry, study areas and more — everything Riwaq residents get, done properly.",
+    "High-speed WiFi, 24/7 security, CCTV, backup power, housekeeping, laundry, study areas and more — every facility at Riwaq Boys Hostel, G-11 Islamabad, done properly.",
   path: "/facilities",
 });
 
@@ -26,6 +26,7 @@ export default function FacilitiesPage() {
     <>
       <PageHero
         breadcrumb="Facilities"
+        path="/facilities"
         eyebrow="Facilities"
         title="Everything taken care of, so you don't have to think about it."
         lede="Good accommodation is the sum of small things done right. Here's everything we look after — grouped by what it does for you."

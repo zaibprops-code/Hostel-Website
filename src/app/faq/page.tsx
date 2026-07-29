@@ -11,7 +11,7 @@ import { faqJsonLd, jsonLdScript, pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "FAQ",
   description:
-    "Answers to the questions people ask before moving into Riwaq Hostels — WiFi, electricity, food, deposits, security, documents, universities and check-in.",
+    "Answers to the questions people ask before moving into Riwaq Boys Hostel, G-11 Islamabad — WiFi, electricity, food, deposits, security, documents, universities and check-in.",
   path: "/faq",
 });
 
@@ -24,6 +24,7 @@ export default function FaqPage() {
       />
       <PageHero
         breadcrumb="FAQ"
+        path="/faq"
         eyebrow="Good to know"
         title="Everything you might want to ask."
         lede="Grouped by topic and kept up to date. If your question isn't here, send us a message — we're quick to reply."
