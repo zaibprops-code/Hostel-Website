@@ -23,7 +23,7 @@ export const site: SiteConfig = {
   locale: "en_PK",
   // Paste the token from Google Search Console → "HTML tag" verification
   // method here (the content="..." value only). Leave "" until then.
-  googleSiteVerification: "",
+  googleSiteVerification: "1Mjhm45gDhHMFLYaxo4Xtj9AxRHK-0EAZBtyuxYKVA4",
   // Primary line — the floating WhatsApp button and booking CTAs point here.
   contact: {
     phone: "+923146144997",
