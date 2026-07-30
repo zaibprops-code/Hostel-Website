@@ -47,25 +47,26 @@ export function SocialIcon({
       return (
         <svg {...common}>
           <defs>
-            <linearGradient id="ig-grad" x1="1" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#feda75" />
-              <stop offset="0.25" stopColor="#fa7e1e" />
-              <stop offset="0.5" stopColor="#d62976" />
-              <stop offset="0.75" stopColor="#962fbf" />
-              <stop offset="1" stopColor="#4f5bd5" />
-            </linearGradient>
+            <radialGradient id="ig-grad" cx="30%" cy="107%" r="140%">
+              <stop offset="0" stopColor="#fdf497" />
+              <stop offset="0.05" stopColor="#fdf497" />
+              <stop offset="0.45" stopColor="#fd5949" />
+              <stop offset="0.6" stopColor="#d6249f" />
+              <stop offset="0.9" stopColor="#285aeb" />
+            </radialGradient>
           </defs>
+          <rect x="1" y="1" width="22" height="22" rx="6.5" fill="url(#ig-grad)" />
           <g
             fill="none"
-            stroke="url(#ig-grad)"
-            strokeWidth="2"
+            stroke="#ffffff"
+            strokeWidth="1.9"
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <rect x="2" y="2" width="20" height="20" rx="5.5" />
-            <circle cx="12" cy="12" r="4.5" />
+            <rect x="6.3" y="6.3" width="11.4" height="11.4" rx="3.6" />
+            <circle cx="12" cy="12" r="3.1" />
           </g>
-          <circle cx="17.5" cy="6.5" r="1.4" fill="url(#ig-grad)" />
+          <circle cx="16.3" cy="7.7" r="1.1" fill="#ffffff" />
         </svg>
       );
     case "facebook":
