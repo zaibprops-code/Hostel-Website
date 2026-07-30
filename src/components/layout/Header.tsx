@@ -47,7 +47,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-20 sm:px-8">
         {/* Over the dark hero the header is transparent, so the mark goes
             light; once scrolled it sits on ivory and returns to dark. */}
-        <Logo tone={light ? "light" : "dark"} />
+        <Logo tone={light ? "light" : "dark"} size="lg" />
 
         <nav
           aria-label="Primary"
