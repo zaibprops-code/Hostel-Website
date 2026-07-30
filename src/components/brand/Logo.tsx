@@ -26,14 +26,14 @@ export function Logo({
     >
       <ArchMark
         className={cn(
-          "h-9 w-9 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5",
+          "h-11 w-11 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5",
           tone === "light" ? "text-brass-300" : "text-brass-500",
         )}
       />
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "text-display text-xl font-semibold tracking-tight",
+            "text-display text-2xl font-semibold tracking-tight",
             text,
           )}
         >
@@ -44,7 +44,7 @@ export function Logo({
         </span>
         <span
           className={cn(
-            "text-[0.62rem] font-semibold uppercase tracking-[0.22em]",
+            "text-[0.68rem] font-semibold uppercase tracking-[0.22em]",
             sub,
           )}
         >
