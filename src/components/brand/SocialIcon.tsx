@@ -47,18 +47,25 @@ export function SocialIcon({
       return (
         <svg {...common}>
           <defs>
-            <linearGradient id="ig-grad" x1="0" y1="1" x2="1" y2="0">
+            <linearGradient id="ig-grad" x1="1" y1="0" x2="0" y2="1">
               <stop offset="0" stopColor="#feda75" />
-              <stop offset="0.35" stopColor="#fa7e1e" />
-              <stop offset="0.6" stopColor="#d62976" />
-              <stop offset="0.8" stopColor="#962fbf" />
+              <stop offset="0.25" stopColor="#fa7e1e" />
+              <stop offset="0.5" stopColor="#d62976" />
+              <stop offset="0.75" stopColor="#962fbf" />
               <stop offset="1" stopColor="#4f5bd5" />
             </linearGradient>
           </defs>
-          <path
-            fill="url(#ig-grad)"
-            d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32Zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z"
-          />
+          <g
+            fill="none"
+            stroke="url(#ig-grad)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5.5" />
+            <circle cx="12" cy="12" r="4.5" />
+          </g>
+          <circle cx="17.5" cy="6.5" r="1.4" fill="url(#ig-grad)" />
         </svg>
       );
     case "facebook":
