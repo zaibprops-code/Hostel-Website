@@ -15,7 +15,12 @@ export function FloatingContact() {
       aria-label="Chat with Riwaq on WhatsApp"
       className="group fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3.5 text-white shadow-lg shadow-forest-900/20 transition-transform duration-200 hover:scale-105 sm:bottom-7 sm:right-7"
     >
-      <Icon name="whatsapp" size={24} />
+      {/* Expanding halo to draw the eye */}
+      <span
+        aria-hidden
+        className="fc-ring pointer-events-none absolute inset-0 -z-10 rounded-full bg-[#25D366]"
+      />
+      <Icon name="whatsapp" size={24} className="fc-nudge group-hover:[animation-play-state:paused]" />
       <span className="hidden pr-1 text-sm font-semibold sm:inline">
         Chat with us
       </span>
