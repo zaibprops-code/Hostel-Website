@@ -33,7 +33,7 @@ export function Footer() {
                     className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md"
                   >
                     {platform ? (
-                      <SocialIcon platform={platform} size={28} />
+                      <SocialIcon platform={platform} size={34} />
                     ) : (
                       <span className="text-sm font-semibold text-forest-800">
                         {s.label[0]}
