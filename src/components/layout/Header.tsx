@@ -51,7 +51,7 @@ export function Header() {
 
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-0.5 lg:flex xl:gap-1.5"
+          className="hidden items-center gap-0.5 lg:mr-6 lg:flex xl:mr-16 xl:gap-1.5"
         >
           {site.nav.map((link) => {
             const active =
