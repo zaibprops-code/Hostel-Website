@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { Icon } from "@/components/ui/Icon";
+import { SocialIcon, platformFromLabel } from "@/components/brand/SocialIcon";
 import { Container } from "@/components/ui/Container";
 import { site, telLink } from "@/data/site";
 import { branches } from "@/data/branches";
@@ -19,25 +20,28 @@ export function Footer() {
               A growing family of premium student and professional hostels
               across Islamabad — built on safety, cleanliness and genuine care.
             </p>
-            <div className="mt-6 flex gap-3">
-              {site.socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ivory/15 text-ivory/80 transition-colors hover:border-brass-300 hover:text-brass-300"
-                >
-                  {s.icon ? (
-                    <Icon name={s.icon} size={18} />
-                  ) : (
-                    <span className="text-xs font-semibold">
-                      {s.label[0]}
-                    </span>
-                  )}
-                </a>
-              ))}
+            <div className="mt-6 flex flex-wrap gap-3">
+              {site.socials.map((s) => {
+                const platform = platformFromLabel(s.label);
+                return (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                  >
+                    {platform ? (
+                      <SocialIcon platform={platform} size={20} />
+                    ) : (
+                      <span className="text-sm font-semibold text-forest-800">
+                        {s.label[0]}
+                      </span>
+                    )}
+                  </a>
+                );
+              })}
             </div>
           </div>
 

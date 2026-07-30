@@ -54,6 +54,8 @@ export const site: SiteConfig = {
   },
   socials: [
     { label: "Instagram", href: "https://instagram.com/riwaq_hostels" },
+    // TODO: replace with the real Facebook page URL once the account is ready.
+    { label: "Facebook", href: "https://facebook.com/riwaqhostels" },
   ],
   nav: [
     { label: "Home", href: "/" },
