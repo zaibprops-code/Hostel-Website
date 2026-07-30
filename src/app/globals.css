@@ -143,39 +143,27 @@
     to { transform: translateX(-50%); }
   }
 
-  /* Floating WhatsApp button — layered, premium micro-animations */
+  /* Floating WhatsApp button — clean, contained micro-animations */
   .fc-enter {
     animation: fc-enter 0.6s var(--ease-out-soft) both;
   }
 
   @keyframes fc-enter {
-    from { opacity: 0; transform: translateY(26px) scale(0.85); }
+    from { opacity: 0; transform: translateY(24px) scale(0.9); }
     to   { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  .fc-ripple {
-    position: absolute;
-    inset: 0;
-    border-radius: 9999px;
-    border: 2px solid rgba(37, 211, 102, 0.5);
-    animation: fc-ripple 2.8s ease-out infinite;
-  }
-  .fc-ripple-2 { animation-delay: 1.4s; }
-
-  @keyframes fc-ripple {
-    0%   { transform: scale(1);   opacity: 0.7; }
-    100% { transform: scale(1.85); opacity: 0; }
+  /* Gentle up/down float for the whole button */
+  .fc-float {
+    animation: fc-float 4s ease-in-out infinite;
   }
 
-  .fc-glow {
-    animation: fc-glow 2.8s ease-in-out infinite;
+  @keyframes fc-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-5px); }
   }
 
-  @keyframes fc-glow {
-    0%, 100% { box-shadow: 0 8px 22px rgba(37, 211, 102, 0.3); }
-    50%      { box-shadow: 0 12px 36px rgba(37, 211, 102, 0.6); }
-  }
-
+  /* Contained light sweep across the pill */
   .fc-shine::before {
     content: "";
     position: absolute;
@@ -183,27 +171,38 @@
     border-radius: inherit;
     background: linear-gradient(
       115deg,
-      transparent 35%,
-      rgba(255, 255, 255, 0.45) 50%,
-      transparent 65%
+      transparent 38%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 62%
     );
     transform: translateX(-130%);
-    animation: fc-shine 4.5s ease-in-out infinite;
+    animation: fc-shine 5s ease-in-out infinite;
   }
 
   @keyframes fc-shine {
-    0%, 55%  { transform: translateX(-130%); }
-    82%, 100% { transform: translateX(130%); }
+    0%, 62%   { transform: translateX(-130%); }
+    88%, 100% { transform: translateX(130%); }
   }
 
-  .fc-bob {
+  /* Soft heartbeat on the icon */
+  .fc-beat {
     transform-origin: center;
-    animation: fc-bob 2.8s ease-in-out infinite;
+    animation: fc-beat 3s ease-in-out infinite;
   }
 
-  @keyframes fc-bob {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50%      { transform: translateY(-2px) rotate(-7deg); }
+  @keyframes fc-beat {
+    0%, 88%, 100% { transform: scale(1); }
+    44%           { transform: scale(1.12); }
+  }
+
+  /* Softly breathing "online" dot */
+  .fc-dot {
+    animation: fc-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes fc-dot {
+    0%, 100% { opacity: 1;   transform: scale(1); }
+    50%      { opacity: 0.6; transform: scale(0.82); }
   }
 
   /* Layered warm paper texture for hero / feature panels */
