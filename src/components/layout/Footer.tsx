@@ -20,7 +20,7 @@ export function Footer() {
               A growing family of premium student and professional hostels
               across Islamabad — built on safety, cleanliness and genuine care.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2.5">
+            <div className="mt-6 flex flex-wrap gap-2">
               {site.socials.map((s) => {
                 const platform = platformFromLabel(s.label);
                 return (
@@ -30,10 +30,10 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white shadow-sm ring-1 ring-black/5 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white shadow-sm ring-1 ring-black/5 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md"
                   >
                     {platform ? (
-                      <SocialIcon platform={platform} size={28} />
+                      <SocialIcon platform={platform} size={24} />
                     ) : (
                       <span className="text-sm font-semibold text-forest-800">
                         {s.label[0]}
