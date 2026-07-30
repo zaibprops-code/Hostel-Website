@@ -51,7 +51,7 @@ export function Header() {
 
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-0.5 lg:flex"
+          className="hidden items-center gap-0.5 lg:flex xl:gap-1.5"
         >
           {site.nav.map((link) => {
             const active =
@@ -64,7 +64,7 @@ export function Header() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative rounded-full px-3 py-2 text-sm font-medium transition-colors",
+                  "relative rounded-full px-2.5 py-2 text-[15px] font-medium transition-colors xl:px-3.5 xl:text-base",
                   light
                     ? active
                       ? "text-ivory"
