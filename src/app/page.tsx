@@ -12,7 +12,7 @@ import { LocationCTA } from "@/components/sections/LocationCTA";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import type { Metadata } from "next";
 import { site } from "@/data/site";
-import { reviewsJsonLd, faqJsonLd, jsonLdScript } from "@/lib/seo";
+import { faqJsonLd, jsonLdScript } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -37,10 +37,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={jsonLdScript(reviewsJsonLd())}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={jsonLdScript(faqJsonLd())}

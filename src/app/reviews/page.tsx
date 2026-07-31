@@ -4,21 +4,18 @@ import { Section } from "@/components/ui/Section";
 import { ReviewCard } from "@/components/ui/ReviewCard";
 import { Stars } from "@/components/ui/Stars";
 import { reviews, averageRating, reviewCount } from "@/data/reviews";
-import { reviewsJsonLd, jsonLdScript, pageMeta } from "@/lib/seo";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Resident Reviews",
-  description: `Rated ${averageRating}/5 by residents and parents. Read what people who actually live at Riwaq Boys Hostel, E-11/2 Islamabad say about safety, cleanliness and community.`,
+  description:
+    "Read what residents and parents say about living at Riwaq Boys Hostel, E-11/2 Islamabad — safety, cleanliness, facilities and community.",
   path: "/reviews",
 });
 
 export default function ReviewsPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={jsonLdScript(reviewsJsonLd())}
-      />
       <PageHero
         breadcrumb="Reviews"
         path="/reviews"

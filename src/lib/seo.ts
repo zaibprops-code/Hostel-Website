@@ -3,8 +3,6 @@ import type { Branch, FaqItem, Review } from "@/types";
 import { site } from "@/data/site";
 import { flagshipBranch } from "@/data/branches";
 import {
-  averageRating,
-  reviewCount,
   brandReviews,
   reviewsForBranch,
   reviewStats,
@@ -96,13 +94,9 @@ export function organizationJsonLd() {
       },
       hasMap: `https://www.google.com/maps/search/?api=1&query=${flagshipBranch.geo.lat},${flagshipBranch.geo.lng}`,
     }),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: averageRating,
-      reviewCount,
-      bestRating: 5,
-      worstRating: 1,
-    },
+    // Note: aggregateRating/review markup is intentionally omitted until real
+    // (e.g. Google) reviews are connected — fabricated review data violates
+    // Google's structured-data policies and risks a manual penalty.
     makesOffer: {
       "@type": "Offer",
       priceCurrency: "PKR",
