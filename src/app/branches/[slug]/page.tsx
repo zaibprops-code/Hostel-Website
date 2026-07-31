@@ -10,11 +10,25 @@ import { Icon } from "@/components/ui/Icon";
 import { Badge } from "@/components/ui/Badge";
 import { NeighbourhoodExplorer } from "@/components/sections/NeighbourhoodExplorer";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
+import { ReviewCard } from "@/components/ui/ReviewCard";
+import { FaqAccordion } from "@/components/ui/FaqAccordion";
+import { Stars } from "@/components/ui/Stars";
 import { branches, getBranch } from "@/data/branches";
 import { getRooms, formatPrice } from "@/data/rooms";
 import { getFacilities } from "@/data/facilities";
+import {
+  reviewsForBranch,
+  reviewStats,
+  hasOwnReviews,
+} from "@/data/reviews";
+import { faqsForBranch, brandFaqs } from "@/data/faqs";
 import { whatsappLink, telLink } from "@/data/site";
-import { pageMeta } from "@/lib/seo";
+import {
+  pageMeta,
+  branchJsonLd,
+  faqJsonLd,
+  jsonLdScript,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   return branches.map((b) => ({ slug: b.slug }));
@@ -48,8 +62,28 @@ export default async function BranchDetailPage({
   const facilities = getFacilities(branch.facilityIds);
   const isOpen = branch.status === "open";
 
+  const branchReviews = reviewsForBranch(branch.id);
+  const showRating = hasOwnReviews(branch.id);
+  const stats = reviewStats(branchReviews);
+  const ownFaqs = faqsForBranch(branch.id);
+  const faqItems = ownFaqs.length > 0 ? ownFaqs : brandFaqs().slice(0, 6);
+
   return (
     <>
+      {/* Per-branch LocalBusiness structured data — lets this branch rank
+          independently in local search. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdScript(branchJsonLd(branch))}
+      />
+      {/* Only emit branch-scoped FAQ schema when the branch has its own FAQs,
+          to avoid duplicating the brand FAQ page's structured data. */}
+      {ownFaqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={jsonLdScript(faqJsonLd(ownFaqs))}
+        />
+      )}
       <PageHero
         breadcrumb={branch.shortName}
         path={`/branches/${branch.slug}`}
@@ -201,6 +235,54 @@ export default async function BranchDetailPage({
               mapEmbedUrl={branch.mapEmbedUrl}
               mapTitle={`Map showing ${branch.name}`}
             />
+          </div>
+        </Section>
+      )}
+
+      {/* Reviews */}
+      {branchReviews.length > 0 && (
+        <Section className="bg-sand">
+          <SectionHeading
+            eyebrow="Reviews"
+            title={showRating ? "What residents here say" : "What Riwaq residents say"}
+            lede={
+              showRating
+                ? undefined
+                : "Feedback from across the brand while this branch gathers its own."
+            }
+          />
+          {showRating && (
+            <div className="mt-6 flex items-center gap-3">
+              <Stars rating={stats.averageRating} size={18} />
+              <span className="text-sm text-ink-soft">
+                <span className="font-semibold text-forest-800">
+                  {stats.averageRating}
+                </span>{" "}
+                from {stats.reviewCount} residents
+              </span>
+            </div>
+          )}
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {branchReviews.slice(0, 3).map((review) => (
+              <ReviewCard key={review.id} review={review} />
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {/* FAQs */}
+      {faqItems.length > 0 && (
+        <Section>
+          <div className="mx-auto max-w-3xl">
+            <SectionHeading
+              eyebrow="Good to know"
+              title="Questions, answered."
+              align="center"
+              className="mx-auto"
+            />
+            <div className="mt-10">
+              <FaqAccordion items={faqItems} />
+            </div>
           </div>
         </Section>
       )}

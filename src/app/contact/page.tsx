@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Icon } from "@/components/ui/Icon";
+import { Badge } from "@/components/ui/Badge";
 import { MapEmbed } from "@/components/ui/MapEmbed";
 import { EnquiryForm } from "@/components/sections/EnquiryForm";
 import { site, telLink, whatsappTo } from "@/data/site";
-import { primaryBranch } from "@/data/branches";
+import { flagshipBranch, branches } from "@/data/branches";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Contact & Booking",
   description:
-    "Book a bed or arrange a visit at Riwaq Boys Hostel, E-11/2 Islamabad. Reach us on WhatsApp or by phone — we usually reply within the hour.",
+    "Contact Riwaq Hostels — book a bed or arrange a visit at any branch. Reach us on WhatsApp or by phone, or go straight to the branch you're interested in.",
   path: "/contact",
 });
 
@@ -75,11 +77,14 @@ export default function ContactPage() {
               <div className="flex items-start gap-3">
                 <Icon name="location" size={20} className="mt-0.5 shrink-0 text-brass-500" />
                 <div>
+                  <p className="text-xs font-medium uppercase tracking-wide text-brass-600">
+                    Flagship branch
+                  </p>
                   <p className="font-semibold text-forest-800">
-                    {primaryBranch.name}
+                    {flagshipBranch.name}
                   </p>
                   <p className="mt-1 text-sm text-ink-soft">
-                    {primaryBranch.address}
+                    {flagshipBranch.address}
                   </p>
                 </div>
               </div>
@@ -101,6 +106,60 @@ export default function ContactPage() {
         </div>
       </Section>
 
+      {/* Reach a specific branch */}
+      <Section className="bg-sand">
+        <SectionHeading
+          eyebrow="By location"
+          title="Reach a specific branch."
+          lede="Each Riwaq branch has its own front desk. Go straight to the one you're interested in."
+          as="h2"
+        />
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {branches.map((b) => {
+            const open = b.status === "open";
+            return (
+              <div
+                key={b.id}
+                className="flex flex-col rounded-2xl border border-forest-900/10 bg-white p-6"
+              >
+                <div className="flex items-center gap-2">
+                  <Badge tone={open ? "emerald" : "brass"}>
+                    {open ? "Open now" : "Opening soon"}
+                  </Badge>
+                  <Badge tone="neutral">
+                    <Icon name="location" size={13} /> {b.area}
+                  </Badge>
+                </div>
+                <h3 className="mt-4 font-semibold text-forest-800">{b.name}</h3>
+                <p className="mt-1 text-sm text-ink-soft">{b.address}</p>
+                <div className="mt-5 flex flex-wrap gap-2.5">
+                  <Link
+                    href={`/branches/${b.slug}`}
+                    className="inline-flex items-center gap-2 rounded-full border border-forest-700/25 px-4 py-2 text-sm font-semibold text-forest-800 transition-colors hover:border-forest-700/60 hover:bg-forest-700/5"
+                  >
+                    View branch
+                  </Link>
+                  <a
+                    href={whatsappTo(
+                      b.whatsapp,
+                      open
+                        ? `Hi Riwaq — I'd like to ask about ${b.name}.`
+                        : `Hi Riwaq — please add me to the waitlist for ${b.name}.`,
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-semibold text-white transition-transform hover:scale-[1.02]"
+                  >
+                    <Icon name="whatsapp" size={16} />
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </Section>
+
       {/* Map */}
       <Section className="bg-sand" contained={false}>
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -112,11 +171,11 @@ export default function ContactPage() {
         </div>
         <div className="mx-auto mt-10 max-w-7xl px-5 sm:px-8">
           <MapEmbed
-            src={primaryBranch.mapEmbedUrl}
-            title={`Map showing ${primaryBranch.name}`}
+            src={flagshipBranch.mapEmbedUrl}
+            title={`Map showing ${flagshipBranch.name}`}
           />
           <div className="mt-6 flex flex-wrap gap-2">
-            {primaryBranch.nearby.map((n) => (
+            {flagshipBranch.nearby.map((n) => (
               <span
                 key={n.name}
                 className="inline-flex items-center gap-1.5 rounded-full border border-forest-900/10 bg-white px-3 py-1.5 text-sm text-forest-800"

@@ -1,5 +1,5 @@
 import { Icon } from "./Icon";
-import { primaryBranch } from "@/data/branches";
+import { flagshipBranch } from "@/data/branches";
 
 /**
  * Google Maps embed with a graceful, on-brand fallback. Lazy-loaded so it
@@ -14,7 +14,7 @@ export function MapEmbed({
   title: string;
 }) {
   const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-    primaryBranch.address,
+    flagshipBranch.address,
   )}`;
 
   if (!src) {

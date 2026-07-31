@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { RoomCard } from "@/components/ui/RoomCard";
@@ -11,8 +12,8 @@ import { roomTypes, formatPrice, priceFrom } from "@/data/rooms";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Rooms & Pricing in E-11/2, Islamabad",
-  description: `Furnished single, double, triple and quad-sharing rooms at Riwaq Boys Hostel, E-11/2 Islamabad, from ${formatPrice(priceFrom)}/month. Transparent pricing, no hidden charges.`,
+  title: "Rooms & Pricing",
+  description: `Furnished single, double, triple and quad-sharing rooms across Riwaq Hostels, from ${formatPrice(priceFrom)}/month. Transparent pricing, no hidden charges — availability varies by branch.`,
   path: "/rooms",
 });
 
@@ -51,7 +52,12 @@ export default function RoomsPage() {
         </div>
 
         <p className="mt-6 text-center text-sm text-ink-muted">
-          Prices are per month and include utilities. A one-time refundable
+          These are the room categories across Riwaq — exact availability and any
+          branch-specific rates are shown on each{" "}
+          <Link href="/branches" className="text-forest-700 underline">
+            branch page
+          </Link>
+          . Prices are per month and include utilities. A one-time refundable
           security deposit applies. Ask us about semester-length rates.
         </p>
       </Section>

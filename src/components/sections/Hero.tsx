@@ -6,7 +6,7 @@ import { site } from "@/data/site";
 import { averageRating, reviewCount } from "@/data/reviews";
 import { priceFrom } from "@/data/rooms";
 import { formatPrice } from "@/data/rooms";
-import { primaryBranch } from "@/data/branches";
+import { flagshipBranch } from "@/data/branches";
 
 /**
  * The hero. First impression, value proposition, location and the two
@@ -31,7 +31,7 @@ export function Hero() {
                 <span className="absolute h-2 w-2 animate-ping rounded-full bg-emerald-400/70" />
                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
               </span>
-              Now open in {primaryBranch.area}, {site.address.city}
+              Now open in {flagshipBranch.area}, {site.address.city}
             </span>
 
             <h1 className="text-display mt-6 text-4xl leading-[1.05] sm:text-5xl md:text-6xl">
@@ -43,7 +43,7 @@ export function Hero() {
               <strong className="font-semibold text-ivory">
                 Riwaq Boys Hostel
               </strong>{" "}
-              is spotless, thoughtfully run accommodation in {primaryBranch.area},{" "}
+              is spotless, thoughtfully run accommodation in {flagshipBranch.area},{" "}
               {site.address.city} — for students and young professionals.
               Premium comfort, a genuine community, and a price that makes sense.
             </p>

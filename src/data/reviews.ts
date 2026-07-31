@@ -68,9 +68,43 @@ export const reviews: Review[] = [
   },
 ];
 
-export const averageRating =
-  Math.round(
-    (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length) * 10,
-  ) / 10;
+/** Average + count for any set of reviews. */
+export function reviewStats(list: Review[]): {
+  averageRating: number;
+  reviewCount: number;
+} {
+  if (list.length === 0) return { averageRating: 0, reviewCount: 0 };
+  const averageRating =
+    Math.round(
+      (list.reduce((sum, r) => sum + r.rating, 0) / list.length) * 10,
+    ) / 10;
+  return { averageRating, reviewCount: list.length };
+}
 
-export const reviewCount = reviews.length;
+/** Brand-level testimonials (not tied to a specific branch). */
+export function brandReviews(): Review[] {
+  return reviews.filter((r) => !r.branchId);
+}
+
+/**
+ * Reviews for a branch. Returns branch-specific reviews when they exist,
+ * otherwise falls back to brand-level testimonials so a new branch page still
+ * reads as trustworthy before it has gathered its own reviews.
+ */
+export function reviewsForBranch(branchId: string): Review[] {
+  const own = reviews.filter((r) => r.branchId === branchId);
+  return own.length > 0 ? own : brandReviews();
+}
+
+/** Whether a branch has its own (non-fallback) reviews. */
+export function hasOwnReviews(branchId: string): boolean {
+  return reviews.some((r) => r.branchId === branchId);
+}
+
+const brandStats = reviewStats(brandReviews());
+
+/** Brand-level average rating (across brand testimonials). */
+export const averageRating = brandStats.averageRating;
+
+/** Brand-level review count. */
+export const reviewCount = brandStats.reviewCount;

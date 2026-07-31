@@ -102,5 +102,15 @@ export const faqCategories: { id: NonNullable<FaqItem["category"]>; label: strin
 ];
 
 export function faqsByCategory(category: FaqItem["category"]): FaqItem[] {
-  return faqs.filter((f) => f.category === category);
+  return brandFaqs().filter((f) => f.category === category);
+}
+
+/** Brand-level FAQs (apply to every Riwaq branch). */
+export function brandFaqs(): FaqItem[] {
+  return faqs.filter((f) => !f.branchId);
+}
+
+/** FAQs specific to one branch (excludes brand-level ones). */
+export function faqsForBranch(branchId: string): FaqItem[] {
+  return faqs.filter((f) => f.branchId === branchId);
 }
