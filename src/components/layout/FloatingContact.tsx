@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { whatsappLink } from "@/data/site";
@@ -20,6 +20,36 @@ const WA_LINK = whatsappLink(
 export function FloatingContact() {
   const [connecting, setConnecting] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // When the user returns to this page (e.g. Back from WhatsApp), the browser
+  // may restore it from the back/forward cache with the overlay still up. Reset
+  // it — and cancel any pending redirect so it can't re-fire on restore.
+  useEffect(() => {
+    const clear = () => {
+      if (timer.current) {
+        clearTimeout(timer.current);
+        timer.current = null;
+      }
+      setConnecting(false);
+    };
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) clear();
+    };
+    const onPageHide = () => {
+      if (timer.current) clearTimeout(timer.current);
+    };
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") setConnecting(false);
+    };
+    window.addEventListener("pageshow", onPageShow);
+    window.addEventListener("pagehide", onPageHide);
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      window.removeEventListener("pageshow", onPageShow);
+      window.removeEventListener("pagehide", onPageHide);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, []);
 
   const handleClick = useCallback((e: MouseEvent<HTMLAnchorElement>) => {
     // Respect modified clicks (open-in-new-tab shortcuts) — let them through.
