@@ -79,10 +79,9 @@ export function Header() {
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     aria-haspopup="true"
-                    className={cn(linkClass, "inline-flex items-center gap-1")}
+                    className={linkClass}
                   >
                     {link.label}
-                    <Chevron className="transition-transform duration-200 group-hover:rotate-180" />
                     {active && (
                       <span className="absolute inset-x-3.5 -bottom-0.5 h-px bg-brass-400" />
                     )}
@@ -193,27 +192,6 @@ export function Header() {
         </div>
       </div>
     </header>
-  );
-}
-
-function Chevron({ className }: { className?: string }) {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-      className={className}
-    >
-      <path
-        d="M6 9l6 6 6-6"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
 
