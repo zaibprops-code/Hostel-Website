@@ -89,9 +89,19 @@ export function Header() {
               "relative rounded-full px-2.5 py-2 text-[15px] font-medium transition-colors xl:px-3.5 xl:text-base",
               color,
             );
-            const showUnderline = active || open;
-            const underline = showUnderline && (
-              <span className="absolute inset-x-3.5 -bottom-0.5 h-px bg-brass-400" />
+            // A single, consistent underline for every state — it animates in
+            // from the centre on hover and stays put for the active page and
+            // the open Branches menu. Same treatment everywhere, so it reads as
+            // part of the design rather than an add-on.
+            const showUnderline = active || isHovered;
+            const underline = (
+              <span
+                aria-hidden
+                className={cn(
+                  "absolute inset-x-2.5 bottom-1 h-0.5 origin-center rounded-full bg-brass-400 transition-transform duration-200 xl:inset-x-3.5",
+                  showUnderline ? "scale-x-100" : "scale-x-0",
+                )}
+              />
             );
 
             // The Branches item reveals a dropdown of every branch on hover /
