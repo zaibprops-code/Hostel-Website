@@ -5,15 +5,15 @@ import type { MouseEvent } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { whatsappLink } from "@/data/site";
 
-const WA_MESSAGE = "Hi Riwaq — I'd like to ask about availability and pricing.";
-const WA_LINK = whatsappLink(WA_MESSAGE);
-const REDIRECT_MS = 2000;
+const WA_LINK = whatsappLink(
+  "Hi Riwaq — I'd like to ask about availability and pricing.",
+);
+const REDIRECT_MS = 1400;
 
 /**
- * The single WhatsApp action for the whole site. On click it plays a short,
- * on-brand "message sent" preview — a mini WhatsApp chat where the pre-filled
- * message is delivered, read (blue ticks) and Riwaq starts typing — before the
- * real chat opens. Opening WhatsApp immediately would switch tabs before the
+ * The single WhatsApp action for the whole site. On click it shows a short,
+ * honest "Opening WhatsApp" transition (branded loader, not a fake chat) then
+ * opens the real chat. Opening immediately would switch tabs before the
  * animation could be seen, so we hold, animate, then go.
  */
 export function FloatingContact() {
@@ -89,144 +89,45 @@ export function FloatingContact() {
         </div>
       </div>
 
-      {connecting && <ChatPreview />}
+      {connecting && <ConnectingScreen />}
     </>
   );
 }
 
-/** A miniature WhatsApp chat that plays a "message sent → read → typing" flow. */
-function ChatPreview() {
-  // step 0 sending · 1 sent(✓) · 2 delivered(✓✓) · 3 read(blue) · 4 typing
-  const [step, setStep] = useState(0);
-
-  useEffect(() => {
-    const ts = [
-      setTimeout(() => setStep(1), 350),
-      setTimeout(() => setStep(2), 750),
-      setTimeout(() => setStep(3), 1150),
-      setTimeout(() => setStep(4), 1450),
-    ];
-    return () => ts.forEach(clearTimeout);
-  }, []);
-
+/** Honest, branded "Opening WhatsApp" transition — a loader, not a fake chat. */
+function ConnectingScreen() {
   return (
     <div
       role="status"
       aria-live="polite"
-      className="wa-backdrop fixed inset-0 z-[70] flex items-center justify-center bg-forest-950/70 px-6 backdrop-blur-sm"
+      className="wa-backdrop fixed inset-0 z-[70] flex flex-col items-center justify-center gap-6 bg-gradient-to-br from-[#0b6b60] to-[#128c7e] px-6 text-center text-white"
     >
-      <div className="wa-card w-full max-w-sm overflow-hidden rounded-3xl bg-white shadow-2xl">
-        {/* WhatsApp-style header */}
-        <div className="flex items-center gap-3 bg-[#075E54] px-4 py-3 text-white">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#128C7E] text-sm font-bold">
-            R
-          </span>
-          <div className="min-w-0">
-            <p className="truncate text-sm font-semibold leading-tight">
-              Riwaq Hostels
-            </p>
-            <p className="text-[0.7rem] leading-tight text-white/70">
-              {step >= 4 ? "typing…" : "online"}
-            </p>
-          </div>
-          <span className="ml-auto flex items-center gap-1 text-[0.65rem] text-white/70">
-            <Icon name="whatsapp" size={16} />
-            WhatsApp
-          </span>
-        </div>
-
-        {/* Chat body */}
-        <div className="space-y-2 bg-[#ECE5DD] px-4 py-5">
-          {/* Outgoing message */}
-          <div className="flex justify-end">
-            <div className="wa-bubble relative max-w-[80%] rounded-2xl rounded-tr-sm bg-[#DCF8C6] px-3 py-2 shadow-sm">
-              <p className="text-[0.82rem] leading-snug text-[#111b21]">
-                {WA_MESSAGE}
-              </p>
-              <div className="mt-0.5 flex items-center justify-end gap-1">
-                <span className="text-[0.6rem] text-black/45">now</span>
-                <Ticks step={step} />
-              </div>
-            </div>
-          </div>
-
-          {/* Riwaq typing */}
-          {step >= 4 && (
-            <div className="flex justify-start">
-              <div className="wa-bubble rounded-2xl rounded-tl-sm bg-white px-3 py-2.5 shadow-sm">
-                <div className="wa-typing flex items-center gap-1">
-                  <span className="h-1.5 w-1.5 rounded-full bg-black/40" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-black/40" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-black/40" />
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Footer status */}
-        <div className="flex items-center justify-center gap-2 border-t border-black/5 bg-white px-4 py-3 text-center">
-          <span className="h-2 w-2 animate-pulse rounded-full bg-[#25D366]" />
-          <p className="text-xs text-ink-soft">
-            Opening WhatsApp…{" "}
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-forest-700 underline"
-            >
-              tap here
-            </a>
-          </p>
-        </div>
+      {/* WhatsApp mark with a soft pulse ring and a spinning loader */}
+      <div className="wa-card relative flex h-28 w-28 items-center justify-center">
+        <span className="wa-ring absolute inset-2 rounded-full bg-white/20" />
+        <span className="absolute inset-0 rounded-full border-[3px] border-white/25 border-t-white motion-safe:animate-spin" />
+        <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#1cae52] shadow-lg">
+          <Icon name="whatsapp" size={38} />
+        </span>
       </div>
+
+      <div className="wa-card">
+        <h2 className="text-xl font-semibold tracking-tight">
+          Opening WhatsApp
+        </h2>
+        <p className="mx-auto mt-1.5 max-w-xs text-sm text-white/80">
+          Taking you to chat with the Riwaq team…
+        </p>
+      </div>
+
+      <a
+        href={WA_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="wa-card rounded-full bg-white/15 px-5 py-2 text-sm font-medium text-white ring-1 ring-white/25 transition-colors hover:bg-white/25"
+      >
+        Tap here if it doesn&apos;t open
+      </a>
     </div>
-  );
-}
-
-/** WhatsApp-style delivery ticks that progress sent → delivered → read. */
-function Ticks({ step }: { step: number }) {
-  const blue = step >= 3;
-  const doubled = step >= 2;
-  const color = blue ? "#34B7F1" : "rgba(0,0,0,0.4)";
-  return (
-    <span className="relative inline-flex h-3 w-4 items-center">
-      <Check style={{ color }} className="absolute left-0" />
-      <Check
-        style={{ color }}
-        className="absolute left-[5px] transition-opacity duration-200"
-        hidden={!doubled}
-      />
-    </span>
-  );
-}
-
-function Check({
-  className,
-  style,
-  hidden,
-}: {
-  className?: string;
-  style?: React.CSSProperties;
-  hidden?: boolean;
-}) {
-  return (
-    <svg
-      width="11"
-      height="11"
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden="true"
-      className={className}
-      style={{ ...style, opacity: hidden ? 0 : 1 }}
-    >
-      <path
-        d="M2 8.5l3.5 3.5L14 3.5"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
