@@ -249,20 +249,14 @@
     30%           { transform: translateY(-5px); opacity: 1; }
   }
 
-  /* Progress sweep under the message */
-  .wa-progress::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(90deg, #29d96e, #1cae52);
-    transform-origin: left;
-    animation: wa-progress 1.4s ease-out both;
+  /* A chat message bubble entering */
+  .wa-bubble {
+    animation: wa-bubble 0.35s var(--ease-out-soft) both;
   }
 
-  @keyframes wa-progress {
-    from { transform: scaleX(0); }
-    to   { transform: scaleX(1); }
+  @keyframes wa-bubble {
+    from { opacity: 0; transform: translateY(8px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   /* Layered warm paper texture for hero / feature panels */
