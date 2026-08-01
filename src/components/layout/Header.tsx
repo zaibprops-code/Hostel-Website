@@ -12,6 +12,10 @@ import { cn } from "@/lib/cn";
 export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  // JS-driven hover for the Branches menu. CSS `group-hover` is gated behind
+  // `@media (hover: hover)`, which fails on touchscreen laptops (pointer
+  // reported as coarse) — so we open on real pointer enter/leave and focus.
+  const [branchesOpen, setBranchesOpen] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -74,11 +78,23 @@ export function Header() {
             // focus. It's data-driven, so new branches appear automatically.
             if (link.href === "/branches" && branches.length > 0) {
               return (
-                <div key={link.href} className="group relative">
+                <div
+                  key={link.href}
+                  className="relative"
+                  onMouseEnter={() => setBranchesOpen(true)}
+                  onMouseLeave={() => setBranchesOpen(false)}
+                  onFocus={() => setBranchesOpen(true)}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                      setBranchesOpen(false);
+                    }
+                  }}
+                >
                   <Link
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     aria-haspopup="true"
+                    aria-expanded={branchesOpen}
                     className={linkClass}
                   >
                     {link.label}
@@ -86,7 +102,7 @@ export function Header() {
                       <span className="absolute inset-x-3.5 -bottom-0.5 h-px bg-brass-400" />
                     )}
                   </Link>
-                  <BranchesDropdown activeSlug={pathname} />
+                  <BranchesDropdown open={branchesOpen} activeSlug={pathname} />
                 </div>
               );
             }
@@ -201,10 +217,21 @@ export function Header() {
  * (focus-within); the transparent padding at the top bridges the gap so the
  * menu doesn't close as the pointer travels from the trigger to the panel.
  */
-function BranchesDropdown({ activeSlug }: { activeSlug: string }) {
+function BranchesDropdown({
+  open,
+  activeSlug,
+}: {
+  open: boolean;
+  activeSlug: string;
+}) {
   return (
     <div
-      className="invisible absolute left-0 top-full z-50 translate-y-1 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+      className={cn(
+        "absolute left-0 top-full z-50 pt-3 transition-all duration-200",
+        open
+          ? "visible translate-y-0 opacity-100"
+          : "invisible translate-y-1 opacity-0",
+      )}
     >
       <div className="w-80 overflow-hidden rounded-2xl border border-forest-900/10 bg-ivory p-2 shadow-xl shadow-forest-950/10">
         <p className="px-3 pb-1 pt-2 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink-muted">
