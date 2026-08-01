@@ -1,28 +1,38 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
+import type { MouseEvent } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { whatsappLink } from "@/data/site";
+
+const WA_LINK = whatsappLink(
+  "Hi Riwaq — I'd like to ask about availability and pricing.",
+);
 
 /**
  * The single WhatsApp action for the whole site — a persistent, floating
  * button, the highest-intent conversion path for hostel enquiries in Pakistan.
- * This is intentionally the only WhatsApp entry point across the site.
  *
- * Clean gradient pill with contained, tasteful motion. On click it plays a
- * short "Connecting you on WhatsApp…" overlay for clear feedback while the
- * chat opens in a new tab. All motion is disabled for reduced-motion users.
+ * On click it plays a short "Opening WhatsApp…" confirmation, THEN opens the
+ * chat. (Opening the chat immediately would switch the browser to the new tab
+ * before the animation could ever be seen — so we hold, animate, then go.)
  */
 export function FloatingContact() {
   const [connecting, setConnecting] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Show the overlay on click; we do NOT preventDefault, so the wa.me link
-  // still opens the chat in a new tab. The overlay is on-page confirmation.
-  const handleClick = useCallback(() => {
+  const handleClick = useCallback((e: MouseEvent<HTMLAnchorElement>) => {
+    // Respect modified clicks (open-in-new-tab shortcuts) — let them through.
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
+      return;
+    }
+    e.preventDefault();
     setConnecting(true);
     if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setConnecting(false), 1700);
+    // Play the animation, then navigate to WhatsApp.
+    timer.current = setTimeout(() => {
+      window.location.href = WA_LINK;
+    }, 1400);
   }, []);
 
   return (
@@ -30,9 +40,7 @@ export function FloatingContact() {
       <div className="fc-enter fixed bottom-5 right-5 z-40 sm:bottom-7 sm:right-7">
         <div className="fc-float relative">
           <a
-            href={whatsappLink(
-              "Hi Riwaq — I'd like to ask about availability and pricing.",
-            )}
+            href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat with Riwaq on WhatsApp"
@@ -57,18 +65,17 @@ export function FloatingContact() {
         </div>
       </div>
 
-      {connecting && <ConnectingOverlay onDone={() => setConnecting(false)} />}
+      {connecting && <ConnectingOverlay />}
     </>
   );
 }
 
-/** Full-screen confirmation shown briefly after clicking the WhatsApp button. */
-function ConnectingOverlay({ onDone }: { onDone: () => void }) {
+/** Full-screen confirmation shown briefly after clicking, before WhatsApp opens. */
+function ConnectingOverlay() {
   return (
     <div
       role="status"
       aria-live="polite"
-      onClick={onDone}
       className="wa-backdrop fixed inset-0 z-[70] flex items-center justify-center bg-forest-950/70 px-6 backdrop-blur-sm"
     >
       <div className="wa-card w-full max-w-sm rounded-3xl bg-white p-8 text-center shadow-2xl">
@@ -101,9 +108,14 @@ function ConnectingOverlay({ onDone }: { onDone: () => void }) {
 
         <p className="mt-4 text-xs text-ink-muted">
           Not redirected?{" "}
-          <span className="font-medium text-forest-700">
-            Check the new browser tab.
-          </span>
+          <a
+            href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-forest-700 underline"
+          >
+            Open WhatsApp
+          </a>
         </p>
       </div>
     </div>

@@ -257,7 +257,7 @@
     border-radius: inherit;
     background: linear-gradient(90deg, #29d96e, #1cae52);
     transform-origin: left;
-    animation: wa-progress 1.5s ease-in-out both;
+    animation: wa-progress 1.4s ease-out both;
   }
 
   @keyframes wa-progress {
