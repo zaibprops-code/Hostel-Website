@@ -12,10 +12,12 @@ import { cn } from "@/lib/cn";
 export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  // JS-driven hover for the Branches menu. CSS `group-hover` is gated behind
-  // `@media (hover: hover)`, which fails on touchscreen laptops (pointer
-  // reported as coarse) — so we open on real pointer enter/leave and focus.
+  // JS-driven hover for the nav. Tailwind's `hover:`/`group-hover:` are gated
+  // behind `@media (hover: hover)`, which fails on touchscreen laptops (coarse
+  // pointer) — so both the Branches dropdown and per-item hover colours are
+  // driven by real pointer/focus state instead, working on any device.
   const [branchesOpen, setBranchesOpen] = useState(false);
+  const [hovered, setHovered] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -63,20 +65,38 @@ export function Header() {
               link.href === "/"
                 ? pathname === "/"
                 : pathname.startsWith(link.href);
+            const isBranches =
+              link.href === "/branches" && branches.length > 0;
+            const open = isBranches && branchesOpen;
+            const isHovered = hovered === link.href || open;
+
+            // Colour states: active = solid brand colour; hovered/menu-open =
+            // brass accent; resting = muted. The brass underline marks both the
+            // current page and the branch whose dropdown is showing, so the
+            // menu is clearly tied to "Branches".
+            const color = active
+              ? light
+                ? "text-ivory"
+                : "text-forest-800"
+              : isHovered
+                ? light
+                  ? "text-brass-300"
+                  : "text-brass-600"
+                : light
+                  ? "text-ivory/75"
+                  : "text-ink-soft";
             const linkClass = cn(
               "relative rounded-full px-2.5 py-2 text-[15px] font-medium transition-colors xl:px-3.5 xl:text-base",
-              light
-                ? active
-                  ? "text-ivory"
-                  : "text-ivory/70 hover:text-ivory"
-                : active
-                  ? "text-forest-800"
-                  : "text-ink-soft hover:text-forest-800",
+              color,
+            );
+            const showUnderline = active || open;
+            const underline = showUnderline && (
+              <span className="absolute inset-x-3.5 -bottom-0.5 h-px bg-brass-400" />
             );
 
             // The Branches item reveals a dropdown of every branch on hover /
             // focus. It's data-driven, so new branches appear automatically.
-            if (link.href === "/branches" && branches.length > 0) {
+            if (isBranches) {
               return (
                 <div
                   key={link.href}
@@ -98,9 +118,7 @@ export function Header() {
                     className={linkClass}
                   >
                     {link.label}
-                    {active && (
-                      <span className="absolute inset-x-3.5 -bottom-0.5 h-px bg-brass-400" />
-                    )}
+                    {underline}
                   </Link>
                   <BranchesDropdown open={branchesOpen} activeSlug={pathname} />
                 </div>
@@ -112,12 +130,18 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
+                onMouseEnter={() => setHovered(link.href)}
+                onMouseLeave={() =>
+                  setHovered((h) => (h === link.href ? null : h))
+                }
+                onFocus={() => setHovered(link.href)}
+                onBlur={() =>
+                  setHovered((h) => (h === link.href ? null : h))
+                }
                 className={linkClass}
               >
                 {link.label}
-                {active && (
-                  <span className="absolute inset-x-3.5 -bottom-0.5 h-px bg-brass-400" />
-                )}
+                {underline}
               </Link>
             );
           })}
@@ -224,6 +248,9 @@ function BranchesDropdown({
   open: boolean;
   activeSlug: string;
 }) {
+  // JS hover for the rows too (CSS :hover is gated behind @media (hover:hover)).
+  const [hoveredKey, setHoveredKey] = useState<string | null>(null);
+
   return (
     <div
       className={cn(
@@ -239,22 +266,27 @@ function BranchesDropdown({
         </p>
         <ul className="space-y-0.5">
           {branches.map((b) => {
-            const open = b.status === "open";
+            const isOpen = b.status === "open";
             const isActive = activeSlug === `/branches/${b.slug}`;
+            const highlighted = isActive || hoveredKey === b.id;
             return (
               <li key={b.id}>
                 <Link
                   href={`/branches/${b.slug}`}
+                  onMouseEnter={() => setHoveredKey(b.id)}
+                  onMouseLeave={() =>
+                    setHoveredKey((k) => (k === b.id ? null : k))
+                  }
                   className={cn(
                     "flex items-center justify-between gap-3 rounded-xl px-3 py-2.5 transition-colors",
-                    isActive ? "bg-forest-50" : "hover:bg-forest-50",
+                    highlighted ? "bg-forest-50" : "",
                   )}
                 >
                   <span className="flex min-w-0 items-center gap-2.5">
                     <span
                       className={cn(
                         "h-2 w-2 shrink-0 rounded-full",
-                        open ? "bg-emerald-500" : "bg-brass-400",
+                        isOpen ? "bg-emerald-500" : "bg-brass-400",
                       )}
                     />
                     <span className="flex min-w-0 flex-col">
@@ -269,10 +301,10 @@ function BranchesDropdown({
                   <span
                     className={cn(
                       "shrink-0 text-[0.6rem] font-semibold uppercase tracking-wide",
-                      open ? "text-emerald-600" : "text-brass-600",
+                      isOpen ? "text-emerald-600" : "text-brass-600",
                     )}
                   >
-                    {open ? "Open" : "Soon"}
+                    {isOpen ? "Open" : "Soon"}
                   </span>
                 </Link>
               </li>
@@ -282,7 +314,16 @@ function BranchesDropdown({
         <div className="mt-1 border-t border-forest-900/8 pt-1">
           <Link
             href="/branches"
-            className="flex items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-sm font-semibold text-forest-700 transition-colors hover:bg-forest-50 hover:text-forest-900"
+            onMouseEnter={() => setHoveredKey("all")}
+            onMouseLeave={() =>
+              setHoveredKey((k) => (k === "all" ? null : k))
+            }
+            className={cn(
+              "flex items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors",
+              hoveredKey === "all"
+                ? "bg-forest-50 text-forest-900"
+                : "text-forest-700",
+            )}
           >
             View all branches
             <span aria-hidden>→</span>
