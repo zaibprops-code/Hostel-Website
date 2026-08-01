@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
 import { site } from "@/data/site";
+import { branches } from "@/data/branches";
 import { cn } from "@/lib/cn";
 
 export function Header() {
@@ -58,21 +59,45 @@ export function Header() {
               link.href === "/"
                 ? pathname === "/"
                 : pathname.startsWith(link.href);
+            const linkClass = cn(
+              "relative rounded-full px-2.5 py-2 text-[15px] font-medium transition-colors xl:px-3.5 xl:text-base",
+              light
+                ? active
+                  ? "text-ivory"
+                  : "text-ivory/70 hover:text-ivory"
+                : active
+                  ? "text-forest-800"
+                  : "text-ink-soft hover:text-forest-800",
+            );
+
+            // The Branches item reveals a dropdown of every branch on hover /
+            // focus. It's data-driven, so new branches appear automatically.
+            if (link.href === "/branches" && branches.length > 0) {
+              return (
+                <div key={link.href} className="group relative">
+                  <Link
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    aria-haspopup="true"
+                    className={cn(linkClass, "inline-flex items-center gap-1")}
+                  >
+                    {link.label}
+                    <Chevron className="transition-transform duration-200 group-hover:rotate-180" />
+                    {active && (
+                      <span className="absolute inset-x-3.5 -bottom-0.5 h-px bg-brass-400" />
+                    )}
+                  </Link>
+                  <BranchesDropdown activeSlug={pathname} />
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
-                className={cn(
-                  "relative rounded-full px-2.5 py-2 text-[15px] font-medium transition-colors xl:px-3.5 xl:text-base",
-                  light
-                    ? active
-                      ? "text-ivory"
-                      : "text-ivory/70 hover:text-ivory"
-                    : active
-                      ? "text-forest-800"
-                      : "text-ink-soft hover:text-forest-800",
-                )}
+                className={linkClass}
               >
                 {link.label}
                 {active && (
@@ -116,20 +141,44 @@ export function Header() {
                   ? pathname === "/"
                   : pathname.startsWith(link.href);
               return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={active ? "page" : undefined}
-                  className={cn(
-                    "flex items-center justify-between border-b border-forest-900/5 py-3.5 text-lg",
-                    active ? "text-forest-800" : "text-ink-soft",
+                <div key={link.href}>
+                  <Link
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "flex items-center justify-between border-b border-forest-900/5 py-3.5 text-lg",
+                      active ? "text-forest-800" : "text-ink-soft",
+                    )}
+                  >
+                    {link.label}
+                    {active && (
+                      <span className="h-1.5 w-1.5 rounded-full bg-brass-400" />
+                    )}
+                  </Link>
+                  {/* Branch sublist — mirrors the desktop dropdown. */}
+                  {link.href === "/branches" && branches.length > 0 && (
+                    <ul className="border-b border-forest-900/5 py-1.5">
+                      {branches.map((b) => (
+                        <li key={b.id}>
+                          <Link
+                            href={`/branches/${b.slug}`}
+                            className="flex items-center gap-2.5 py-2 pl-4 text-sm text-ink-soft"
+                          >
+                            <span
+                              className={cn(
+                                "h-1.5 w-1.5 shrink-0 rounded-full",
+                                b.status === "open"
+                                  ? "bg-emerald-500"
+                                  : "bg-brass-400",
+                              )}
+                            />
+                            {b.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   )}
-                >
-                  {link.label}
-                  {active && (
-                    <span className="h-1.5 w-1.5 rounded-full bg-brass-400" />
-                  )}
-                </Link>
+                </div>
               );
             })}
           </nav>
@@ -144,6 +193,98 @@ export function Header() {
         </div>
       </div>
     </header>
+  );
+}
+
+function Chevron({ className }: { className?: string }) {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      <path
+        d="M6 9l6 6 6-6"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+/**
+ * The Branches mega-menu. Data-driven from the branch registry, so new
+ * branches appear here automatically. Revealed on hover and on keyboard focus
+ * (focus-within); the transparent padding at the top bridges the gap so the
+ * menu doesn't close as the pointer travels from the trigger to the panel.
+ */
+function BranchesDropdown({ activeSlug }: { activeSlug: string }) {
+  return (
+    <div
+      className="invisible absolute left-0 top-full z-50 translate-y-1 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+    >
+      <div className="w-80 overflow-hidden rounded-2xl border border-forest-900/10 bg-ivory p-2 shadow-xl shadow-forest-950/10">
+        <p className="px-3 pb-1 pt-2 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+          Our branches
+        </p>
+        <ul className="space-y-0.5">
+          {branches.map((b) => {
+            const open = b.status === "open";
+            const isActive = activeSlug === `/branches/${b.slug}`;
+            return (
+              <li key={b.id}>
+                <Link
+                  href={`/branches/${b.slug}`}
+                  className={cn(
+                    "flex items-center justify-between gap-3 rounded-xl px-3 py-2.5 transition-colors",
+                    isActive ? "bg-forest-50" : "hover:bg-forest-50",
+                  )}
+                >
+                  <span className="flex min-w-0 items-center gap-2.5">
+                    <span
+                      className={cn(
+                        "h-2 w-2 shrink-0 rounded-full",
+                        open ? "bg-emerald-500" : "bg-brass-400",
+                      )}
+                    />
+                    <span className="flex min-w-0 flex-col">
+                      <span className="truncate text-sm font-semibold text-forest-800">
+                        {b.name}
+                      </span>
+                      <span className="text-xs text-ink-muted">
+                        {b.area}, {b.city}
+                      </span>
+                    </span>
+                  </span>
+                  <span
+                    className={cn(
+                      "shrink-0 text-[0.6rem] font-semibold uppercase tracking-wide",
+                      open ? "text-emerald-600" : "text-brass-600",
+                    )}
+                  >
+                    {open ? "Open" : "Soon"}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+        <div className="mt-1 border-t border-forest-900/8 pt-1">
+          <Link
+            href="/branches"
+            className="flex items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-sm font-semibold text-forest-700 transition-colors hover:bg-forest-50 hover:text-forest-900"
+          >
+            View all branches
+            <span aria-hidden>→</span>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
 
