@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/data/site";
 import { branches } from "@/data/branches";
+import { landingPages } from "@/data/landing";
 import { getAllPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -49,5 +50,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...branchEntries, ...blogEntries];
+  // High-intent local SEO landing pages ("hostel near NUST", etc.).
+  const landingEntries: MetadataRoute.Sitemap = landingPages.map((p) => ({
+    url: `${site.url}/hostels/${p.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.9,
+  }));
+
+  return [...staticEntries, ...branchEntries, ...blogEntries, ...landingEntries];
 }

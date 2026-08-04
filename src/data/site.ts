@@ -75,6 +75,10 @@ export const site: SiteConfig = {
     { label: "Guides & blog", href: "/blog" },
     { label: "Updates", href: "/updates" },
     { label: "Pricing", href: "/rooms#pricing" },
+    { label: "Hostel near NUST", href: "/hostels/hostel-near-nust" },
+    { label: "Hostel near FAST", href: "/hostels/hostel-near-fast-nuces" },
+    { label: "Boys hostel in E-11", href: "/hostels/boys-hostel-in-e-11-islamabad" },
+    { label: "Student accommodation", href: "/hostels/student-accommodation-in-islamabad" },
   ],
 };
 
