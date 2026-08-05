@@ -39,7 +39,7 @@ export default function ReviewsPage() {
           </div>
         </div>
 
-        <div className="columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6 [&>*]:break-inside-avoid">
+        <div data-reveal-group className="columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6 [&>*]:break-inside-avoid">
           {reviews.map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}

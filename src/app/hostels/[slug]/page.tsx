@@ -60,9 +60,9 @@ export default async function LandingPage({
       {/* Highlight + intro CTA */}
       <Section>
         <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
-          <div className="space-y-8">
+          <div data-reveal-group className="space-y-8">
             {page.sections.map((s) => (
-              <div key={s.heading}>
+              <div key={s.heading} data-reveal>
                 <h2 className="text-display text-2xl text-forest-800">
                   {s.heading}
                 </h2>
@@ -71,7 +71,7 @@ export default async function LandingPage({
             ))}
           </div>
 
-          <aside className="rounded-[2rem] border border-forest-900/10 bg-sand p-8 lg:sticky lg:top-28">
+          <aside data-reveal className="rounded-[2rem] border border-forest-900/10 bg-sand p-8 lg:sticky lg:top-28">
             {page.stat && (
               <div className="text-center">
                 <p className="text-display text-5xl text-forest-800">
@@ -121,10 +121,11 @@ export default async function LandingPage({
       {/* Internal links to sibling landing pages (SEO + navigation) */}
       <Section>
         <SectionHeading eyebrow="Also searching for" title="Explore more" />
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div data-reveal-group className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {others.map((p) => (
             <Link
               key={p.slug}
+              data-reveal
               href={`/hostels/${p.slug}`}
               className="group flex items-center justify-between gap-3 rounded-2xl border border-forest-900/10 bg-white px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-brass-200 hover:shadow-md"
             >

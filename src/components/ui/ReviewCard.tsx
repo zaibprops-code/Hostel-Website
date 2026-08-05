@@ -23,8 +23,9 @@ export function ReviewCard({
 
   return (
     <figure
+      data-reveal
       className={cn(
-        "flex h-full flex-col rounded-2xl border border-forest-900/8 bg-white p-6 shadow-sm",
+        "flex h-full flex-col rounded-2xl border border-forest-900/8 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg",
         className,
       )}
     >

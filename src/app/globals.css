@@ -118,7 +118,8 @@
     text-transform: uppercase;
   }
 
-  /* Subtle entrance animation, opt-in via .reveal */
+  /* Subtle entrance animation, opt-in via .reveal (fires on load — for
+     above-the-fold elements like the hero). */
   .reveal {
     animation: reveal-up 0.7s var(--ease-out-soft) both;
   }
@@ -131,6 +132,50 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  /* ------------------------------------------------------------------
+     Scroll-triggered reveal.
+     Any element with [data-reveal] starts hidden and eases into place the
+     first time it scrolls into view (a client observer adds .is-visible).
+     Gated on html.js so that, without JavaScript, everything is simply
+     visible — content is never trapped behind an animation. Elements inside
+     a [data-reveal-group] stagger in sequence for a considered, cascading feel.
+     ------------------------------------------------------------------ */
+  html.js [data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.75s var(--ease-out-soft),
+      transform 0.75s var(--ease-out-soft);
+    will-change: opacity, transform;
+  }
+
+  html.js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Cascade children of a group by their order in the row */
+  html.js [data-reveal-group] > *[data-reveal]:nth-child(1) { transition-delay: 0ms; }
+  html.js [data-reveal-group] > *[data-reveal]:nth-child(2) { transition-delay: 70ms; }
+  html.js [data-reveal-group] > *[data-reveal]:nth-child(3) { transition-delay: 140ms; }
+  html.js [data-reveal-group] > *[data-reveal]:nth-child(4) { transition-delay: 210ms; }
+  html.js [data-reveal-group] > *[data-reveal]:nth-child(5) { transition-delay: 280ms; }
+  html.js [data-reveal-group] > *[data-reveal]:nth-child(6) { transition-delay: 350ms; }
+  html.js [data-reveal-group] > *[data-reveal]:nth-child(7) { transition-delay: 420ms; }
+  html.js [data-reveal-group] > *[data-reveal]:nth-child(n + 8) { transition-delay: 490ms; }
+
+  /* Reduced motion (or the group re-appearing): never hide, never delay */
+  @media (prefers-reduced-motion: reduce) {
+    html.js [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    html.js [data-reveal-group] > *[data-reveal] {
+      transition-delay: 0ms;
     }
   }
 

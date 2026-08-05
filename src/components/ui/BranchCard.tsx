@@ -24,7 +24,7 @@ export function BranchCard({ branch }: { branch: Branch }) {
     };
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-3xl border border-forest-900/8 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <article data-reveal className="group flex flex-col overflow-hidden rounded-3xl border border-forest-900/8 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="relative">
         <Frame
           asset={cover}

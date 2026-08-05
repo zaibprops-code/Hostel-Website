@@ -187,7 +187,7 @@ export default async function BranchDetailPage({
                 : "The categories we're planning for this branch."
             }
           />
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div data-reveal-group className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {rooms.slice(0, 3).map((room) => (
               <RoomCard key={room.id} room={room} />
             ))}
@@ -262,7 +262,7 @@ export default async function BranchDetailPage({
               </span>
             </div>
           )}
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div data-reveal-group className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {branchReviews.slice(0, 3).map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}

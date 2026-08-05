@@ -30,7 +30,7 @@ export default function BlogPage() {
             New guides are on the way — check back soon.
           </p>
         ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div data-reveal-group className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}

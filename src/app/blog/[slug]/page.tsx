@@ -122,7 +122,7 @@ export default async function BlogPostPage({
             <h2 className="text-display text-2xl text-forest-800 sm:text-3xl">
               Keep reading
             </h2>
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <div data-reveal-group className="mt-8 grid gap-6 md:grid-cols-3">
               {related.map((p) => (
                 <BlogCard key={p.slug} post={p} />
               ))}

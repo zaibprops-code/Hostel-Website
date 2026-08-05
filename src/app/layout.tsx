@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingContact } from "@/components/layout/FloatingContact";
+import { ScrollReveal } from "@/components/layout/ScrollReveal";
 import { site } from "@/data/site";
 import { organizationJsonLd, websiteJsonLd, jsonLdScript } from "@/lib/seo";
 
@@ -92,6 +93,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="min-h-dvh antialiased">
+        {/* Mark JS as available before paint so scroll-reveal elements start
+            hidden without a flash — and stay visible if JS never loads. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={jsonLdScript(organizationJsonLd())}
@@ -110,6 +118,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <FloatingContact />
+        <ScrollReveal />
       </body>
     </html>
   );

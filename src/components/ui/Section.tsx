@@ -47,6 +47,7 @@ export function SectionHeading({
 }) {
   return (
     <div
+      data-reveal
       className={cn(
         "max-w-2xl",
         align === "center" && "mx-auto text-center",

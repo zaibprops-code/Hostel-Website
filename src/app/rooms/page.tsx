@@ -45,7 +45,7 @@ export default function RoomsPage() {
           <AvailabilityLegend />
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div data-reveal-group className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {roomTypes.map((room) => (
             <RoomCard key={room.id} room={room} />
           ))}
