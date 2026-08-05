@@ -2,6 +2,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { Frame } from "@/components/ui/Frame";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { Counter } from "@/components/ui/Counter";
 import { brandStats } from "@/data/site";
 import type { IconName } from "@/types";
 
@@ -43,7 +44,7 @@ export function AboutIntro() {
             {brandStats.slice(0, 2).map((s) => (
               <div key={s.label} className="bg-ivory px-6 py-4 text-center">
                 <p className="text-display text-2xl text-forest-800">
-                  {s.value}
+                  <Counter value={s.value} />
                 </p>
                 <p className="mt-1 text-[0.7rem] leading-tight text-ink-muted">
                   {s.label}
@@ -60,10 +61,10 @@ export function AboutIntro() {
             lede="Good accommodation in Islamabad shouldn't be this hard to find. Riwaq exists to change that — a genuinely well-run home base, built to a standard we'd want for our own family, so your energy goes where it actually matters."
           />
 
-          <div className="mt-8 space-y-5">
+          <div data-reveal-group className="mt-8 space-y-5">
             {pillars.map((p) => (
-              <div key={p.title} className="flex gap-4">
-                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-50 text-forest-600">
+              <div key={p.title} data-reveal className="group flex gap-4">
+                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-50 text-forest-600 transition-colors duration-300 group-hover:bg-brass-100 group-hover:text-brass-600">
                   <Icon name={p.icon} size={22} />
                 </span>
                 <div>

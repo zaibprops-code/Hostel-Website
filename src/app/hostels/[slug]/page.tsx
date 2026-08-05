@@ -5,6 +5,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { FacilityGrid } from "@/components/ui/FacilityGrid";
 import { Button } from "@/components/ui/Button";
+import { Counter } from "@/components/ui/Counter";
 import { Icon } from "@/components/ui/Icon";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { getFacilities } from "@/data/facilities";
@@ -75,7 +76,7 @@ export default async function LandingPage({
             {page.stat && (
               <div className="text-center">
                 <p className="text-display text-5xl text-forest-800">
-                  {page.stat.value}
+                  <Counter value={page.stat.value} />
                 </p>
                 <p className="mt-1 text-sm text-ink-muted">{page.stat.label}</p>
               </div>

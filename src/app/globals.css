@@ -304,6 +304,130 @@
     to   { opacity: 1; transform: translateY(0) scale(1); }
   }
 
+  /* ------------------------------------------------------------------
+     Cursor spotlight — a soft, warm light that follows the pointer across
+     a card (driven by PointerFX, which sets --gx/--gy). Purely a sheen: no
+     transforms, so it never fights the card's hover-lift or layout.
+     ------------------------------------------------------------------ */
+  [data-spotlight] {
+    position: relative;
+    isolation: isolate;
+  }
+  [data-spotlight]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-out-soft);
+    background: radial-gradient(
+      260px circle at var(--gx, 50%) var(--gy, 50%),
+      color-mix(in srgb, var(--color-brass-400) 16%, transparent),
+      transparent 62%
+    );
+  }
+  [data-spotlight].is-hot::after {
+    opacity: 1;
+  }
+
+  /* Button sheen — a light sweep across filled buttons on hover */
+  .btn-sheen {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  .btn-sheen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 45%;
+    transform: translateX(-200%) skewX(-14deg);
+    background: linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+  }
+  .btn-sheen-host:hover .btn-sheen::before {
+    transition: transform 0.85s var(--ease-out-soft);
+    transform: translateX(320%) skewX(-14deg);
+  }
+
+  /* Shimmering gradient text — for a single highlighted word */
+  .text-shimmer {
+    background: linear-gradient(
+      100deg,
+      var(--color-brass-300) 20%,
+      var(--color-brass-100) 42%,
+      var(--color-brass-300) 64%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: text-shimmer 6.5s linear infinite;
+  }
+  @keyframes text-shimmer {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+  /* Slow drift for ambient hero orbs */
+  .orb-drift-a {
+    animation: orb-drift-a 16s ease-in-out infinite;
+  }
+  .orb-drift-b {
+    animation: orb-drift-b 20s ease-in-out infinite;
+  }
+  @keyframes orb-drift-a {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50%      { transform: translate3d(24px, 18px, 0); }
+  }
+  @keyframes orb-drift-b {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50%      { transform: translate3d(-28px, -16px, 0); }
+  }
+
+  /* Gentle float for the hero's glass stat badge */
+  .badge-float {
+    animation: badge-float 5.5s ease-in-out infinite;
+  }
+  @keyframes badge-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+  }
+
+  /* Bobbing scroll cue at the foot of the hero */
+  .scroll-cue {
+    animation: scroll-cue 1.9s ease-in-out infinite;
+  }
+  @keyframes scroll-cue {
+    0%, 100% { transform: translateY(0); opacity: 0.55; }
+    50%      { transform: translateY(7px); opacity: 1; }
+  }
+
+  /* Word-by-word headline entrance. Words are inline-block so they can be
+     transformed individually; margin (not a collapsible space) keeps them
+     apart while still allowing natural line wrapping. */
+  .word-rise > span {
+    display: inline-block;
+    margin-right: 0.26em;
+    opacity: 0;
+    transform: translateY(0.5em);
+    animation: word-rise 0.7s var(--ease-out-soft) forwards;
+  }
+  @keyframes word-rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   /* Layered warm paper texture for hero / feature panels */
   .bg-grain {
     background-image: radial-gradient(

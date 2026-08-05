@@ -4,6 +4,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { Frame } from "@/components/ui/Frame";
 import { Icon } from "@/components/ui/Icon";
 import { TeamSection } from "@/components/sections/TeamSection";
+import { Counter } from "@/components/ui/Counter";
 import { brandStats } from "@/data/site";
 import { upcomingBranches } from "@/data/branches";
 import { pageMeta } from "@/lib/seo";
@@ -122,7 +123,7 @@ export default function AboutPage() {
           {brandStats.map((s) => (
             <div key={s.label} className="text-center sm:text-left">
               <p className="text-display text-4xl text-brass-300 sm:text-5xl">
-                {s.value}
+                <Counter value={s.value} />
               </p>
               <p className="mt-2 text-sm text-ivory/75">{s.label}</p>
             </div>

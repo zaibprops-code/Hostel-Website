@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { Stars } from "@/components/ui/Stars";
 import { Container } from "@/components/ui/Container";
-import { Frame } from "@/components/ui/Frame";
+import { HeroVisual } from "@/components/sections/HeroVisual";
 import { site } from "@/data/site";
 import { averageRating, reviewCount } from "@/data/reviews";
 import { priceFrom } from "@/data/rooms";
@@ -12,21 +12,34 @@ import { flagshipBranch } from "@/data/branches";
  * The hero. First impression, value proposition, location and the two
  * clearest actions — book, or explore — above the fold on every device.
  */
+
+// The headline, split into words so each can rise in sequence. `accent` words
+// carry the shimmering brass highlight.
+const headline: { text: string; accent?: boolean }[] = [
+  { text: "A" },
+  { text: "hostel" },
+  { text: "that" },
+  { text: "finally" },
+  { text: "feels" },
+  { text: "like", accent: true },
+  { text: "home.", accent: true },
+];
+
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-forest-900 pt-24 pb-16 text-ivory sm:pt-28 sm:pb-24">
       {/* Ambient background */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-24 top-10 h-96 w-96 rounded-full bg-forest-500/20 blur-3xl" />
-        <div className="absolute -right-16 bottom-0 h-96 w-96 rounded-full bg-brass-500/15 blur-3xl" />
+        <div className="orb-drift-a absolute -left-24 top-10 h-96 w-96 rounded-full bg-forest-500/20 blur-3xl" />
+        <div className="orb-drift-b absolute -right-16 bottom-0 h-96 w-96 rounded-full bg-brass-500/15 blur-3xl" />
         <div className="absolute inset-0 bg-grain opacity-60" />
       </div>
 
       <Container className="relative">
         <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Copy */}
-          <div className="reveal">
-            <span className="inline-flex items-center gap-2 rounded-full border border-ivory/15 bg-ivory/5 px-3.5 py-1.5 text-xs font-medium text-ivory/80">
+          <div>
+            <span className="reveal inline-flex items-center gap-2 rounded-full border border-ivory/15 bg-ivory/5 px-3.5 py-1.5 text-xs font-medium text-ivory/80">
               <span className="flex h-2 w-2 items-center justify-center">
                 <span className="absolute h-2 w-2 animate-ping rounded-full bg-emerald-400/70" />
                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
@@ -34,12 +47,22 @@ export function Hero() {
               Now open in {flagshipBranch.area}, {site.address.city}
             </span>
 
-            <h1 className="text-display mt-6 text-4xl leading-[1.05] sm:text-5xl md:text-6xl">
-              A hostel that finally feels{" "}
-              <span className="text-brass-300">like home.</span>
+            <h1 className="word-rise text-display mt-6 text-4xl leading-[1.05] sm:text-5xl md:text-6xl">
+              {headline.map((w, i) => (
+                <span key={i} style={{ animationDelay: `${120 + i * 80}ms` }}>
+                  {w.accent ? (
+                    <span className="text-shimmer">{w.text}</span>
+                  ) : (
+                    w.text
+                  )}
+                </span>
+              ))}
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ivory/80">
+            <p
+              className="reveal mt-6 max-w-xl text-lg leading-relaxed text-ivory/80"
+              style={{ animationDelay: "760ms" }}
+            >
               <strong className="font-semibold text-ivory">
                 Riwaq Boys Hostel
               </strong>{" "}
@@ -48,7 +71,10 @@ export function Hero() {
               Premium comfort, a genuine community, and a price that makes sense.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div
+              className="reveal mt-8 flex flex-wrap gap-3"
+              style={{ animationDelay: "880ms" }}
+            >
               <Button href="/rooms" variant="brass" size="lg">
                 Explore rooms
               </Button>
@@ -62,7 +88,10 @@ export function Hero() {
             </div>
 
             {/* Inline trust row */}
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <div
+              className="reveal mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
+              style={{ animationDelay: "1000ms" }}
+            >
               <div className="flex items-center gap-2.5">
                 <Stars rating={averageRating} size={18} />
                 <span className="text-sm text-ivory/80">
@@ -82,22 +111,25 @@ export function Hero() {
           </div>
 
           {/* Visual */}
-          <div className="reveal relative" style={{ animationDelay: "120ms" }}>
-            <div className="relative">
-              <Frame
-                asset={{
-                  src: "/images/hero.svg",
-                  alt: "A calm, bright room at Riwaq Boys Hostel",
-                  tone: "brass",
-                }}
-                ratio="aspect-[4/5]"
-                rounded="rounded-[2rem]"
-                priority
-                sizes="(min-width: 1024px) 45vw, 90vw"
-                className="shadow-2xl shadow-forest-950/40 ring-1 ring-ivory/10"
+          <HeroVisual />
+        </div>
+
+        {/* Scroll cue */}
+        <div
+          aria-hidden
+          className="mt-14 hidden justify-center lg:flex"
+        >
+          <span className="scroll-cue flex h-9 w-9 items-center justify-center rounded-full border border-ivory/20 text-ivory/70">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 5v14M6 13l6 6 6-6"
+                stroke="currentColor"
+                strokeWidth="1.7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
-            </div>
-          </div>
+            </svg>
+          </span>
         </div>
       </Container>
     </section>

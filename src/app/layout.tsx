@@ -5,6 +5,9 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingContact } from "@/components/layout/FloatingContact";
 import { ScrollReveal } from "@/components/layout/ScrollReveal";
+import { ScrollProgress } from "@/components/layout/ScrollProgress";
+import { BackToTop } from "@/components/layout/BackToTop";
+import { PointerFX } from "@/components/layout/PointerFX";
 import { site } from "@/data/site";
 import { organizationJsonLd, websiteJsonLd, jsonLdScript } from "@/lib/seo";
 
@@ -114,11 +117,14 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <ScrollProgress />
         <Header />
         <main id="main">{children}</main>
         <Footer />
         <FloatingContact />
+        <BackToTop />
         <ScrollReveal />
+        <PointerFX />
       </body>
     </html>
   );

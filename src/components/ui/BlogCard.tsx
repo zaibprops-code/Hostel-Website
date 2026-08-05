@@ -6,7 +6,7 @@ import { Badge } from "./Badge";
 
 export function BlogCard({ post }: { post: PostMeta }) {
   return (
-    <article data-reveal className="group flex flex-col overflow-hidden rounded-3xl border border-forest-900/8 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <article data-reveal data-spotlight className="group flex flex-col overflow-hidden rounded-3xl border border-forest-900/8 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <Link href={`/blog/${post.slug}`} className="block">
         <Frame
           asset={{ src: `/images/blog/${post.slug}.svg`, alt: post.title, tone: post.cover }}

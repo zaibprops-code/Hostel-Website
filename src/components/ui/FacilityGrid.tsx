@@ -42,6 +42,7 @@ export function FacilityGrid({
         <li
           key={f.id}
           data-reveal
+          data-spotlight
           className="group rounded-2xl border border-forest-900/8 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brass-200 hover:shadow-lg"
         >
           <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-forest-50 text-forest-600 transition-colors duration-300 group-hover:bg-brass-100 group-hover:text-brass-600">
