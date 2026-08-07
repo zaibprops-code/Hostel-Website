@@ -25,10 +25,12 @@ export const site: SiteConfig = {
   // method here (the content="..." value only). Leave "" until then.
   googleSiteVerification: "1Mjhm45gDhHMFLYaxo4Xtj9AxRHK-0EAZBtyuxYKVA4",
   // Primary line — the floating WhatsApp button and booking CTAs point here.
+  // WhatsApp enquiries route to the on-site E-11/2 Markaz manager, who handles
+  // bookings and visits. Calls still ring the primary line above.
   contact: {
     phone: "+923146144997",
     phoneDisplay: "+92 314 6144997",
-    whatsapp: "+923146144997",
+    whatsapp: "+923358067753",
   },
   contacts: [
     {
