@@ -93,6 +93,7 @@ export const branches: Branch[] = [
       { name: "NUST (H-12)", distance: "8 min" },
       { name: "FAST-NUCES (H-11)", distance: "10 min" },
       { name: "Air University (E-9)", distance: "9 min" },
+      { name: "NDU (E-9)", distance: "9 min" },
       { name: "Bahria University (E-8)", distance: "12 min" },
       { name: "Metro Bus (Kashmir Hwy)", distance: "6 min" },
     ],

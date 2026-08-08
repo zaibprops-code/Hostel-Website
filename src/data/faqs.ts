@@ -67,7 +67,7 @@ export const faqs: FaqItem[] = [
     id: "universities",
     question: "Which universities are nearby?",
     answer:
-      "We're within a short commute of NUST, FAST-NUCES, Bahria University, Riphah, and the Blue Area business district, with regular transport on the main routes. See the Contact page for the map and directions.",
+      "We're within a short commute of NUST, FAST-NUCES, Air University (E-9), NDU (National Defence University, E-9), Bahria University (E-8) and Riphah, plus the Blue Area business district — with regular transport on the main routes. See the Contact page for the map and directions.",
     category: "location",
   },
   {

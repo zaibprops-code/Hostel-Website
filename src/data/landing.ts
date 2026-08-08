@@ -98,6 +98,107 @@ export const landingPages: LandingPage[] = [
     ],
   },
   {
+    slug: "hostel-near-air-university-islamabad",
+    query: "boys hostel near Air University",
+    metaTitle: "Boys Hostel Near Air University, Islamabad (E-9) — Riwaq E-11/2",
+    metaDescription:
+      "Riwaq Boys Hostel in E-11/2 is about 9 minutes from Air University (E-9), Islamabad. Furnished, all-inclusive rooms with WiFi, CCTV and daily housekeeping. Enquire on WhatsApp.",
+    eyebrow: "For Air University students",
+    h1: "Boys Hostel Near Air University, Islamabad",
+    intro:
+      "Studying at Air University? Riwaq Boys Hostel in E-11/2 is only about 9 minutes from the E-9 campus — a genuinely short commute to a calm, secure, well-run home. It's built for students on a demanding aviation, engineering or CS degree who want their accommodation handled so they can focus on the work.",
+    stat: { value: "9 min", label: "to Air University (E-9)" },
+    sections: [
+      {
+        heading: "A quick run to E-9",
+        body: "Air University's PAF Complex campus in E-9 sits roughly 9 minutes from E-11/2, with the Kashmir Highway and Metro Bus close by. A short, predictable commute means more time for labs, projects and rest — and none of the daily grind of travelling in from far sectors.",
+      },
+      {
+        heading: "Set up for engineering and aviation students",
+        body: "High-speed fibre WiFi that holds up for online submissions and late-night lab work, a quiet space during exam season, and clean, reliable facilities. Rooms are furnished with a bed, storage and study space, in single through to quad-sharing to suit your budget.",
+      },
+      {
+        heading: "One honest, all-inclusive rent",
+        body: "WiFi, electricity, water, housekeeping and laundry are part of one monthly rent — no surprise bills. A refundable half-month deposit secures your bed. Message us on WhatsApp for current availability.",
+      },
+    ],
+    keywords: [
+      "boys hostel near Air University",
+      "hostel near Air University Islamabad",
+      "Air University hostel E-9",
+      "hostel near Air University E-9",
+      "boys hostel near Air University Islamabad",
+    ],
+  },
+  {
+    slug: "hostel-near-bahria-university-islamabad",
+    query: "boys hostel near Bahria University",
+    metaTitle:
+      "Boys Hostel Near Bahria University, Islamabad (E-8) — Riwaq E-11/2",
+    metaDescription:
+      "Riwaq Boys Hostel in E-11/2 is roughly 12 minutes from Bahria University (E-8), Islamabad. All-inclusive furnished rooms with WiFi, CCTV, housekeeping and parking. Book or visit today.",
+    eyebrow: "For Bahria University students",
+    h1: "Boys Hostel Near Bahria University, Islamabad",
+    intro:
+      "Looking for a boys hostel close to Bahria University? Riwaq in E-11/2 is about 12 minutes from the E-8 campus — a short, easy commute to a spotless, secure and genuinely well-run home. A calm base whether you're on a business, engineering, computer science or social-sciences programme.",
+    stat: { value: "12 min", label: "to Bahria University (E-8)" },
+    sections: [
+      {
+        heading: "An easy commute to E-8",
+        body: "Bahria University's E-8 campus is around 12 minutes from E-11/2 along the main avenues, with the Metro Bus and ride-hailing easy to reach. That short trip in each morning keeps your day yours — for classes, group work and rest.",
+      },
+      {
+        heading: "Whatever you're studying",
+        body: "Fibre WiFi for online submissions and research, a quiet environment for exam season, and clean, well-kept facilities. Furnished single, double, triple and quad-sharing rooms mean there's an option for every budget.",
+      },
+      {
+        heading: "No hidden charges",
+        body: "One monthly rent covers WiFi, electricity, water, housekeeping and laundry. A refundable half-month deposit holds your place. WhatsApp us for live availability and a visit.",
+      },
+    ],
+    keywords: [
+      "boys hostel near Bahria University",
+      "hostel near Bahria University Islamabad",
+      "Bahria University hostel E-8",
+      "hostel near Bahria Islamabad",
+      "boys hostel near Bahria",
+    ],
+  },
+  {
+    slug: "hostel-near-ndu-islamabad",
+    query: "boys hostel near NDU",
+    metaTitle:
+      "Boys Hostel Near NDU, Islamabad (E-9) — Riwaq Boys Hostel E-11/2",
+    metaDescription:
+      "Riwaq Boys Hostel in E-11/2 is about 9 minutes from NDU (National Defence University, E-9), Islamabad. Furnished, all-inclusive rooms with WiFi, CCTV and housekeeping. Enquire today.",
+    eyebrow: "For NDU students",
+    h1: "Boys Hostel Near NDU, Islamabad",
+    intro:
+      "Enrolled at NDU (National Defence University)? Riwaq Boys Hostel in E-11/2 is roughly 9 minutes from the E-9 campus — a calm, secure and spotlessly-run base, close enough for an easy commute and quiet enough to actually study. Made for students who want the details handled.",
+    stat: { value: "9 min", label: "to NDU (E-9)" },
+    sections: [
+      {
+        heading: "Minutes from E-9",
+        body: "NDU's campus in E-9 is about 9 minutes from E-11/2, with the Kashmir Highway and Metro Bus a short hop away. A quick, predictable commute leaves you more time for reading, coursework and rest instead of the road.",
+      },
+      {
+        heading: "A calm base for serious study",
+        body: "For students on Contemporary Studies programmes — international relations, strategic studies, public policy, economics and more — a quiet room and reliable fibre WiFi matter. You get both, plus clean facilities and furnished rooms from quad-sharing to a private single.",
+      },
+      {
+        heading: "Everything in one rent",
+        body: "WiFi, electricity, water, housekeeping and laundry are included in a single monthly rent, with no surprise bills. A refundable half-month deposit secures your bed. Message us on WhatsApp for availability.",
+      },
+    ],
+    keywords: [
+      "boys hostel near NDU",
+      "hostel near National Defence University",
+      "NDU hostel Islamabad",
+      "hostel near NDU Islamabad",
+      "boys hostel near National Defence University",
+    ],
+  },
+  {
     slug: "boys-hostel-in-e-11-islamabad",
     query: "boys hostel in E-11 Islamabad",
     metaTitle: "Boys Hostel in E-11 Islamabad — Riwaq (E-11/2)",
@@ -148,7 +249,7 @@ export const landingPages: LandingPage[] = [
       },
       {
         heading: "Close to the universities that matter",
-        body: "From E-11/2 you're minutes from NUST (~8), FAST-NUCES (~10), Air University (~9) and Bahria (~12), with the Metro Bus and Kashmir Highway close by — an easy base whichever campus you're headed to.",
+        body: "From E-11/2 you're minutes from NUST (~8), FAST-NUCES (~10), Air University (~9), NDU (~9) and Bahria (~12), with the Metro Bus and Kashmir Highway close by — an easy base whichever campus you're headed to.",
       },
       {
         heading: "A real community, not just a room",
