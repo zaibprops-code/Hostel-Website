@@ -16,9 +16,9 @@ export const faqs: FaqItem[] = [
   },
   {
     id: "electricity",
-    question: "Is electricity included, and what about load-shedding?",
+    question: "Is electricity included in the rent?",
     answer:
-      "Electricity is included in the monthly rent. Essential circuits — lights, fans, WiFi and charging points — are backed by a generator and UPS, so you stay powered through load-shedding.",
+      "Yes — electricity is included in the monthly rent (heavy personal appliances may be metered separately). Air conditioning and heating are available as optional add-ons.",
     category: "facilities",
   },
   {
@@ -39,21 +39,21 @@ export const faqs: FaqItem[] = [
     id: "deposit",
     question: "Is there a security deposit?",
     answer:
-      "Yes — a one-time, refundable security deposit equal to one month's rent is collected at check-in. It's returned in full when you leave, less any damages beyond normal wear.",
+      "Yes — a one-time, refundable security deposit equal to half of one month's rent is collected at check-in. It's returned in full when you leave, less any damages beyond normal wear.",
     category: "payments",
   },
   {
     id: "visitors",
     question: "Are visitors allowed?",
     answer:
-      "Guests are welcome in the common areas during visiting hours (9:00 AM – 9:00 PM) and must sign in at the front desk. This keeps the building secure for everyone. Overnight guests are not permitted.",
+      "Guests are welcome in the common areas during the day and must be signed in. This keeps the building secure for everyone. Overnight guests are not permitted.",
     category: "policies",
   },
   {
     id: "security",
     question: "How is security managed?",
     answer:
-      "A trained guard and staffed front desk operate 24/7, entry is through a single monitored point, and HD CCTV covers all entrances and shared corridors. Every resident and visitor is logged.",
+      "Entry is controlled through a single point, HD CCTV covers the entrances and shared corridors, and the hostel manager is on site day to day. It's a calm, monitored environment.",
     category: "policies",
   },
   {
@@ -67,7 +67,7 @@ export const faqs: FaqItem[] = [
     id: "universities",
     question: "Which universities are nearby?",
     answer:
-      "We're within a short commute of NUST, FAST-NUCES, Bahria University, Riphah, and the Blue Area business district, with regular transport on the main routes. See the Contact page for the map and directions.",
+      "We're within a short commute of NUST, FAST-NUCES, Air University (E-9), NDU (National Defence University, E-9), Bahria University (E-8) and Riphah, plus the Blue Area business district — with regular transport on the main routes. See the Contact page for the map and directions.",
     category: "location",
   },
   {
@@ -81,7 +81,7 @@ export const faqs: FaqItem[] = [
     id: "minimum-stay",
     question: "Is there a minimum stay?",
     answer:
-      "Our standard agreement is monthly with a two-month minimum. Longer stays are welcome and we're happy to discuss semester-length arrangements for students.",
+      "Our minimum contract is one semester (about six months). Longer stays are very welcome, and we're happy to discuss the details with you.",
     category: "policies",
   },
   {
@@ -102,5 +102,15 @@ export const faqCategories: { id: NonNullable<FaqItem["category"]>; label: strin
 ];
 
 export function faqsByCategory(category: FaqItem["category"]): FaqItem[] {
-  return faqs.filter((f) => f.category === category);
+  return brandFaqs().filter((f) => f.category === category);
+}
+
+/** Brand-level FAQs (apply to every Riwaq branch). */
+export function brandFaqs(): FaqItem[] {
+  return faqs.filter((f) => !f.branchId);
+}
+
+/** FAQs specific to one branch (excludes brand-level ones). */
+export function faqsForBranch(branchId: string): FaqItem[] {
+  return faqs.filter((f) => f.branchId === branchId);
 }

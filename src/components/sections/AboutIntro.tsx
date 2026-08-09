@@ -2,14 +2,15 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { Frame } from "@/components/ui/Frame";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { Counter } from "@/components/ui/Counter";
 import { brandStats } from "@/data/site";
 import type { IconName } from "@/types";
 
 const pillars: { icon: IconName; title: string; body: string }[] = [
   {
-    icon: "shield",
+    icon: "cctv",
     title: "Safe, and it shows",
-    body: "Controlled entry, a staffed desk and CCTV — the kind of security that lets parents relax.",
+    body: "Controlled entry and CCTV throughout, with the manager on site — the kind of security that lets parents relax.",
   },
   {
     icon: "sparkle",
@@ -17,9 +18,9 @@ const pillars: { icon: IconName; title: string; body: string }[] = [
     body: "Daily housekeeping and spotless washrooms. We hold the standard so you never have to.",
   },
   {
-    icon: "users",
-    title: "A real community",
-    body: "Quiet when you need to study, social when you don't. People, not just rooms.",
+    icon: "check",
+    title: "Honest and transparent",
+    body: "Clear monthly pricing and no hidden charges. What you're shown on the tour is exactly what you move into.",
   },
 ];
 
@@ -43,7 +44,7 @@ export function AboutIntro() {
             {brandStats.slice(0, 2).map((s) => (
               <div key={s.label} className="bg-ivory px-6 py-4 text-center">
                 <p className="text-display text-2xl text-forest-800">
-                  {s.value}
+                  <Counter value={s.value} />
                 </p>
                 <p className="mt-1 text-[0.7rem] leading-tight text-ink-muted">
                   {s.label}
@@ -57,13 +58,13 @@ export function AboutIntro() {
           <SectionHeading
             eyebrow="Who we are"
             title="Accommodation, handled — so you can get on with life."
-            lede="Riwaq was built on a simple idea: student and professional housing in Islamabad should be secure, spotless and genuinely well run, without costing a fortune. We look after the details — safety, cleanliness, power, internet — so your energy goes where it matters."
+            lede="Good accommodation in Islamabad shouldn't be this hard to find. Riwaq exists to change that — a genuinely well-run home base, built to a standard we'd want for our own family, so your energy goes where it actually matters."
           />
 
-          <div className="mt-8 space-y-5">
+          <div data-reveal-group className="mt-8 space-y-5">
             {pillars.map((p) => (
-              <div key={p.title} className="flex gap-4">
-                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-50 text-forest-600">
+              <div key={p.title} data-reveal className="group flex gap-4">
+                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-50 text-forest-600 transition-colors duration-300 group-hover:bg-brass-100 group-hover:text-brass-600">
                   <Icon name={p.icon} size={22} />
                 </span>
                 <div>

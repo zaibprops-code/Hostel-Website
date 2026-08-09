@@ -1,4 +1,4 @@
-import type { RoomType } from "@/types";
+import type { RoomType, ComparisonFeature } from "@/types";
 
 /**
  * Room categories offered across the brand.
@@ -29,6 +29,16 @@ export const roomTypes: RoomType[] = [
     ],
     facilityIds: ["wifi", "power", "housekeeping", "water", "washrooms"],
     availability: "available",
+    specs: {
+      privacy: "Shared · 4 beds",
+      attachedBath: true,
+      ac: false,
+      studyDesk: false,
+      storage: true,
+      wifi: true,
+      housekeeping: true,
+      bestFor: "Budget & social living",
+    },
   },
   {
     id: "triple",
@@ -52,6 +62,16 @@ export const roomTypes: RoomType[] = [
     facilityIds: ["wifi", "power", "housekeeping", "water", "washrooms", "study"],
     availability: "available",
     popular: true,
+    specs: {
+      privacy: "Shared · 3 beds",
+      attachedBath: true,
+      ac: false,
+      studyDesk: true,
+      storage: true,
+      wifi: true,
+      housekeeping: true,
+      bestFor: "Balance & value",
+    },
   },
   {
     id: "double",
@@ -75,6 +95,16 @@ export const roomTypes: RoomType[] = [
     ],
     facilityIds: ["wifi", "power", "housekeeping", "water", "washrooms", "study", "ac"],
     availability: "limited",
+    specs: {
+      privacy: "Semi-private · 2 beds",
+      attachedBath: true,
+      ac: "optional",
+      studyDesk: true,
+      storage: true,
+      wifi: true,
+      housekeeping: true,
+      bestFor: "Quiet & focused study",
+    },
   },
   {
     id: "single",
@@ -98,7 +128,33 @@ export const roomTypes: RoomType[] = [
     ],
     facilityIds: ["wifi", "power", "housekeeping", "water", "washrooms", "study", "ac"],
     availability: "waitlist",
+    specs: {
+      privacy: "Fully private",
+      attachedBath: true,
+      ac: true,
+      studyDesk: true,
+      storage: true,
+      wifi: true,
+      housekeeping: true,
+      bestFor: "Privacy & professionals",
+    },
   },
+];
+
+/**
+ * Rows for the room comparison table. Kept separate from the room records so
+ * new comparable attributes can be added in one place; a room simply provides
+ * a value in its `specs` for each id.
+ */
+export const comparisonFeatures: ComparisonFeature[] = [
+  { id: "privacy", label: "Privacy" },
+  { id: "attachedBath", label: "Attached washroom" },
+  { id: "ac", label: "Air conditioning" },
+  { id: "studyDesk", label: "Personal study desk" },
+  { id: "storage", label: "Lockable storage" },
+  { id: "wifi", label: "High-speed WiFi" },
+  { id: "housekeeping", label: "Daily housekeeping" },
+  { id: "bestFor", label: "Best for" },
 ];
 
 export const roomMap: Record<string, RoomType> = Object.fromEntries(

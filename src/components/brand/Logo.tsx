@@ -10,13 +10,17 @@ export function Logo({
   className,
   tone = "dark",
   showTagline = false,
+  size = "default",
 }: {
   className?: string;
   tone?: "dark" | "light";
   showTagline?: boolean;
+  /** "lg" is used in the header; "default" everywhere else (e.g. footer). */
+  size?: "default" | "lg";
 }) {
   const text = tone === "light" ? "text-ivory" : "text-forest-800";
   const sub = tone === "light" ? "text-ivory/70" : "text-ink-muted";
+  const lg = size === "lg";
 
   return (
     <Link
@@ -26,14 +30,16 @@ export function Logo({
     >
       <ArchMark
         className={cn(
-          "h-9 w-9 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5",
+          "shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5",
+          lg ? "h-12 w-12 sm:h-14 sm:w-14" : "h-9 w-9",
           tone === "light" ? "text-brass-300" : "text-brass-500",
         )}
       />
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "text-display text-xl font-semibold tracking-tight",
+            "text-display font-semibold tracking-tight",
+            lg ? "text-[1.7rem] sm:text-[2rem]" : "text-xl",
             text,
           )}
         >
@@ -44,7 +50,8 @@ export function Logo({
         </span>
         <span
           className={cn(
-            "text-[0.62rem] font-semibold uppercase tracking-[0.22em]",
+            "font-semibold uppercase tracking-[0.22em]",
+            lg ? "text-[0.72rem] sm:text-[0.8rem]" : "text-[0.62rem]",
             sub,
           )}
         >

@@ -1,23 +1,35 @@
 import Link from "next/link";
 import { Container } from "./Container";
+import { breadcrumbJsonLd, jsonLdScript } from "@/lib/seo";
 
 /**
  * The shared banner at the top of every interior page — keeps a consistent
- * sense of place, with breadcrumbs for orientation and SEO.
+ * sense of place, with breadcrumbs for orientation and SEO. Pass `path`
+ * (the page's URL path) to also emit BreadcrumbList structured data.
  */
 export function PageHero({
   eyebrow,
   title,
   lede,
   breadcrumb,
+  path,
 }: {
   eyebrow?: string;
   title: string;
   lede?: string;
   breadcrumb: string;
+  path?: string;
 }) {
   return (
     <section className="relative overflow-hidden bg-forest-900 pt-28 pb-14 text-ivory sm:pt-36 sm:pb-20">
+      {path && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={jsonLdScript(
+            breadcrumbJsonLd(breadcrumb, path),
+          )}
+        />
+      )}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -right-20 -top-16 h-80 w-80 rounded-full bg-brass-500/15 blur-3xl" />
         <div className="absolute -left-20 bottom-0 h-80 w-80 rounded-full bg-forest-500/25 blur-3xl" />

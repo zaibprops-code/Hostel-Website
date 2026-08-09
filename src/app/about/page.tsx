@@ -3,7 +3,8 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Frame } from "@/components/ui/Frame";
 import { Icon } from "@/components/ui/Icon";
-import { ClosingCTA } from "@/components/sections/ClosingCTA";
+import { TeamSection } from "@/components/sections/TeamSection";
+import { Counter } from "@/components/ui/Counter";
 import { brandStats } from "@/data/site";
 import { upcomingBranches } from "@/data/branches";
 import { pageMeta } from "@/lib/seo";
@@ -44,6 +45,7 @@ export default function AboutPage() {
     <>
       <PageHero
         breadcrumb="About"
+        path="/about"
         eyebrow="Who we are"
         title="Building the accommodation Islamabad's students deserve."
         lede="Riwaq began with one hostel and a high standard. The vision is bigger: a trusted hospitality brand, growing branch by branch across the city."
@@ -77,7 +79,7 @@ export default function AboutPage() {
               on their studies, their work and their lives.
             </p>
             <p className="mt-4 leading-relaxed text-ink-soft">
-              Today that&apos;s our flagship boys hostel in G-11. Tomorrow it&apos;s a
+              Today that&apos;s our flagship boys hostel in E-11/2. Tomorrow it&apos;s a
               family of branches — more boys hostels, girls hostels and
               executive stays — each held to the exact same standard.
             </p>
@@ -121,13 +123,16 @@ export default function AboutPage() {
           {brandStats.map((s) => (
             <div key={s.label} className="text-center sm:text-left">
               <p className="text-display text-4xl text-brass-300 sm:text-5xl">
-                {s.value}
+                <Counter value={s.value} />
               </p>
               <p className="mt-2 text-sm text-ivory/75">{s.label}</p>
             </div>
           ))}
         </div>
       </Section>
+
+      {/* Meet the team */}
+      <TeamSection />
 
       {/* Roadmap / expansion */}
       <Section className="bg-sand">
@@ -145,7 +150,7 @@ export default function AboutPage() {
                 <Icon name="check" size={14} />
               </span>
               <p className="font-semibold text-forest-800">
-                Riwaq Boys Hostel — G-11{" "}
+                Riwaq Boys Hostel — E-11/2{" "}
                 <span className="text-sm font-normal text-emerald-600">
                   · Open now
                 </span>
@@ -179,8 +184,6 @@ export default function AboutPage() {
           </ol>
         </div>
       </Section>
-
-      <ClosingCTA />
     </>
   );
 }

@@ -26,7 +26,7 @@ export function ReviewsSection() {
           </div>
         </div>
 
-        <div className="columns-1 gap-6 sm:columns-2 [&>*]:mb-6 [&>*]:break-inside-avoid">
+        <div data-reveal-group className="columns-1 gap-6 sm:columns-2 [&>*]:mb-6 [&>*]:break-inside-avoid">
           {reviews.slice(0, 4).map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}

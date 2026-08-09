@@ -11,7 +11,7 @@ import { priceFrom, formatPrice } from "@/data/rooms";
  */
 export function ClosingCTA() {
   return (
-    <section className="py-16 sm:py-24">
+    <section className="py-12 sm:py-16">
       <Container>
         <div className="relative overflow-hidden rounded-[2.5rem] bg-forest-800 px-6 py-16 text-center text-ivory sm:px-16 sm:py-20">
           <div aria-hidden className="pointer-events-none absolute inset-0">

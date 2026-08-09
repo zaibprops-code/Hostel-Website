@@ -22,7 +22,7 @@ export const reviews: Review[] = [
     role: "Software Engineer · Systems Ltd",
     rating: 5,
     quote:
-      "As someone working full-time, the 24/7 backup power and reliable internet are non-negotiable — Riwaq delivers on both. The single room is worth every rupee for the peace and quiet.",
+      "As someone working full-time, reliable internet and a quiet, clean room are non-negotiable — Riwaq delivers on both. The single room is worth every rupee for the peace and quiet.",
     date: "2026-04",
     source: "resident",
   },
@@ -32,7 +32,7 @@ export const reviews: Review[] = [
     role: "Parent of a resident",
     rating: 5,
     quote:
-      "What sold me was the security — a staffed desk, CCTV, one controlled entrance. I can see my son is somewhere organised and safe. The management actually answers the phone when I call.",
+      "What sold me was the security — CCTV and one controlled entrance. I can see my son is somewhere organised and safe. The management actually answers the phone when I call.",
     date: "2026-03",
     source: "parent",
   },
@@ -68,9 +68,43 @@ export const reviews: Review[] = [
   },
 ];
 
-export const averageRating =
-  Math.round(
-    (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length) * 10,
-  ) / 10;
+/** Average + count for any set of reviews. */
+export function reviewStats(list: Review[]): {
+  averageRating: number;
+  reviewCount: number;
+} {
+  if (list.length === 0) return { averageRating: 0, reviewCount: 0 };
+  const averageRating =
+    Math.round(
+      (list.reduce((sum, r) => sum + r.rating, 0) / list.length) * 10,
+    ) / 10;
+  return { averageRating, reviewCount: list.length };
+}
 
-export const reviewCount = reviews.length;
+/** Brand-level testimonials (not tied to a specific branch). */
+export function brandReviews(): Review[] {
+  return reviews.filter((r) => !r.branchId);
+}
+
+/**
+ * Reviews for a branch. Returns branch-specific reviews when they exist,
+ * otherwise falls back to brand-level testimonials so a new branch page still
+ * reads as trustworthy before it has gathered its own reviews.
+ */
+export function reviewsForBranch(branchId: string): Review[] {
+  const own = reviews.filter((r) => r.branchId === branchId);
+  return own.length > 0 ? own : brandReviews();
+}
+
+/** Whether a branch has its own (non-fallback) reviews. */
+export function hasOwnReviews(branchId: string): boolean {
+  return reviews.some((r) => r.branchId === branchId);
+}
+
+const brandStats = reviewStats(brandReviews());
+
+/** Brand-level average rating (across brand testimonials). */
+export const averageRating = brandStats.averageRating;
+
+/** Brand-level review count. */
+export const reviewCount = brandStats.reviewCount;

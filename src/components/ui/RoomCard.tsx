@@ -3,7 +3,6 @@ import { Frame } from "./Frame";
 import { Icon } from "./Icon";
 import { Badge, AvailabilityBadge } from "./Badge";
 import { Button } from "./Button";
-import { formatPrice } from "@/data/rooms";
 import { whatsappLink } from "@/data/site";
 import { cn } from "@/lib/cn";
 
@@ -16,6 +15,8 @@ export function RoomCard({
 }) {
   return (
     <article
+      data-reveal
+      data-spotlight
       className={cn(
         "group flex flex-col overflow-hidden rounded-3xl border border-forest-900/8 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl",
         className,
@@ -64,16 +65,11 @@ export function RoomCard({
           ))}
         </ul>
 
-        <div className="mt-6 flex items-end justify-between border-t border-forest-900/8 pt-5">
-          <div>
-            <p className="text-2xl font-semibold text-forest-800">
-              {formatPrice(room.priceMonthly, room.currency)}
-            </p>
-            <p className="text-xs text-ink-muted">{room.priceNote}</p>
-          </div>
+        <div className="mt-6 flex items-center justify-between border-t border-forest-900/8 pt-5">
+          <p className="text-sm text-ink-muted">Pricing on enquiry</p>
           <Button
             href={whatsappLink(
-              `Hi Riwaq — I'm interested in the ${room.name} (${room.occupancyLabel}). Is a bed available?`,
+              `Hi Riwaq — I'm interested in the ${room.name} (${room.occupancyLabel}). Is a bed available, and what's the rent?`,
             )}
             variant="secondary"
             size="sm"

@@ -104,6 +104,15 @@ in-house set and a category. It flows into the relevant grids.
 **Add reviews / FAQs / gallery items** — append to the matching module. FAQs and
 reviews are emitted as JSON-LD for search engines automatically.
 
+**Publish a blog post / guide** — drop a new `.mdx` file into
+`src/content/blog/` with frontmatter (`title`, `excerpt`, `date`, `author`,
+`category`, `tags`, `cover`). It's picked up automatically — listed on `/blog`,
+statically rendered at `/blog/<filename>`, added to the sitemap, and given
+`BlogPosting` structured data. No code changes required.
+
+**Add a team member / announcement / tour stop** — append to `src/data/team.ts`,
+`src/data/announcements.ts`, or `src/data/tour.ts` respectively.
+
 ### Ready for the future
 
 The structure anticipates, without prematurely building:

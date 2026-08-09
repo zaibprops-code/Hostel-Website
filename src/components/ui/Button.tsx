@@ -5,7 +5,7 @@ type Variant = "primary" | "secondary" | "ghost" | "brass";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 ease-out focus-visible:outline-none disabled:opacity-60 disabled:pointer-events-none";
+  "btn-sheen-host relative overflow-hidden inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 ease-out focus-visible:outline-none disabled:opacity-60 disabled:pointer-events-none hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97] motion-reduce:transform-none";
 
 const variants: Record<Variant, string> = {
   primary:
@@ -48,6 +48,15 @@ export function Button({
 }: ButtonProps) {
   const classes = cn(base, variants[variant], sizes[size], className);
 
+  // A light sweep on hover for the solid, high-emphasis buttons.
+  const sheen = variant === "primary" || variant === "brass";
+  const content = (
+    <>
+      {sheen && <span className="btn-sheen" aria-hidden />}
+      {children}
+    </>
+  );
+
   if (href) {
     if (external || href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:")) {
       return (
@@ -58,20 +67,20 @@ export function Button({
           rel={external ? "noopener noreferrer" : undefined}
           {...rest}
         >
-          {children}
+          {content}
         </a>
       );
     }
     return (
       <Link href={href} className={classes} {...rest}>
-        {children}
+        {content}
       </Link>
     );
   }
 
   return (
     <button type={type} className={classes} onClick={onClick} {...rest}>
-      {children}
+      {content}
     </button>
   );
 }

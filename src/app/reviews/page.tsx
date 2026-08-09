@@ -3,25 +3,22 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { ReviewCard } from "@/components/ui/ReviewCard";
 import { Stars } from "@/components/ui/Stars";
-import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { reviews, averageRating, reviewCount } from "@/data/reviews";
-import { reviewsJsonLd, jsonLdScript, pageMeta } from "@/lib/seo";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Reviews",
-  description: `Rated ${averageRating}/5 by residents and parents. Read what people who actually live at Riwaq Hostels say about safety, cleanliness and community.`,
+  title: "Resident Reviews",
+  description:
+    "Read what residents and parents say about living at Riwaq Boys Hostel, E-11/2 Islamabad — safety, cleanliness, facilities and community.",
   path: "/reviews",
 });
 
 export default function ReviewsPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={jsonLdScript(reviewsJsonLd())}
-      />
       <PageHero
         breadcrumb="Reviews"
+        path="/reviews"
         eyebrow="Reviews"
         title="Don't take our word for it."
         lede="The most honest picture of a hostel comes from the people who live there — and the parents who trust it with their children."
@@ -42,7 +39,7 @@ export default function ReviewsPage() {
           </div>
         </div>
 
-        <div className="columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6 [&>*]:break-inside-avoid">
+        <div data-reveal-group className="columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6 [&>*]:break-inside-avoid">
           {reviews.map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}
@@ -53,8 +50,6 @@ export default function ReviewsPage() {
           bring our Google Reviews feed here directly.
         </p>
       </Section>
-
-      <ClosingCTA />
     </>
   );
 }

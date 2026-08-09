@@ -10,47 +10,88 @@ import type { SiteConfig, Stat } from "@/types";
 export const site: SiteConfig = {
   name: "Riwaq Hostels",
   legalName: "Riwaq Hostels",
+  alternateNames: [
+    "Riwaq Boys Hostel",
+    "Riwaq Boys Hostel Islamabad",
+    "Riwaq Boys Hostel E-11",
+    "Riwaq Hostel Islamabad",
+  ],
   tagline: "Considered living for Islamabad's students & professionals",
   description:
-    "Riwaq Hostels offers secure, spotless and thoughtfully-run accommodation in Islamabad. Premium comfort at a student-friendly price — high-speed WiFi, 24/7 security, housekeeping and a genuine community.",
+    "Riwaq Boys Hostel offers spotless, thoughtfully-run accommodation in E-11/2, Islamabad. Premium comfort at a student-friendly price — high-speed WiFi, CCTV security, daily housekeeping and a genuine community.",
   url: "https://riwaqhostels.com",
   locale: "en_PK",
+  // Paste the token from Google Search Console → "HTML tag" verification
+  // method here (the content="..." value only). Leave "" until then.
+  googleSiteVerification: "1Mjhm45gDhHMFLYaxo4Xtj9AxRHK-0EAZBtyuxYKVA4",
+  // Primary line — the floating WhatsApp button and booking CTAs point here.
+  // WhatsApp enquiries route to this number. Calls still ring the line above.
   contact: {
-    phone: "+923001234567",
-    phoneDisplay: "+92 300 1234567",
-    whatsapp: "+923001234567",
-    email: "hello@riwaqhostels.com",
-    hours: "Front desk staffed 24/7 · Visits 9:00 AM – 9:00 PM",
+    phone: "+923146144997",
+    phoneDisplay: "+92 314 6144997",
+    whatsapp: "+923358855076",
   },
+  contacts: [
+    {
+      name: "Riwaq Hostels",
+      role: "Bookings & enquiries",
+      phone: "+923146144997",
+      phoneDisplay: "+92 314 6144997",
+      whatsapp: "+923146144997",
+    },
+    {
+      name: "Hostel Manager",
+      role: "Front desk & on-site help",
+      phone: "+923333638543",
+      phoneDisplay: "+92 333 3638543",
+      whatsapp: "+923333638543",
+    },
+  ],
   address: {
-    line: "Riwaq Boys Hostel, Street 12, Sector G-11/3",
-    area: "G-11",
+    line: "House No. 241, Street 70B, E-11/2 Services Society",
+    area: "E-11/2",
     city: "Islamabad",
     country: "Pakistan",
   },
   socials: [
-    { label: "WhatsApp", href: "https://wa.me/923001234567", icon: "whatsapp" },
-    { label: "Instagram", href: "https://instagram.com/riwaqhostels" },
+    { label: "Instagram", href: "https://instagram.com/riwaq_hostels" },
+    // TODO: replace with the real Facebook page URL once the account is ready.
     { label: "Facebook", href: "https://facebook.com/riwaqhostels" },
   ],
   nav: [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Rooms", href: "/rooms" },
+    { label: "Branches", href: "/branches" },
     { label: "Facilities", href: "/facilities" },
     { label: "Gallery", href: "/gallery" },
     { label: "Reviews", href: "/reviews" },
+    { label: "Parents", href: "/parents" },
     { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
+  ],
+  /** Secondary destinations surfaced in the footer, not the primary nav. */
+  secondaryNav: [
+    { label: "Virtual tour", href: "/tour" },
+    { label: "Guides & blog", href: "/blog" },
+    { label: "Updates", href: "/updates" },
+    { label: "Pricing", href: "/rooms#pricing" },
+    { label: "Hostel near NUST", href: "/hostels/hostel-near-nust" },
+    { label: "Hostel near FAST", href: "/hostels/hostel-near-fast-nuces" },
+    { label: "Hostel near Air University", href: "/hostels/hostel-near-air-university-islamabad" },
+    { label: "Hostel near NDU", href: "/hostels/hostel-near-ndu-islamabad" },
+    { label: "Hostel near Bahria", href: "/hostels/hostel-near-bahria-university-islamabad" },
+    { label: "Boys hostel in E-11", href: "/hostels/boys-hostel-in-e-11-islamabad" },
+    { label: "Student accommodation", href: "/hostels/student-accommodation-in-islamabad" },
   ],
 };
 
 /** Headline trust numbers shown on the homepage. */
 export const brandStats: Stat[] = [
-  { value: "24/7", label: "On-site security & staff" },
-  { value: "120+", label: "Residents at home with us" },
-  { value: "4.9", label: "Average resident rating" },
-  { value: "5 min", label: "To major universities" },
+  { value: "24/7", label: "CCTV monitoring" },
+  { value: "10+", label: "Facilities included" },
+  { value: "8 min", label: "To NUST & FAST" },
+  { value: "1", label: "Standard, every branch" },
 ];
 
 /** Helper: a pre-filled WhatsApp deep link. */
@@ -59,11 +100,12 @@ export function whatsappLink(message?: string): string {
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
 
-export function telLink(): string {
-  return `tel:${site.contact.phone.replace(/[^0-9+]/g, "")}`;
+export function telLink(phone: string = site.contact.phone): string {
+  return `tel:${phone.replace(/[^0-9+]/g, "")}`;
 }
 
-export function mailLink(subject?: string): string {
-  const base = `mailto:${site.contact.email}`;
-  return subject ? `${base}?subject=${encodeURIComponent(subject)}` : base;
+/** WhatsApp deep link for a specific number (defaults to the primary line). */
+export function whatsappTo(number: string, message?: string): string {
+  const base = `https://wa.me/${number.replace(/[^0-9]/g, "")}`;
+  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }

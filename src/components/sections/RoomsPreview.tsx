@@ -22,7 +22,7 @@ export function RoomsPreview() {
         </Button>
       </div>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div data-reveal-group className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {featured.map((room) => (
           <RoomCard key={room.id} room={room} />
         ))}

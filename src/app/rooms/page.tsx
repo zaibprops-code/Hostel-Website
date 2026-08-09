@@ -1,24 +1,28 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { RoomCard } from "@/components/ui/RoomCard";
+import { RoomComparison } from "@/components/ui/RoomComparison";
+import { AvailabilityLegend } from "@/components/ui/Badge";
 import { Icon } from "@/components/ui/Icon";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
+import { PricingBreakdown } from "@/components/sections/PricingBreakdown";
 import { roomTypes, formatPrice, priceFrom } from "@/data/rooms";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Rooms & Pricing",
-  description: `Furnished single, double, triple and quad-sharing rooms in Islamabad from ${formatPrice(priceFrom)}/month. Transparent pricing, no hidden charges.`,
+  description: `Furnished single, double, triple and quad-sharing rooms across Riwaq Hostels, from ${formatPrice(priceFrom)}/month. Transparent pricing, no hidden charges — availability varies by branch.`,
   path: "/rooms",
 });
 
 const included = [
   "Furnished bed, mattress & storage",
-  "High-speed fibre WiFi",
-  "Electricity with backup power",
+  "High-speed WiFi",
+  "Electricity (normal usage)",
   "Daily housekeeping of common areas",
-  "24/7 security & CCTV",
+  "CCTV security & controlled entry",
   "Filtered drinking water",
 ];
 
@@ -27,22 +31,61 @@ export default function RoomsPage() {
     <>
       <PageHero
         breadcrumb="Rooms"
+        path="/rooms"
         eyebrow="Rooms & pricing"
         title="A room for every budget and every rhythm."
         lede={`From sociable quad-sharing to a private single room — all furnished, all move-in ready. Beds from ${formatPrice(priceFrom)} a month, everything included.`}
       />
 
       <Section>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-8 flex flex-col gap-4 rounded-2xl border border-forest-900/8 bg-white px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm font-medium text-forest-800">
+            Live room availability
+          </p>
+          <AvailabilityLegend />
+        </div>
+
+        <div data-reveal-group className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {roomTypes.map((room) => (
             <RoomCard key={room.id} room={room} />
           ))}
         </div>
 
         <p className="mt-6 text-center text-sm text-ink-muted">
-          Prices are per month and include utilities. A one-time refundable
+          These are the room categories across Riwaq — exact availability and any
+          branch-specific rates are shown on each{" "}
+          <Link href="/branches" className="text-forest-700 underline">
+            branch page
+          </Link>
+          . Prices are per month and include utilities. A one-time refundable
           security deposit applies. Ask us about semester-length rates.
         </p>
+      </Section>
+
+      {/* Comparison */}
+      <Section id="compare" className="bg-sand">
+        <SectionHeading
+          eyebrow="Compare"
+          title="Weigh them up side by side."
+          lede="Not sure which room fits? Here's how the categories compare on the things that matter most."
+        />
+        <div className="mt-10">
+          <RoomComparison rooms={roomTypes} />
+        </div>
+      </Section>
+
+      {/* Transparent pricing */}
+      <Section id="pricing">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div className="lg:sticky lg:top-28">
+            <SectionHeading
+              eyebrow="Transparent pricing"
+              title="Exactly what you pay for."
+              lede="No hidden charges, no surprises after you move in. Here's the full picture — what's monthly, what's one-time, what's already included, and what's optional."
+            />
+          </div>
+          <PricingBreakdown />
+        </div>
       </Section>
 
       {/* What's included */}

@@ -18,7 +18,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("py-16 sm:py-24 scroll-mt-24", className)}
+      className={cn("py-12 sm:py-16 scroll-mt-24", className)}
     >
       {contained ? (
         <Container className={containerClassName}>{children}</Container>
@@ -47,6 +47,7 @@ export function SectionHeading({
 }) {
   return (
     <div
+      data-reveal
       className={cn(
         "max-w-2xl",
         align === "center" && "mx-auto text-center",
