@@ -44,6 +44,7 @@ const tones = {
 export function Frame({
   asset,
   className,
+  imgClassName,
   rounded = "rounded-2xl",
   priority,
   sizes = "100vw",
@@ -51,6 +52,8 @@ export function Frame({
 }: {
   asset: ImageAsset;
   className?: string;
+  /** Extra classes on the <img> itself — e.g. object-position for cropping. */
+  imgClassName?: string;
   rounded?: string;
   priority?: boolean;
   sizes?: string;
@@ -75,7 +78,7 @@ export function Frame({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover"
+          className={cn("object-cover", imgClassName)}
         />
       ) : (
         <ArchPlaceholder tone={tone} label={asset.alt} />

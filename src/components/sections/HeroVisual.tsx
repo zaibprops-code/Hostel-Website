@@ -68,14 +68,15 @@ export function HeroVisual() {
       >
         <Frame
           asset={{
-            src: "/images/hero.svg",
-            alt: "A calm, bright room at Riwaq Boys Hostel",
+            src: "/images/hero.png",
+            alt: "The residents' lounge at Riwaq Boys Hostel in E-11/2, Islamabad — comfortable sofas and a calm, bright sitting area",
             tone: "brass",
           }}
           ratio="aspect-[4/5]"
           rounded="rounded-[2rem]"
           priority
           sizes="(min-width: 1024px) 45vw, 90vw"
+          imgClassName="object-[70%_45%]"
           className="shadow-2xl shadow-forest-950/40 ring-1 ring-ivory/10"
         />
       </div>
