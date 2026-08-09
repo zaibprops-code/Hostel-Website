@@ -1,5 +1,4 @@
 import { Hero } from "@/components/sections/Hero";
-import { AnnouncementBar } from "@/components/sections/AnnouncementBar";
 import { AboutIntro } from "@/components/sections/AboutIntro";
 import { LifestyleSection } from "@/components/sections/LifestyleSection";
 import { RoomsPreview } from "@/components/sections/RoomsPreview";
@@ -41,7 +40,6 @@ export default function Home() {
         dangerouslySetInnerHTML={jsonLdScript(faqJsonLd())}
       />
       <Hero />
-      <AnnouncementBar />
       <AboutIntro />
       <LifestyleSection />
       <RoomsPreview />
