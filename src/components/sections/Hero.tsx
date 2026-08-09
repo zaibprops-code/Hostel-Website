@@ -89,7 +89,7 @@ export function Hero() {
 
             {/* Inline trust row */}
             <div
-              className="reveal mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
+              className="reveal mt-16 flex flex-wrap items-center gap-x-8 gap-y-4"
               style={{ animationDelay: "1000ms" }}
             >
               <div className="flex items-center gap-2.5">
