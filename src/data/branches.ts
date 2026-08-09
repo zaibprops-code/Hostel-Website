@@ -47,8 +47,8 @@ export const branches: Branch[] = [
     mapEmbedUrl:
       "https://www.google.com/maps?q=Riwaq%20Boys%20Hostel%20E-11%2F2%20Islamabad&output=embed",
     phone: "+923146144997",
-    // E-11/2 Markaz manager — handles WhatsApp enquiries, bookings and visits.
-    whatsapp: "+923358067753",
+    // WhatsApp enquiries, bookings and visits for the E-11/2 branch.
+    whatsapp: "+923358855076",
     email: "",
     manager: { name: "Hostel Manager", phone: "+923333638543", whatsapp: "+923333638543" },
     contacts: [
