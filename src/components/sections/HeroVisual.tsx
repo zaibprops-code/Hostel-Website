@@ -72,11 +72,11 @@ export function HeroVisual() {
             alt: "The residents' lounge at Riwaq Boys Hostel in E-11/2, Islamabad — comfortable sofas and a calm, bright sitting area",
             tone: "brass",
           }}
-          ratio="aspect-[4/5]"
+          ratio="aspect-[5/4]"
           rounded="rounded-[2rem]"
           priority
           sizes="(min-width: 1024px) 45vw, 90vw"
-          imgClassName="object-[70%_45%]"
+          imgClassName="object-[64%_45%]"
           className="shadow-2xl shadow-forest-950/40 ring-1 ring-ivory/10"
         />
       </div>

@@ -27,7 +27,7 @@ const headline: { text: string; accent?: boolean }[] = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-forest-900 pt-24 pb-16 text-ivory sm:pt-28 sm:pb-24">
+    <section className="relative overflow-hidden bg-forest-900 pt-24 pb-8 text-ivory sm:pt-28 sm:pb-12">
       {/* Ambient background */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="orb-drift-a absolute -left-24 top-10 h-96 w-96 rounded-full bg-forest-500/20 blur-3xl" />
@@ -36,7 +36,7 @@ export function Hero() {
       </div>
 
       <Container className="relative">
-        <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Copy */}
           <div>
             <span className="reveal inline-flex items-center gap-2 rounded-full border border-ivory/15 bg-ivory/5 px-3.5 py-1.5 text-xs font-medium text-ivory/80">
@@ -117,7 +117,7 @@ export function Hero() {
         {/* Scroll cue */}
         <div
           aria-hidden
-          className="mt-14 hidden justify-center lg:flex"
+          className="mt-6 hidden justify-center lg:flex"
         >
           <span className="scroll-cue flex h-9 w-9 items-center justify-center rounded-full border border-ivory/20 text-ivory/70">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
