@@ -50,7 +50,7 @@ export const branches: Branch[] = [
     // WhatsApp enquiries, bookings and visits for the E-11/2 branch.
     whatsapp: "+923358855076",
     email: "",
-    manager: { name: "Hostel Manager", phone: "+923333638543", whatsapp: "+923333638543" },
+    manager: { name: "Hostel Manager", phone: "+923358855076", whatsapp: "+923358855076" },
     contacts: [
       {
         name: "Riwaq Hostels",
@@ -58,13 +58,6 @@ export const branches: Branch[] = [
         phone: "+923146144997",
         phoneDisplay: "+92 314 6144997",
         whatsapp: "+923146144997",
-      },
-      {
-        name: "Hostel Manager",
-        role: "Front desk & on-site help",
-        phone: "+923333638543",
-        phoneDisplay: "+92 333 3638543",
-        whatsapp: "+923333638543",
       },
     ],
     openedOn: "2025-01-01",

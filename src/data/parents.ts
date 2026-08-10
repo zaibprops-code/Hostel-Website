@@ -59,14 +59,6 @@ export const emergencyContacts: EmergencyContact[] = [
     kind: "hostel",
   },
   {
-    id: "manager",
-    label: "Hostel manager",
-    value: "+92 333 3638543",
-    href: "tel:+923333638543",
-    icon: "phone",
-    kind: "hostel",
-  },
-  {
     id: "rescue",
     label: "Rescue & ambulance",
     value: "1122",
