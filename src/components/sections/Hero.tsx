@@ -42,15 +42,7 @@ export function Hero() {
         <div className="grid items-center gap-6 lg:grid-cols-[0.9fr_1.2fr]">
           {/* Copy */}
           <div>
-            <span className="reveal inline-flex items-center gap-2 rounded-full border border-ivory/15 bg-ivory/5 px-3.5 py-1.5 text-xs font-medium text-ivory/80">
-              <span className="flex h-2 w-2 items-center justify-center">
-                <span className="absolute h-2 w-2 animate-ping rounded-full bg-emerald-400/70" />
-                <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              </span>
-              Now open in {flagshipBranch.area}, {site.address.city}
-            </span>
-
-            <h1 className="word-rise text-display mt-6 text-4xl leading-[1.05] sm:text-5xl md:text-6xl">
+            <h1 className="word-rise text-display text-4xl leading-[1.05] sm:text-5xl md:text-6xl">
               {headline.map((w, i) => (
                 <span key={i} style={{ animationDelay: `${120 + i * 80}ms` }}>
                   {w.accent ? (
