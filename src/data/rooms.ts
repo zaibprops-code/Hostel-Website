@@ -16,7 +16,7 @@ export const roomTypes: RoomType[] = [
     occupancyLabel: "4 residents",
     description:
       "Our most social and best-value option. Four single beds with personal storage in a bright, well-ventilated room — ideal for students who want community and a lighter budget.",
-    priceMonthly: 14000,
+    priceMonthly: 18000,
     currency: "PKR",
     priceNote: "per bed · per month",
     image: { src: "/images/room-quad.jpg", alt: "Quad sharing room at Riwaq Boys Hostel, E-11/2 Islamabad — four single beds with wooden frames and blue sheets", tone: "sand", blurDataURL: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAALABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwX/xAAhEAADAAEEAQUAAAAAAAAAAAABAgMRAAQFITESEzJhof/EABQBAQAAAAAAAAAAAAAAAAAAAAP/xAAYEQEBAAMAAAAAAAAAAAAAAAABAAIDQf/aAAwDAQACEQMRAD8ASHIO2zj7pooTIoWIIYHx0e9UF5PbtGghF6YTBCMDjz96U7eNKTpSSs6fEkZxqfzu2kYPb0AUXoMOj+aE2HSVwv/Z" },
@@ -48,7 +48,7 @@ export const roomTypes: RoomType[] = [
     occupancyLabel: "3 residents",
     description:
       "A balanced middle ground — more room to breathe than a quad, still friendly on the wallet. Three beds, individual storage and a shared study nook.",
-    priceMonthly: 17000,
+    priceMonthly: 20000,
     currency: "PKR",
     priceNote: "per bed · per month",
     image: { src: "/images/rooms/triple.svg", alt: "Triple sharing room at Riwaq", tone: "forest" },

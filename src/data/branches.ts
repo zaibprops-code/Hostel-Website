@@ -90,7 +90,7 @@ export const branches: Branch[] = [
       { name: "Bahria University (E-8)", distance: "12 min" },
       { name: "Metro Bus (Kashmir Hwy)", distance: "6 min" },
     ],
-    priceFrom: 14000,
+    priceFrom: 18000,
     currency: "PKR",
   },
   // --- Future branches (kept here to model the brand's roadmap) ---
