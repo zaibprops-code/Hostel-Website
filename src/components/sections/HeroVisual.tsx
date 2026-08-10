@@ -62,12 +62,11 @@ export function HeroVisual() {
             blurDataURL:
               "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAJABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAQIDBf/EACAQAAICAgEFAQAAAAAAAAAAAAECAxEABCEFEjIzcXL/xAAUAQEAAAAAAAAAAAAAAAAAAAAD/8QAFxEAAwEAAAAAAAAAAAAAAAAAABESQf/aAAwDAQACEQMRAD8AbWRTJGwhLrwCAtirvBHuaw2XWWJoJGHbGGjrk5qw+tfmQ6j4x/oYNPBpR//Z",
           }}
-          ratio="aspect-[4/3]"
           rounded="rounded-[2rem]"
           priority
-          sizes="(min-width: 1024px) 45vw, 90vw"
-          imgClassName="object-[38%_50%]"
-          className="shadow-2xl shadow-forest-950/40 ring-1 ring-ivory/10"
+          sizes="(min-width: 1024px) 55vw, 90vw"
+          imgClassName="object-center"
+          className="h-[320px] sm:h-[400px] lg:h-[440px] shadow-2xl shadow-forest-950/40 ring-1 ring-ivory/10"
         />
       </div>
     </div>
