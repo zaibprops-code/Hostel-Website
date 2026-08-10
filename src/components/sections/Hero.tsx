@@ -27,7 +27,7 @@ const headline: { text: string; accent?: boolean }[] = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-forest-950 pt-24 pb-5 text-ivory sm:pt-28 sm:pb-7">
+    <section className="relative overflow-hidden bg-forest-950 pt-20 pb-5 text-ivory sm:pt-[5.5rem] sm:pb-7">
       {/* Ambient background — a luminous green wash: lighter toward the centre,
           deep at the edges, with a warm brass glow behind the photo. */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
