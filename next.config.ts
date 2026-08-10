@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
     // Add production image hosts here (e.g. an S3 bucket or a headless CMS).
     remotePatterns: [],
     formats: ["image/avif", "image/webp"],
+    // Allow higher-quality encodings for real photography (default is 75).
+    qualities: [75, 90, 100],
   },
   async headers() {
     return [

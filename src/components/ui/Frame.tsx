@@ -78,6 +78,7 @@ export function Frame({
           fill
           sizes={sizes}
           priority={priority}
+          quality={90}
           className={cn("object-cover", imgClassName)}
         />
       ) : (
