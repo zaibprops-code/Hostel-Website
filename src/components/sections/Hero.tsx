@@ -27,7 +27,7 @@ const headline: { text: string; accent?: boolean }[] = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-forest-950 pt-20 pb-72 text-ivory sm:pt-[5.5rem] sm:pb-80">
+    <section className="relative overflow-hidden bg-forest-950 pt-20 pb-44 text-ivory sm:pt-[5.5rem] sm:pb-52">
       {/* Ambient background — a luminous green wash: lighter toward the centre,
           deep at the edges, with a warm brass glow behind the photo. */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -42,7 +42,7 @@ export function Hero() {
           the content, then gently ramps green → ivory). */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-72 sm:h-80"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-40 sm:h-48"
         style={{
           background:
             "linear-gradient(to bottom, rgba(250,247,240,0) 0%, rgba(250,247,240,0.009) 10%, rgba(250,247,240,0.035) 20%, rgba(250,247,240,0.09) 30%, rgba(250,247,240,0.18) 40%, rgba(250,247,240,0.3) 50%, rgba(250,247,240,0.45) 60%, rgba(250,247,240,0.62) 70%, rgba(250,247,240,0.79) 80%, rgba(250,247,240,0.93) 90%, rgba(250,247,240,1) 100%)",
