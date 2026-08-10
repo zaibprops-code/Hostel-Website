@@ -39,7 +39,7 @@ export function Hero() {
       </div>
 
       <Container className="relative">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Copy */}
           <div>
             <span className="reveal inline-flex items-center gap-2 rounded-full border border-ivory/15 bg-ivory/5 px-3.5 py-1.5 text-xs font-medium text-ivory/80">
