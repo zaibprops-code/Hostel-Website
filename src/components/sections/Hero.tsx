@@ -41,7 +41,7 @@ export function Hero() {
       <Container className="relative">
         <div className="grid items-center gap-6 lg:grid-cols-[0.9fr_1.2fr]">
           {/* Copy */}
-          <div>
+          <div className="pt-6 lg:pt-12">
             <h1 className="word-rise text-display text-4xl leading-[1.05] sm:text-5xl md:text-6xl">
               {headline.map((w, i) => (
                 <span key={i} style={{ animationDelay: `${120 + i * 80}ms` }}>
