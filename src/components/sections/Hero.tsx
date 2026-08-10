@@ -27,12 +27,15 @@ const headline: { text: string; accent?: boolean }[] = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-forest-900 pt-24 pb-16 text-ivory sm:pt-28 sm:pb-24">
-      {/* Ambient background */}
+    <section className="relative overflow-hidden bg-forest-950 pt-24 pb-5 text-ivory sm:pt-28 sm:pb-7">
+      {/* Ambient background — a luminous green wash: lighter toward the centre,
+          deep at the edges, with a warm brass glow behind the photo. */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="orb-drift-a absolute -left-24 top-10 h-96 w-96 rounded-full bg-forest-500/20 blur-3xl" />
-        <div className="orb-drift-b absolute -right-16 bottom-0 h-96 w-96 rounded-full bg-brass-500/15 blur-3xl" />
-        <div className="absolute inset-0 bg-grain opacity-60" />
+        <div className="absolute inset-0 bg-[radial-gradient(120%_95%_at_60%_-10%,#347059_0%,#163a30_42%,#0c211b_78%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(70%_55%_at_84%_16%,rgba(201,162,75,0.18),transparent_55%)]" />
+        <div className="orb-drift-a absolute -left-24 top-6 h-[26rem] w-[26rem] rounded-full bg-forest-400/25 blur-3xl" />
+        <div className="orb-drift-b absolute -right-20 bottom-0 h-[30rem] w-[30rem] rounded-full bg-brass-500/15 blur-3xl" />
+        <div className="absolute inset-0 bg-grain opacity-50" />
       </div>
 
       <Container className="relative">
@@ -89,7 +92,7 @@ export function Hero() {
 
             {/* Inline trust row */}
             <div
-              className="reveal mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
+              className="reveal mt-16 flex flex-wrap items-center gap-x-8 gap-y-4"
               style={{ animationDelay: "1000ms" }}
             >
               <div className="flex items-center gap-2.5">
@@ -112,24 +115,6 @@ export function Hero() {
 
           {/* Visual */}
           <HeroVisual />
-        </div>
-
-        {/* Scroll cue */}
-        <div
-          aria-hidden
-          className="mt-14 hidden justify-center lg:flex"
-        >
-          <span className="scroll-cue flex h-9 w-9 items-center justify-center rounded-full border border-ivory/20 text-ivory/70">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 5v14M6 13l6 6 6-6"
-                stroke="currentColor"
-                strokeWidth="1.7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
         </div>
       </Container>
     </section>
