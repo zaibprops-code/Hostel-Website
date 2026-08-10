@@ -19,7 +19,7 @@ export const roomTypes: RoomType[] = [
     priceMonthly: 14000,
     currency: "PKR",
     priceNote: "per bed · per month",
-    image: { src: "/images/rooms/quad.svg", alt: "Quad sharing room at Riwaq", tone: "sand" },
+    image: { src: "/images/room-quad.png", alt: "Quad sharing room at Riwaq Boys Hostel, E-11/2 Islamabad — four single beds with wooden frames and blue sheets", tone: "sand" },
     amenities: [
       "Single bed & mattress each",
       "Personal wardrobe & lockable storage",
