@@ -93,6 +93,8 @@ export interface ImageAsset {
   /** Placeholder generator hint until real photos are added. */
   tone?: "forest" | "brass" | "sand" | "night";
   category?: GalleryCategory;
+  /** Tiny base64 preview shown (blurred) while the real photo loads. */
+  blurDataURL?: string;
 }
 
 export type GalleryCategory =

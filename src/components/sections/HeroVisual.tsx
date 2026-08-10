@@ -56,9 +56,11 @@ export function HeroVisual() {
       >
         <Frame
           asset={{
-            src: "/images/hero.png",
+            src: "/images/hero.jpg",
             alt: "The residents' lounge at Riwaq Boys Hostel in E-11/2, Islamabad — comfortable sofas and a calm, bright sitting area",
             tone: "brass",
+            blurDataURL:
+              "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAJABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAQIDBf/EACAQAAICAgEFAQAAAAAAAAAAAAECAxEABCEFEjIzcXL/xAAUAQEAAAAAAAAAAAAAAAAAAAAD/8QAFxEAAwEAAAAAAAAAAAAAAAAAABESQf/aAAwDAQACEQMRAD8AbWRTJGwhLrwCAtirvBHuaw2XWWJoJGHbGGjrk5qw+tfmQ6j4x/oYNPBpR//Z",
           }}
           ratio="aspect-[5/4]"
           rounded="rounded-[2rem]"

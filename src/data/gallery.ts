@@ -17,7 +17,7 @@ export const galleryCategories: { id: GalleryCategory; label: string }[] = [
 export const gallery: GalleryItem[] = [
   {
     id: "g-quad",
-    src: "/images/room-quad.png",
+    src: "/images/room-quad.jpg",
     alt: "Quad sharing room at Riwaq Boys Hostel — four single beds with wooden frames and blue sheets",
     caption: "Quad sharing — four beds, bright and well-ventilated",
     category: "rooms",

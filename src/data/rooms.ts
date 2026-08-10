@@ -19,7 +19,7 @@ export const roomTypes: RoomType[] = [
     priceMonthly: 14000,
     currency: "PKR",
     priceNote: "per bed · per month",
-    image: { src: "/images/room-quad.png", alt: "Quad sharing room at Riwaq Boys Hostel, E-11/2 Islamabad — four single beds with wooden frames and blue sheets", tone: "sand" },
+    image: { src: "/images/room-quad.jpg", alt: "Quad sharing room at Riwaq Boys Hostel, E-11/2 Islamabad — four single beds with wooden frames and blue sheets", tone: "sand", blurDataURL: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAALABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwX/xAAhEAADAAEEAQUAAAAAAAAAAAABAgMRAAQFITESEzJhof/EABQBAQAAAAAAAAAAAAAAAAAAAAP/xAAYEQEBAAMAAAAAAAAAAAAAAAABAAIDQf/aAAwDAQACEQMRAD8ASHIO2zj7pooTIoWIIYHx0e9UF5PbtGghF6YTBCMDjz96U7eNKTpSSs6fEkZxqfzu2kYPb0AUXoMOj+aE2HSVwv/Z" },
     amenities: [
       "Single bed & mattress each",
       "Personal wardrobe & lockable storage",

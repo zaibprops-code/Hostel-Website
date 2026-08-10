@@ -79,6 +79,8 @@ export function Frame({
           sizes={sizes}
           priority={priority}
           quality={90}
+          placeholder={asset.blurDataURL ? "blur" : undefined}
+          blurDataURL={asset.blurDataURL}
           className={cn("object-cover", imgClassName)}
         />
       ) : (
