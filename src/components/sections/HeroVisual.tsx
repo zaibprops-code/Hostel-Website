@@ -49,7 +49,7 @@ export function HeroVisual() {
   }, []);
 
   return (
-    <div ref={wrapRef} className="reveal relative" style={{ animationDelay: "120ms" }}>
+    <div ref={wrapRef} className="reveal relative lg:self-start" style={{ animationDelay: "120ms" }}>
       <div
         ref={imgRef}
         className="relative transition-transform duration-500 ease-out will-change-transform"
