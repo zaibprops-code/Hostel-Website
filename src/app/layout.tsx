@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingContact } from "@/components/layout/FloatingContact";
+import { Assistant } from "@/components/assistant/Assistant";
 import { ScrollReveal } from "@/components/layout/ScrollReveal";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { BackToTop } from "@/components/layout/BackToTop";
@@ -125,6 +126,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <FloatingContact />
+        <Assistant />
         <BackToTop />
         <ScrollReveal />
         <PointerFX />
