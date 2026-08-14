@@ -281,6 +281,21 @@
     to   { opacity: 1; transform: translateY(0) scale(1); }
   }
 
+  /* On-site assistant panel entrance */
+  .asst-in {
+    animation: asst-in 0.28s var(--ease-out-soft) both;
+    transform-origin: bottom right;
+  }
+
+  @keyframes asst-in {
+    from { opacity: 0; transform: translateY(16px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .asst-in { animation: none; }
+  }
+
   /* Pulsing ring around the WhatsApp mark in the overlay */
   .wa-ring {
     animation: wa-ring 1.4s ease-out infinite;

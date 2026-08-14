@@ -36,6 +36,56 @@ npm start        # serve the production build
 
 ---
 
+## On-site assistant & live seat availability
+
+Instead of only bouncing visitors to WhatsApp, the site answers the common
+questions itself — instantly, on the page — and reserves WhatsApp for the
+actual booking conversation.
+
+**What it does**
+
+- A floating **assistant** (bottom-right, above the WhatsApp button) answers
+  seat availability, pricing, facilities, location and booking questions using
+  the site's own data (`src/data/*`) plus **live availability**.
+- It's deterministic and dependency-free (no external AI call, no cost, no data
+  leaves the page). Anything it can't answer confidently is handed off to
+  WhatsApp with the question pre-filled — never a dead end.
+- The front desk updates vacancies from **`/admin/availability`** — a
+  password-gated panel. Saved numbers appear in the assistant immediately; no
+  redeploy needed.
+
+**How the pieces fit**
+
+| Piece | File |
+| ----- | ---- |
+| Answer engine (intents + FAQ matching) | `src/lib/assistant/engine.ts` |
+| Assistant widget | `src/components/assistant/Assistant.tsx` |
+| Availability model & helpers | `src/lib/availability/shared.ts` |
+| Seed defaults (from each room's `availability`) | `src/data/availability.ts` |
+| Persistence (Vercel KV or dev fallback) | `src/lib/availability/store.ts` |
+| Public + admin API | `src/app/api/availability/route.ts` |
+| Admin sign-in | `src/app/api/admin/{login,logout}/route.ts` |
+| Admin panel | `src/app/admin/availability/` |
+
+### Configuration (environment variables)
+
+Set these in the Vercel dashboard (**Project → Settings → Environment
+Variables**), or in a local `.env.local` for development. See `.env.example`.
+
+| Variable | Required | Purpose |
+| -------- | -------- | ------- |
+| `ADMIN_PASSWORD` | Yes, to use the admin panel | The front-desk password for `/admin/availability`. |
+| `KV_REST_API_URL` | For durable saves | Vercel KV (Upstash Redis) REST URL. Create via **Storage → KV**; Vercel injects this automatically once linked. |
+| `KV_REST_API_TOKEN` | For durable saves | Vercel KV REST token (injected alongside the URL). |
+| `ADMIN_SESSION_SECRET` | Optional | Signs the admin session cookie. Falls back to `ADMIN_PASSWORD` if unset; set a separate random value in production. |
+
+Without the `KV_*` vars the feature still works, but admin edits are held in
+memory only and reset on redeploy/cold-start (a banner in the panel warns you).
+Add a KV store before going live. Until the front desk saves anything, the
+assistant shows the catalog defaults from `src/data/rooms.ts` (`availability`).
+
+---
+
 ## Design philosophy
 
 The site is deliberately restrained — premium, spacious, trustworthy — because
